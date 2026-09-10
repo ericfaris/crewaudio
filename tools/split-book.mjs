@@ -34,30 +34,54 @@ const lines = raw.split('\n');
 const explicit = /\n\s*@@@\s*(\n|$)/.test(raw);
 
 // --- find chapter start line indices --------------------------------------
+// Scanned books number chapters 1..N and restart at each "BOOK" division, and
+// the pages are numbered too. We follow the *expected next chapter number*
+// rather than trusting every lone digit — page numbers almost never equal the
+// exact chapter we're looking for at that point in the text.
 let starts = [];
+const notes = [];
+const gapBefore = (i) => !lines.slice(Math.max(0, i - 2), i).some((l) => l.trim());
+const proseAfter = (i) => lines.slice(i + 1, i + 9).some((l) => l.trim().length > 40);
+
 if (explicit) {
   lines.forEach((ln, i) => { if (ln.trim() === '@@@') starts.push(i + 1); });
 } else {
-  lines.forEach((ln, i) => {
-    const t = ln.trim();
-    const prevGap = !lines.slice(Math.max(0, i - 2), i).some((l) => l.trim().length > 0);
-    const soonProse = lines.slice(i + 1, i + 7).some((l) => l.trim().length > 40);
-    if (/^BOOK\s+(ONE|TWO|THREE)$/i.test(t)) starts.push(i);
-    else if (/^\d{1,2}$/.test(t) && +t >= 1 && +t <= 49 && prevGap && soonProse) starts.push(i);
-  });
-  // collapse a "BOOK X" immediately followed by its "1"
-  starts = starts.filter((s, k) => k === 0 || s - starts[k - 1] > 3);
+  let expected = 0;
+  let lastMatch = -Infinity;
+  for (let i = 0; i < lines.length; i++) {
+    const t = lines[i].trim();
+    if (/^BOOK\s+(ONE|TWO|THREE|FOUR|FIVE)\b/i.test(t)) { expected = 1; continue; }
+    // a lone chapter number, tolerating OCR grit between the digits ("1*4", "1 4")
+    if (!/^\d(?:[\s*.,|]*\d){0,2}$/.test(t) || !gapBefore(i) || !proseAfter(i)) continue;
+    const n = +t.replace(/\D/g, '');
+    if (expected && n >= expected && n <= expected + 2) {
+      if (n > expected) {
+        notes.push(`chapter ${expected}${n - expected > 1 ? `–${n - 1}` : ''} has no clean marker `
+          + `near source line ${i + 1} — that boundary is a guess; add @@@ there to fix`);
+      }
+      starts.push(i); lastMatch = i; expected = n + 1;
+    } else if (expected > 3 && n === 1 && i - lastMatch > 200) {
+      // numbering reset far from the last chapter = a new, unlabelled book division
+      starts.push(i); lastMatch = i; expected = 2;
+    }
+  }
 }
 
 if (starts.length === 0) {
-  console.error('No chapter breaks found. Add @@@ lines at each chapter start in book.txt.');
+  console.error('No chapter breaks found. Put a line that is exactly  @@@  at each chapter start in book.txt.');
   process.exit(1);
 }
+notes.forEach((w) => console.warn('! ' + w));
 
-// --- slice into chapters ---------------------------------------------------
+// keep anything before chapter 1 (title page, author's note) as a 00 file
+const frontMatter = starts[0] > 0 ? lines.slice(0, starts[0]).join('\n').trim() : '';
+
+// --- slice into chapters, dropping the leading chapter-number line --------
 const chapters = starts.map((s, k) => {
   const end = k + 1 < starts.length ? starts[k + 1] : lines.length;
-  return lines.slice(s, end).join('\n').trim() + '\n';
+  const body = lines.slice(s, end);
+  if (!explicit && /^\d(?:[\s*.,|]*\d){0,2}$/.test((body[0] || '').trim())) body.shift();
+  return body.join('\n').trim() + '\n';
 });
 
 // --- name files to match the audio tracks --------------------------------
@@ -85,11 +109,16 @@ chapters.forEach((c, k) => {
   console.log(`  ${names[k]}  —  ${firstLine.slice(0, 60)}${firstLine.length > 60 ? '…' : ''}`);
 });
 
+if (frontMatter) console.log(`  00 - front-matter.txt  —  (title page, author's note — source lines 1–${starts[0]})`);
+
 if (checkOnly) {
-  console.log(`\n--check: would write ${chapters.length} files to ${path.relative(ROOT, OUT_DIR)}/`);
+  console.log(`\n--check: would write ${chapters.length}${frontMatter ? ' + 1 front-matter' : ''} `
+    + `files to ${path.relative(ROOT, OUT_DIR)}/`);
   process.exit(0);
 }
 
+fs.rmSync(OUT_DIR, { recursive: true, force: true });
 fs.mkdirSync(OUT_DIR, { recursive: true });
+if (frontMatter) fs.writeFileSync(path.join(OUT_DIR, '00 - front-matter.txt'), frontMatter + '\n');
 chapters.forEach((c, k) => fs.writeFileSync(path.join(OUT_DIR, names[k]), c));
-console.log(`\nWrote ${chapters.length} files to ${path.relative(ROOT, OUT_DIR)}/`);
+console.log(`\nWrote ${chapters.length}${frontMatter ? ' + front-matter' : ''} files to ${path.relative(ROOT, OUT_DIR)}/`);
