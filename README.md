@@ -1,34 +1,60 @@
 # crewaudio
 
-Minimal Node.js audio player with silence-based chapter detection for audiobooks.
+Minimal Node.js audiobook player: import audio from YouTube playlists, play them
+grouped as "books", resume where you left off, and auto-split tracks into chapters
+by silence.
+
+## Requirements
+
+- Node 18+ (no npm dependencies — pure Node)
+- `ffmpeg` + `ffprobe` on PATH — audio conversion + chapter detection
+- `yt-dlp` for YouTube import. Looked for at `$YT_DLP`, `~/.local/bin/yt-dlp`,
+  `/usr/local/bin/yt-dlp`, `/usr/bin/yt-dlp`, then `yt-dlp` on PATH.
+  Install the standalone binary:
+  ```bash
+  curl -L -o ~/.local/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux
+  chmod +x ~/.local/bin/yt-dlp
+  ```
 
 ## Run
 
 ```bash
-npm start          # → http://localhost:3000  (PORT env to change)
+npm start          # → http://localhost:3000  (set PORT to change)
 ```
 
-No dependencies — pure Node. Requires `ffmpeg` + `ffprobe` on PATH for chapter detection.
+## Import a playlist
 
-## Use
+**From the UI:** paste a YouTube playlist (or single video) URL into the box in
+the sidebar, optionally name the folder, click **Import audio**. Progress streams
+live. Each video becomes `audio/<playlist title>/NN - <video title>.mp3` with
+metadata and cover art embedded.
 
-1. Put `.mp3` / `.m4a` / `.m4b` / `.flac` / … files (subfolders OK) into `audio/`.
-2. Open the page, click a file — it loads into the player and starts.
-3. For audiobooks, click **Detect** to scan for silences and split into chapters.
-   Click a chapter to jump to it.
+**From the CLI:**
+```bash
+node import.js "https://www.youtube.com/playlist?list=..." --name "My Book"
+```
 
-## Chapter detection tuning
+## Playing
 
-| Control | Meaning |
-|---|---|
-| Silence dB | Noise floor. Quieter than this counts as silence (`-30` default; try `-35`/`-40` for noisy recordings). |
-| min s | A silence must last at least this long to register. |
-| gap s | A registered silence must be at least this long to become a chapter break. |
+- The sidebar groups tracks by folder — one folder = one book. Click a track to
+  play; playback auto-advances to the next track in that book (toggle off with
+  **Auto-advance**), and ⏮/⏭ move between tracks.
+- Your position in every track is saved in the browser (`localStorage`) and
+  restored on reload. Finished tracks show ✓; partial ones show a percentage.
 
-Results are cached in `.cache/` keyed by file + params. **force** re-runs ffmpeg.
+## Chapters
+
+Click **Detect** on a playing track to scan for silences (`ffmpeg silencedetect`)
+and split it into chapters. Tune the noise floor (dB), minimum silence length,
+and the minimum gap that counts as a chapter break. Cached in `.cache/` per
+file+params; **force** re-runs.
 
 ## API
 
-- `GET /api/files` — list of audio files
-- `GET /audio/<path>` — range-enabled stream
-- `GET /api/chapters?file=<path>&noise=-30&minSilence=0.5&gap=1.5&force=1`
+| Endpoint | Purpose |
+|---|---|
+| `GET /api/files` | all audio files (with subfolder paths) |
+| `GET /audio/<path>` | range-enabled audio stream |
+| `GET /api/chapters?file=<path>&noise=-30&minSilence=0.5&gap=1.5&force=1` | chapter detection |
+| `GET /api/import?url=<yt-url>&name=<folder>` | SSE stream of import progress |
+| `GET /api/yt-dlp` | resolved yt-dlp path |

@@ -5,6 +5,7 @@ import fsp from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { importPlaylist, findYtDlp } from './import.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
@@ -175,6 +176,35 @@ const server = http.createServer(async (req, res) => {
 
     if (p === '/api/files') {
       return json(res, 200, { files: await listAudioFiles() });
+    }
+
+    if (p === '/api/yt-dlp') {
+      return json(res, 200, { bin: findYtDlp() });
+    }
+
+    // Server-Sent Events: streams yt-dlp progress lines, then a final event.
+    if (p === '/api/import') {
+      const src = url.searchParams.get('url');
+      const name = url.searchParams.get('name') || undefined;
+      if (!src) return json(res, 400, { error: 'url required' });
+      res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        Connection: 'keep-alive',
+      });
+      const send = (event, data) => res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
+      send('start', { url: src });
+      const ping = setInterval(() => res.write(': ping\n\n'), 15000);
+      try {
+        const { folder } = await importPlaylist(src, { name, onLine: (line) => send('log', { line }) });
+        send('done', { folder });
+      } catch (err) {
+        send('error', { message: String(err && err.message || err) });
+      } finally {
+        clearInterval(ping);
+        res.end();
+      }
+      return;
     }
 
     if (p === '/api/chapters') {
