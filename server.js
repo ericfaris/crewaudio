@@ -9,8 +9,12 @@ import { importPlaylist, findYtDlp } from './import.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 8250;
-const AUDIO_DIR = path.join(__dirname, 'audio');
-const CACHE_DIR = path.join(__dirname, '.cache');
+const AUDIO_DIR = process.env.CREWAUDIO_AUDIO_DIR
+  ? path.resolve(process.env.CREWAUDIO_AUDIO_DIR)
+  : path.join(__dirname, 'audio');
+const CACHE_DIR = process.env.CREWAUDIO_CACHE_DIR
+  ? path.resolve(process.env.CREWAUDIO_CACHE_DIR)
+  : path.join(__dirname, '.cache');
 const PUBLIC_DIR = path.join(__dirname, 'public');
 
 const AUDIO_EXTS = new Set(['.mp3', '.m4a', '.m4b', '.aac', '.ogg', '.oga', '.opus', '.flac', '.wav', '.webm']);
@@ -155,21 +159,41 @@ function streamAudio(req, res, file) {
   }
 }
 
-async function serveStatic(res, urlPath) {
+async function serveStatic(req, res, urlPath) {
   const rel = urlPath === '/' ? 'index.html' : urlPath.replace(/^\/+/, '');
   const full = path.join(PUBLIC_DIR, path.normalize(rel));
   if (!full.startsWith(PUBLIC_DIR)) { res.writeHead(403); return res.end(); }
   try {
-    const data = await fsp.readFile(full);
-    const headers = { 'Content-Type': MIME[path.extname(full).toLowerCase()] || 'application/octet-stream' };
-    if (rel === 'sw.js') {
-      headers['Service-Worker-Allowed'] = '/';
-      headers['Cache-Control'] = 'no-cache';
-    } else if (rel === 'manifest.webmanifest') {
-      headers['Cache-Control'] = 'no-cache';
+    const st = await fsp.stat(full);
+    if (!st.isFile()) throw new Error('not a file');
+    // Weak validator from size + mtime; lets browsers/Cloudflare revalidate
+    // cheaply (304) instead of serving a stale app shell after a deploy.
+    const etag = `W/"${st.size.toString(16)}-${st.mtimeMs.toString(16)}"`;
+    const lastMod = st.mtime.toUTCString();
+
+    // Icons are content-stable and safe to cache hard; everything else
+    // (html/js/css/manifest/sw) must revalidate so a deploy takes effect at once.
+    const cacheControl = /\.(png|svg|ico)$/.test(rel)
+      ? 'public, max-age=86400'
+      : 'no-cache';
+
+    const headers = {
+      'Content-Type': MIME[path.extname(full).toLowerCase()] || 'application/octet-stream',
+      'Cache-Control': cacheControl,
+      ETag: etag,
+      'Last-Modified': lastMod,
+    };
+    if (rel === 'sw.js') headers['Service-Worker-Allowed'] = '/';
+
+    const inm = req.headers['if-none-match'];
+    const ims = req.headers['if-modified-since'];
+    if ((inm && inm === etag) || (ims && new Date(ims).getTime() >= Math.floor(st.mtimeMs / 1000) * 1000)) {
+      res.writeHead(304, headers);
+      return res.end();
     }
-    res.writeHead(200, headers);
-    res.end(data);
+
+    res.writeHead(200, { ...headers, 'Content-Length': st.size });
+    fs.createReadStream(full).pipe(res);
   } catch {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not found');
@@ -238,13 +262,13 @@ const server = http.createServer(async (req, res) => {
 
     if (p.startsWith('/api/')) return json(res, 404, { error: 'unknown endpoint' });
 
-    return serveStatic(res, p);
+    return serveStatic(req, res, p);
   } catch (err) {
     json(res, 500, { error: String(err && err.message || err) });
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`crewaudio → http://localhost:${PORT}`);
+server.listen(Number(PORT), () => {
+  console.log(`crewaudio → http://localhost:${server.address().port}`);
   console.log(`audio folder: ${AUDIO_DIR}`);
 });

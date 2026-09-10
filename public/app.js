@@ -105,7 +105,7 @@ function updateClock() {
   $('#clock').textContent = `${fmt(t)} / ${fmt(d)}`;
   if (!seeking) seek.value = d ? Math.round((t / d) * 1000) : 0;
 }
-$('#playpause').onclick = () => (audio.paused ? audio.play().catch(() => {}) : audio.pause());
+$('#playpause').onclick = togglePlay;
 $('#prev').onclick = () => step(-1);
 $('#next').onclick = () => step(1);
 seek.addEventListener('input', () => { seeking = true; });
@@ -115,6 +115,23 @@ seek.addEventListener('change', () => {
 });
 audio.addEventListener('play', () => { $('#playpause').textContent = '⏸'; updateMediaSession(); });
 audio.addEventListener('pause', () => { $('#playpause').textContent = '▶'; });
+
+function togglePlay() {
+  if (!audio.src) return;
+  if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+}
+
+// Space toggles playback from anywhere except while typing in a field. Buttons
+// keep their native Space-activates behaviour (don't hijack a focused control).
+document.addEventListener('keydown', (e) => {
+  if (e.code !== 'Space' || e.repeat) return;
+  const t = e.target;
+  const tag = t && t.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || tag === 'BUTTON' ||
+      (t && t.isContentEditable)) return;
+  e.preventDefault();
+  togglePlay();
+});
 
 let lastSave = 0;
 audio.addEventListener('timeupdate', () => {
@@ -137,7 +154,7 @@ function updateMediaSession() {
   navigator.mediaSession.metadata = new MediaMetadata({
     title: files.find((f) => f.path === current)?.name || current,
     artist: bookOf(current),
-    album: 'crewaudio',
+    album: 'study',
   });
   navigator.mediaSession.setActionHandler('play', () => audio.play());
   navigator.mediaSession.setActionHandler('pause', () => audio.pause());

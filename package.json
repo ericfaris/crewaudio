@@ -1,11 +1,18 @@
 {
   "name": "crewaudio",
   "version": "0.1.0",
-  "description": "Simple audio/audiobook player with silence-based chapter detection",
+  "description": "Simple audio/audiobook player with YouTube playlist import",
   "type": "module",
   "bin": { "crewaudio": "server.js" },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "icons": "node tools/gen-icons.mjs",
+    "test": "node --test 'tests/*.test.mjs'",
+    "test:browser": "node --test 'tests/browser/*.test.mjs'",
+    "test:all": "node --test 'tests/**/*.test.mjs'"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.48.0"
   },
   "license": "MIT"
 }

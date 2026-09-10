@@ -1,7 +1,7 @@
 {
-  "name": "crewaudio",
-  "short_name": "crewaudio",
-  "description": "Audiobook player — import YouTube playlists, resume where you left off.",
+  "name": "study",
+  "short_name": "study",
+  "description": "Audiobook player — import playlists, resume where you left off.",
   "start_url": "/",
   "scope": "/",
   "id": "/",
