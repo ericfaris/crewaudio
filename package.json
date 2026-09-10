@@ -1,0 +1,11 @@
+{
+  "name": "crewaudio",
+  "version": "0.1.0",
+  "description": "Simple audio/audiobook player with silence-based chapter detection",
+  "type": "module",
+  "bin": { "crewaudio": "server.js" },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}

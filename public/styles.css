@@ -1,0 +1,45 @@
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #14161a; color: #e7e9ee; }
+#app { display: grid; grid-template-columns: 300px 1fr; height: 100vh; }
+@media (max-width: 700px) { #app { grid-template-columns: 1fr; height: auto; } }
+
+#library { border-right: 1px solid #2a2e37; display: flex; flex-direction: column; min-height: 0; }
+#library header { display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; border-bottom: 1px solid #2a2e37; }
+#library h1 { font-size: 16px; margin: 0; letter-spacing: .5px; }
+#refresh { background: none; border: 1px solid #3a3f4b; color: #e7e9ee; border-radius: 6px;
+  width: 30px; height: 30px; cursor: pointer; font-size: 15px; }
+#refresh:hover { background: #232732; }
+
+#file-list { list-style: none; margin: 0; padding: 6px; overflow-y: auto; flex: 1; }
+#file-list li { padding: 8px 10px; border-radius: 6px; cursor: pointer; word-break: break-word; }
+#file-list li:hover { background: #232732; }
+#file-list li.active { background: #2f5ad6; color: #fff; }
+#file-list li .meta { display: block; font-size: 11px; opacity: .6; }
+#empty { padding: 16px; opacity: .7; }
+
+#player-pane { padding: 20px; overflow-y: auto; }
+#now-playing { background: #1c1f26; border: 1px solid #2a2e37; border-radius: 10px; padding: 16px; }
+#np-title { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+#audio { width: 100%; }
+
+#chapter-section { margin-top: 22px; }
+.chapter-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.chapter-head h2 { font-size: 14px; margin: 0; text-transform: uppercase; letter-spacing: 1px; opacity: .8; }
+.chapter-controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.chapter-controls label { font-size: 12px; opacity: .8; }
+.chapter-controls input { width: 52px; background: #14161a; border: 1px solid #3a3f4b;
+  color: #e7e9ee; border-radius: 4px; padding: 3px 5px; }
+.chapter-controls button { background: #2f5ad6; border: 0; color: #fff; border-radius: 6px;
+  padding: 6px 12px; cursor: pointer; }
+.chapter-controls button:hover { background: #3d6bef; }
+#redetect { background: #3a3f4b; }
+
+#chapter-status { font-size: 12px; opacity: .7; margin: 10px 0; min-height: 16px; }
+#chapter-list { list-style: none; margin: 0; padding: 0; counter-reset: ch; }
+#chapter-list li { display: flex; justify-content: space-between; padding: 8px 10px;
+  border-radius: 6px; cursor: pointer; border: 1px solid transparent; }
+#chapter-list li:hover { background: #232732; }
+#chapter-list li.active { border-color: #2f5ad6; background: #1e253a; }
+#chapter-list .t { font-variant-numeric: tabular-nums; opacity: .7; }
