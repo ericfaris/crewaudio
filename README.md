@@ -37,7 +37,33 @@ npm run test:all       # both
 
 `test:browser` needs a Chromium: `npx playwright install chromium` (it auto-skips
 if none is found). It covers the play/pause button, spacebar toggle, next/prev,
-resume-on-reload, and widget mode.
+resume-on-reload, widget mode, and the chapter review quiz (heads-up note,
+open-on-finish, per-question feedback, scoring, retakes). `npm test` also
+validates every `data/quizzes/*.json` for shape and that no quiz points at a
+chapter with no audio track.
+
+## Chapter review quizzes
+
+Drop a `data/quizzes/NN.json` file per chapter (`NN` = the track's 1-based
+position in its book). Shape:
+
+```json
+{
+  "chapter": 1,
+  "title": "Book One, Chapter 1 — review",
+  "questions": [
+    { "q": "…?", "choices": ["a", "b", "c", "d"], "answer": 2, "explain": "…" }
+  ]
+}
+```
+
+Exactly 10 questions, 4 distinct choices each, `answer` is the 0-based index.
+While a chapter with a quiz plays, the player shows a heads-up note; the quiz
+opens automatically when the audio finishes (and can be taken again any time
+from the **Take the review quiz** button). Each answer is marked right/wrong
+immediately with its explanation. Scores persist per track in `localStorage`
+and show as a badge in the sidebar. The `data/` directory is a bind-mount in
+`docker-compose.yml`, so quizzes can be added without rebuilding the image.
 
 ## Import a playlist
 
@@ -94,4 +120,5 @@ Cloudflare API). Start with `PORT=8250 npm start` (8250 is the default).
 | `GET /audio/<path>` | range-enabled audio stream |
 | `GET /api/chapters?file=<path>&noise=-30&minSilence=0.5&gap=1.5&force=1` | chapter detection |
 | `GET /api/import?url=<yt-url>&name=<folder>` | SSE stream of import progress |
+| `GET /api/quiz?n=<chapter>` | chapter review quiz JSON (404 if none) |
 | `GET /api/yt-dlp` | resolved yt-dlp path |

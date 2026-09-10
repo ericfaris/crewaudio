@@ -12,6 +12,8 @@ services:
       # Downloaded audiobooks and the chapter-analysis cache persist across rebuilds.
       - ./audio:/app/audio
       - ./.cache:/app/.cache
+      # Chapter review quizzes — edit/add JSON here without rebuilding the image.
+      - ./data:/app/data
     healthcheck:
       test: ["CMD", "curl", "-fsS", "http://localhost:8250/api/files"]
       interval: 1m

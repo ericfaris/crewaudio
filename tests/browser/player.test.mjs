@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { makeAudioLibrary, startServer, cleanup, findChromium } from '../helpers.mjs';
+import { makeAudioLibrary, makeQuizDir, startServer, cleanup, findChromium } from '../helpers.mjs';
 
 const chromiumPath = findChromium();
 const suite = chromiumPath ? test : test.skip;
@@ -14,7 +14,7 @@ test.before(async () => {
   if (!chromiumPath) return;
   ({ chromium } = await import('playwright-core'));
   audioDir = makeAudioLibrary(3);
-  server = await startServer(audioDir);
+  server = await startServer(audioDir, { quizDir: makeQuizDir([1]) });
   browser = await chromium.launch({ executablePath: chromiumPath });
 });
 test.after(async () => {
@@ -141,4 +141,124 @@ suite('mini mode collapses the library but keeps transport usable', async () => 
   assert.equal(await page.isVisible('#playpause'), true);
   await page.click('#mini-toggle');
   assert.equal(await page.isVisible('#library'), true);
+});
+
+// ---- chapter review quiz ------------------------------------------------
+async function finishChapterWithQuiz(page) {
+  await page.click('#groups li'); // chapter 1 has a quiz fixture
+  await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
+  await page.waitForSelector('#quiz-note:not([hidden])', { timeout: 4000 });
+  await page.evaluate(() => { const a = document.querySelector('#audio'); a.currentTime = a.duration - 0.2; });
+  await page.waitForSelector('#quiz:not([hidden])', { timeout: 8000 });
+}
+
+suite('a heads-up note appears while a chapter with a quiz is playing', async () => {
+  const page = await freshPage();
+  await page.click('#groups li');
+  await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
+  assert.equal(await page.isVisible('#quiz-note'), true);
+
+  // chapter 3 has no quiz fixture -> no note
+  const items = await page.$$('#groups li');
+  await items[2].click();
+  await page.waitForTimeout(400);
+  assert.equal(await page.isVisible('#quiz-note'), false);
+});
+
+suite('the quiz opens when the chapter audio finishes', async () => {
+  const page = await freshPage();
+  await finishChapterWithQuiz(page);
+  const n = await page.evaluate(() => document.querySelectorAll('#quiz-list > li').length);
+  assert.equal(n, 10, 'quiz should show all 10 questions');
+});
+
+suite('clicking a choice immediately shows right/wrong and an explanation (regression)', async () => {
+  const page = await freshPage();
+  await finishChapterWithQuiz(page);
+
+  // Q1 fixture: answer index 0 ("alpha") is correct. Pick a wrong one first.
+  const q1 = () => page.locator('#quiz-list > li').nth(0);
+  await q1().locator('.q-choice').nth(1).locator('input').check();
+  await page.waitForSelector('#quiz-list > li:first-child .q-verdict:not([hidden])', { timeout: 2000 });
+  assert.match(await q1().locator('.q-verdict').textContent(), /Not quite/);
+  assert.ok(await q1().locator('.q-choice.right').count() === 1, 'correct choice is marked');
+  assert.ok(await q1().locator('.q-choice.wrong').count() === 1, 'chosen wrong choice is marked');
+  assert.notEqual((await q1().locator('.q-explain').textContent()).trim(), '', 'explanation is revealed');
+  // the question locks — further clicks do nothing
+  assert.equal(await q1().locator('input:disabled').count(), 4);
+
+  // Q2 fixture: answer index 1 ("bravo") is correct. Pick it.
+  const q2 = page.locator('#quiz-list > li').nth(1);
+  await q2.locator('.q-choice').nth(1).locator('input').check();
+  await page.waitForSelector('#quiz-list > li:nth-child(2) .q-verdict:not([hidden])', { timeout: 2000 });
+  assert.match(await q2.locator('.q-verdict').textContent(), /Correct/);
+});
+
+suite('finishing all questions records a score and offers Continue', async () => {
+  const page = await freshPage();
+  await finishChapterWithQuiz(page);
+
+  // answer every question with its first choice
+  const items = await page.$$('#quiz-list > li');
+  for (const li of items) await li.$eval('.q-choice input', (el) => el.click());
+
+  await page.waitForSelector('#quiz-continue:not([hidden])', { timeout: 3000 });
+  const score = await page.textContent('#quiz-score');
+  assert.match(score, /\/\s*10/);
+
+  const stored = await page.evaluate(() => JSON.parse(localStorage['crewaudio.quiz'] || '{}'));
+  const rec = stored['Test Book/01 - Chapter 1.mp3'];
+  assert.ok(rec && rec.total === 10 && Number.isInteger(rec.best), 'score persisted to localStorage');
+
+  // sidebar shows a quiz badge now
+  assert.ok(await page.locator('#groups .quiz-badge').count() >= 1);
+
+  // Continue closes the quiz
+  await page.click('#quiz-continue');
+  assert.equal(await page.locator('#quiz').evaluate((el) => el.hidden), true);
+});
+
+suite('closing the quiz with ✕ does not advance the track', async () => {
+  const page = await freshPage();
+  await finishChapterWithQuiz(page);
+  const before = await page.evaluate(() => document.querySelector('#audio').src);
+  await page.click('#quiz-close');
+  assert.equal(await page.locator('#quiz').evaluate((el) => el.hidden), true);
+  assert.equal(await page.evaluate(() => document.querySelector('#audio').src), before);
+});
+
+suite('the quiz can be retaken any number of times, before or after the audio', async () => {
+  const page = await freshPage();
+  // 1) take it on demand mid-listen via the button (no waiting for the audio to end)
+  await page.click('#groups li');
+  await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
+  await page.waitForSelector('#quiz-open:not([hidden])', { timeout: 3000 });
+  await page.click('#quiz-open');
+  await page.waitForSelector('#quiz:not([hidden])', { timeout: 3000 });
+  assert.equal(await page.evaluate(() => document.querySelector('#audio').paused), true, 'opening the quiz pauses audio');
+
+  const answerAll = async () => {
+    const items = await page.$$('#quiz-list > li');
+    for (const li of items) await li.$eval('.q-choice input', (el) => el.click());
+    await page.waitForSelector('#quiz-continue:not([hidden])', { timeout: 3000 });
+  };
+
+  // attempt 1
+  await answerAll();
+  await page.click('#quiz-retry');           // "Try again" -> immediate retake
+  await page.waitForSelector('#quiz-list > li:first-child .q-choice input:not(:disabled)', { timeout: 2000 });
+
+  // attempt 2
+  await answerAll();
+  await page.click('#quiz-continue');
+  assert.equal(await page.locator('#quiz').evaluate((el) => el.hidden), true);
+
+  // the button now offers a retake and shows the best score
+  await page.waitForFunction(() => /Retake/.test(document.querySelector('#quiz-open').textContent), null, { timeout: 3000 });
+  assert.match(await page.textContent('#quiz-open'), /best \d+\/10/);
+
+  // attempt 3 via the button
+  await page.click('#quiz-open');
+  await page.waitForSelector('#quiz:not([hidden])', { timeout: 3000 });
+  assert.equal(await page.evaluate(() => document.querySelectorAll('#quiz-list > li').length), 10);
 });

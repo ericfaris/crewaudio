@@ -1,0 +1,67 @@
+{
+  "chapter": 1,
+  "book": 1,
+  "title": "Book One, Chapter 1 — review",
+  "questions": [
+    {
+      "q": "Where does the lovely road described in the opening run from?",
+      "choices": ["From Ixopo into the hills", "From Johannesburg to the mines", "From Ndotsheni to the sea", "From Pretoria into the veld"],
+      "answer": 0,
+      "explain": "The chapter opens: 'There is a lovely road that runs from Ixopo into the hills.'"
+    },
+    {
+      "q": "How far does the road climb into the hills to reach Carisbrooke?",
+      "choices": ["Two miles", "Seven miles", "Eleven miles", "Twenty miles"],
+      "answer": 1,
+      "explain": "'The road climbs seven miles into them, to Carisbrooke.'"
+    },
+    {
+      "q": "From the tops, you look down on the valley of which river?",
+      "choices": ["The Umsindusi", "The Umkomaas", "The Umzimkulu", "The Orange"],
+      "answer": 2,
+      "explain": "The view is over the valley of the Umzimkulu, on its journey from the Drakensberg to the sea."
+    },
+    {
+      "q": "Which bird's 'forlorn crying' can be heard in the veld?",
+      "choices": ["The titihoya", "The hadeda", "The fish eagle", "The weaver"],
+      "answer": 0,
+      "explain": "The titihoya is named as 'one of the birds of the veld'; later, in the ruined land, 'the titihoya does not cry here any more.'"
+    },
+    {
+      "q": "Why is the grass on the tops rich and matted, so that 'you cannot see the soil'?",
+      "choices": ["It is heavily fertilised", "It is well-tended, with few cattle and few fires, and it holds the rain and mist", "It has never been grazed at all", "The government irrigates it"],
+      "answer": 1,
+      "explain": "The kept grass holds the rain and mist, which seep in and feed the streams in every kloof."
+    },
+    {
+      "q": "What does the narrator tell the reader to do on the tended grass, 'for the ground is holy'?",
+      "choices": ["Kneel and pray", "Stand unshod upon it", "Plough it at once", "Never walk on it"],
+      "answer": 1,
+      "explain": "'Stand unshod upon it, for the ground is holy, being even as it came from the Creator.'"
+    },
+    {
+      "q": "The refrain about the land warns: 'Keep it, guard it, care for it, for it keeps men... ' — and then?",
+      "choices": ["'...and it will make you rich.'", "'...Destroy it and man is destroyed.'", "'...for the rains will fail.'", "'...or the tribe will scatter.'"],
+      "answer": 1,
+      "explain": "The land's health and the people's survival are bound together: 'Destroy it and man is destroyed.'"
+    },
+    {
+      "q": "What has happened to the hills lower down, as they fall to the valley?",
+      "choices": ["They stay green and lush", "They grow red and bare and can no longer hold the rain and mist", "They are covered in forest", "They have been terraced for farming"],
+      "answer": 1,
+      "explain": "Below the tops the hills 'grow red and bare; they cannot hold the rain and mist, and the streams are dry in the kloofs.'"
+    },
+    {
+      "q": "In the valleys of the broken land, who is left to scratch at the soil?",
+      "choices": ["Wealthy white farmers", "Soldiers returned from war", "Women, old men and old women, and children", "Migrant labourers from other countries"],
+      "answer": 2,
+      "explain": "'They are valleys of old men and old women, of mothers and children. The men are away, the young men and the girls are away.'"
+    },
+    {
+      "q": "Why, according to the chapter, are the young men and girls gone from the valley?",
+      "choices": ["They have died of disease", "The soil cannot keep them any more, so they have left", "They are away fighting a war", "They have been forcibly removed by the government"],
+      "answer": 1,
+      "explain": "'The soil cannot keep them any more' — the exhausted land drives its people away, a theme that frames the whole novel."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "chapter": 3,
+  "book": 1,
+  "title": "Book One, Chapter 3 — review",
+  "questions": [
+    {
+      "q": "How long before he needs to has Stephen Kumalo arrived at the station at Carisbrooke?",
+      "choices": ["A few minutes", "A full hour", "Half a day", "The night before"],
+      "answer": 1,
+      "explain": "'Though Stephen Kumalo has been there a full hour before he need, he does not listen to these things.' His mind is on money and worry."
+    },
+    {
+      "q": "What preoccupies Kumalo's thoughts as he waits for the train?",
+      "choices": ["The sermon he must preach on his return", "The cost of the journey and how sick his sister may be", "Whether the chief will be angry", "The weather over the mountains"],
+      "answer": 1,
+      "explain": "'This is a long way to go, and a lot of money to pay. And who knows how sick his sister may be, and what money that may cost?'"
+    },
+    {
+      "q": "How does the chapter describe catching a bus in Johannesburg, compared with home?",
+      "choices": ["Buses run exactly on time there", "There is a multitude of buses and only about one in ten or twenty is the right one", "There are no buses at all", "The buses are free for parsons"],
+      "answer": 1,
+      "explain": "At home 'the only bus that comes is the right bus'; in Johannesburg 'only one bus in ten, one bus in twenty maybe, is the right bus.'"
+    },
+    {
+      "q": "Whose son was killed crossing a street in Johannesburg, a memory that feeds Kumalo's fear?",
+      "choices": ["Msimangu's brother", "Mpanza of Ndotsheni's son Michael", "The chief's grandson", "Sibeko's son"],
+      "answer": 1,
+      "explain": "Mpanza's wife 'saw her son Michael killed in the street'; the twelve-year-old stepped out and 'the great lorry crushed the life out of her son.'"
+    },
+    {
+      "q": "What favour does Kumalo's companion at the station ask of him?",
+      "choices": ["To carry a letter to the Bishop", "To inquire about Sibeko's daughter, who has not been heard from in Johannesburg", "To buy tools for the carpenter's shop", "To bring back medicine"],
+      "answer": 1,
+      "explain": "Sibeko has had no word of his daughter for ten or twelve months and asks Kumalo to inquire."
+    },
+    {
+      "q": "For whom had Sibeko's daughter been working before she left the district?",
+      "choices": ["The white man uSmith in Ixopo", "The mission at Ndotsheni", "A hospital in Pietermaritzburg", "Kumalo's brother John"],
+      "answer": 0,
+      "explain": "She worked for uSmith in Ixopo, then went with uSmith's married daughter to Johannesburg to work."
+    },
+    {
+      "q": "To what place near Johannesburg does the paper say Sibeko's daughter went?",
+      "choices": ["Benoni", "Germiston", "Springs", "Orlando"],
+      "answer": 2,
+      "explain": "Kumalo reads the thumbed paper: 'Springs... I have heard of the place. But it is not Johannesburg, though they say it is near.'"
+    },
+    {
+      "q": "Which carriage does Kumalo climb into on the train?",
+      "choices": ["The first-class carriage", "The carriage for non-Europeans, full of the humbler people of his race", "The dining car", "The guard's van"],
+      "answer": 1,
+      "explain": "He climbs 'into the carriage for non-Europeans, already full of the humbler people of his race.'"
+    },
+    {
+      "q": "What 'little vanity' or 'little lie' does Kumalo tell the other passengers?",
+      "choices": ["That he is a bishop", "That he goes often to Johannesburg and has many things to do there", "That his son is a lawyer", "That he owns land on the tops"],
+      "answer": 1,
+      "explain": "He tells them, 'when I am in Johannesburg I shall go to this place at Springs... I have many things to do in Johannesburg' — then feels his knees go weak, having 'told his little lie, before these respectful people.'"
+    },
+    {
+      "q": "What does the 'humble man' take out of his pocket as the journey begins and the fear returns?",
+      "choices": ["His purse", "His sacred book, and begins to read", "The letter from Msimangu", "A photograph of his son"],
+      "answer": 1,
+      "explain": "'The humble man reached in his pocket for his sacred book, and began to read. It was this world alone that was certain.'"
+    }
+  ]
+}

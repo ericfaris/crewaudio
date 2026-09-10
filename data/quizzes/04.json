@@ -1,0 +1,67 @@
+{
+  "chapter": 4,
+  "book": 1,
+  "title": "Book One, Chapter 4 — review",
+  "questions": [
+    {
+      "q": "How is the great train to Johannesburg described?",
+      "choices": ["A steam engine painted gold", "A white man's wonder with no engine, only an iron cage on its head taking power from metal ropes overhead", "A diesel express with sleeping cars", "A slow ox-drawn wagon on rails"],
+      "answer": 1,
+      "explain": "The electric train draws its power from overhead 'metal ropes' via a cage — a marvel to Kumalo."
+    },
+    {
+      "q": "As the train reaches the level plains, why are the place names hard for Kumalo?",
+      "choices": ["They are all in English", "They are in Afrikaans, a language he had never yet heard spoken", "They are written in an old script", "They change every few miles"],
+      "answer": 1,
+      "explain": "'They are in the language that was called Afrikaans, a language that he had never yet heard spoken.'"
+    },
+    {
+      "q": "What are the 'white flat hills in the distance' that Kumalo sees?",
+      "choices": ["Snow on the mountains", "The rock brought up out of the mines after the gold has been taken from it", "Salt pans", "Cattle kraals"],
+      "answer": 1,
+      "explain": "A fellow passenger explains it is mine rock — the tailings left after the gold is extracted."
+    },
+    {
+      "q": "How is the mine rock brought up from underground, according to the passenger?",
+      "choices": ["Carried up ladders by hand", "Wound up in a cage by a great wheel", "Floated up on water", "Pushed up a ramp by machines"],
+      "answer": 1,
+      "explain": "'It is wound up by a great wheel' — and the passenger points out the spinning headgear wheel."
+    },
+    {
+      "q": "When Kumalo asks a young man for help, what does the young man offer to do?",
+      "choices": ["Carry his bag to the church", "Guide him to Sophiatown and get his bus ticket for him", "Find him work in a factory", "Take him to the police"],
+      "answer": 1,
+      "explain": "The young man leads him toward the buses, then offers to fetch his ticket so he won't lose his place in line."
+    },
+    {
+      "q": "What happens to the pound Kumalo hands the young man?",
+      "choices": ["It buys a valid ticket", "The young man disappears with it around the corner and never returns", "It is refunded at the ticket office", "A policeman confiscates it"],
+      "answer": 1,
+      "explain": "Kumalo has been cheated: 'you will not see him again.' There is in fact no ticket office — tickets are bought on the bus."
+    },
+    {
+      "q": "Who then helps Kumalo reach the Mission House?",
+      "choices": ["A policeman", "Mr Mafolo, a businessman and 'a good son of the Church'", "His brother John", "The Bishop's driver"],
+      "answer": 1,
+      "explain": "An elderly, decently dressed Anglican — Mr Mafolo — takes him by bus and on foot to the Mission House in Sophiatown."
+    },
+    {
+      "q": "Who opens the door of the Mission House to them?",
+      "choices": ["Father Vincent", "A young, tall man in clerical dress — Msimangu", "Mrs Lithebe", "Gertrude"],
+      "answer": 1,
+      "explain": "Msimangu greets Kumalo: 'Mr Kumalo, I am glad to greet you. Is this your first visit to Johannesburg?'"
+    },
+    {
+      "q": "What does Kumalo, who does not usually smoke, do once he is safely inside the lighted room?",
+      "choices": ["Falls asleep at once", "Accepts a cigarette and 'puffed like a child at his smoke'", "Asks to leave immediately for Claremont", "Counts his remaining money aloud"],
+      "answer": 1,
+      "explain": "Feeling welcome and secure at last, he accepts a cigarette 'though it was not his custom to smoke.'"
+    },
+    {
+      "q": "What is the electric advertisement sign doing that Kumalo watches, baffled, from the street?",
+      "choices": ["Showing the time", "Pouring water from a bottle into a glass, then reversing, with the words 'black and white'", "Displaying the day's news", "Flashing the price of gold"],
+      "answer": 1,
+      "explain": "The neon sign endlessly empties and refills a bottle — 'Black and white, it says... though it is red and green. It is too much to understand.'"
+    }
+  ]
+}

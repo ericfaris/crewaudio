@@ -1,10 +1,28 @@
 import { spawn, execFileSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+/** Write a temp quiz dir with a valid quiz for the given chapter numbers. */
+export function makeQuizDir(chapters = [1]) {
+  const dir = mkdtempSync(path.join(tmpdir(), 'crewaudio-quiz-'));
+  for (const n of chapters) {
+    const quiz = {
+      chapter: n, book: 1, title: `Chapter ${n} review`,
+      questions: Array.from({ length: 10 }, (_, k) => ({
+        q: `Test question ${k + 1} for chapter ${n}?`,
+        choices: ['alpha', 'bravo', 'charlie', 'delta'],
+        answer: k % 4,
+        explain: `Because option ${'ABCD'[k % 4]} is right for question ${k + 1}.`,
+      })),
+    };
+    writeFileSync(path.join(dir, `${String(n).padStart(2, '0')}.json`), JSON.stringify(quiz));
+  }
+  return dir;
+}
 
 /** Create a temp audio library with `count` mp3s (`seconds` each) under "<tmp>/Test Book/". */
 export function makeAudioLibrary(count = 3, seconds = 12) {
@@ -22,8 +40,8 @@ export function makeAudioLibrary(count = 3, seconds = 12) {
   return dir;
 }
 
-/** Start the server on an ephemeral port against `audioDir`. Returns { origin, close }. */
-export function startServer(audioDir) {
+/** Start the server on an ephemeral port. Returns { origin, close }. */
+export function startServer(audioDir, { quizDir } = {}) {
   const cacheDir = mkdtempSync(path.join(tmpdir(), 'crewaudio-cache-'));
   const child = spawn(process.execPath, [path.join(ROOT, 'server.js')], {
     env: {
@@ -31,6 +49,7 @@ export function startServer(audioDir) {
       PORT: '0',
       CREWAUDIO_AUDIO_DIR: audioDir,
       CREWAUDIO_CACHE_DIR: cacheDir,
+      ...(quizDir ? { CREWAUDIO_QUIZ_DIR: quizDir } : {}),
     },
     stdio: ['ignore', 'pipe', 'pipe'],
   });
@@ -44,7 +63,11 @@ export function startServer(audioDir) {
         child.stdout.off('data', onData);
         resolve({
           origin: `http://localhost:${m[1]}`,
-          close: () => { child.kill('SIGKILL'); rmSync(cacheDir, { recursive: true, force: true }); },
+          close: () => {
+            child.kill('SIGKILL');
+            rmSync(cacheDir, { recursive: true, force: true });
+            if (quizDir) rmSync(quizDir, { recursive: true, force: true });
+          },
         });
       }
     };

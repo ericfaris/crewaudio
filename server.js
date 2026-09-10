@@ -17,6 +17,9 @@ const CACHE_DIR = process.env.CREWAUDIO_CACHE_DIR
   ? path.resolve(process.env.CREWAUDIO_CACHE_DIR)
   : path.join(__dirname, '.cache');
 const PUBLIC_DIR = path.join(__dirname, 'public');
+const QUIZ_DIR = process.env.CREWAUDIO_QUIZ_DIR
+  ? path.resolve(process.env.CREWAUDIO_QUIZ_DIR)
+  : path.join(__dirname, 'data', 'quizzes');
 
 const AUDIO_EXTS = new Set(['.mp3', '.m4a', '.m4b', '.aac', '.ogg', '.oga', '.opus', '.flac', '.wav', '.webm']);
 const MIME = {
@@ -242,6 +245,19 @@ const server = http.createServer(async (req, res) => {
 
     if (p === '/api/yt-dlp') {
       return json(res, 200, { bin: findYtDlp() });
+    }
+
+    // Review quiz for a chapter (data/quizzes/NN.json). n = 1-based chapter index.
+    if (p === '/api/quiz') {
+      const n = parseInt(url.searchParams.get('n'), 10);
+      if (!Number.isInteger(n) || n < 1 || n > 999) return json(res, 400, { error: 'n required' });
+      const file = path.join(QUIZ_DIR, `${String(n).padStart(2, '0')}.json`);
+      try {
+        const data = JSON.parse(await fsp.readFile(file, 'utf8'));
+        return json(res, 200, data);
+      } catch {
+        return json(res, 404, { error: 'no quiz for chapter ' + n });
+      }
     }
 
     // Server-Sent Events: streams yt-dlp progress lines, then a final event.

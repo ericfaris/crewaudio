@@ -1,0 +1,67 @@
+{
+  "chapter": 2,
+  "book": 1,
+  "title": "Book One, Chapter 2 — review",
+  "questions": [
+    {
+      "q": "Who delivers the letter to the Reverend Stephen Kumalo?",
+      "choices": ["A postman on a bicycle", "A small child sent from the store", "His brother John", "The white farmer Jarvis"],
+      "answer": 1,
+      "explain": "A small child runs 'importantly' to the wood-and-iron church with the letter from the store."
+    },
+    {
+      "q": "From which city does the letter come?",
+      "choices": ["Pietermaritzburg", "Durban", "Johannesburg", "Cape Town"],
+      "answer": 2,
+      "explain": "The letter is postmarked Johannesburg, where many of Kumalo's people have gone."
+    },
+    {
+      "q": "Who wrote the letter?",
+      "choices": ["The Reverend Theophilus Msimangu", "Kumalo's son Absalom", "Kumalo's sister Gertrude", "The Bishop"],
+      "answer": 0,
+      "explain": "It is signed by the Rev. Theophilus Msimangu of the Mission House, Sophiatown."
+    },
+    {
+      "q": "What does the letter ask Kumalo to do?",
+      "choices": ["Send money for a funeral", "Come quickly to Johannesburg because his sister is very sick", "Take in his brother's children", "Preach at a mission conference"],
+      "answer": 1,
+      "explain": "Msimangu writes that Gertrude Kumalo is very sick and asks Kumalo to come quickly."
+    },
+    {
+      "q": "Why had Kumalo's sister Gertrude originally gone to Johannesburg?",
+      "choices": ["To train as a nurse", "To look for her husband, who never came back from the mines", "To sell goods at a market", "To join a convent"],
+      "answer": 1,
+      "explain": "Gertrude took her small son to look for the husband who had been recruited for the mines and never returned."
+    },
+    {
+      "q": "What money do Kumalo and his wife decide to use for the journey?",
+      "choices": ["A loan from the Bishop", "The St Chad's money saved to send their son Absalom to school, plus the Post Office savings", "Money borrowed from John", "The church building fund"],
+      "answer": 1,
+      "explain": "They break into the tin of St Chad's money (about twelve pounds) and the Post Office Book with ten pounds saved for a stove."
+    },
+    {
+      "q": "What had the ten pounds in the Post Office Book been saved for?",
+      "choices": ["A new church roof", "Kumalo's wife's stove", "Absalom's train fare", "New black clothes for Kumalo"],
+      "answer": 1,
+      "explain": "'I have been saving that for your stove,' Kumalo says; his wife tells him to take it anyway."
+    },
+    {
+      "q": "What is Kumalo's brother John's trade in Johannesburg?",
+      "choices": ["A carpenter", "A miner", "A shopkeeper of groceries", "A bus driver"],
+      "answer": 0,
+      "explain": "John Kumalo is a carpenter with a business of his own in Sophiatown."
+    },
+    {
+      "q": "Why had Kumalo's son Absalom gone to Johannesburg?",
+      "choices": ["To study for the ministry", "To look for his aunt Gertrude", "To work in his uncle John's shop", "To escape the chief"],
+      "answer": 1,
+      "explain": "Absalom went to look for his aunt Gertrude 'and he had never returned,' nor written."
+    },
+    {
+      "q": "How does the chapter end?",
+      "choices": ["With Kumalo boarding the train", "With Kumalo going to pray in the church while his wife sits with her head on the table", "With a letter from Absalom arriving", "With the child returning hungry"],
+      "answer": 1,
+      "explain": "Kumalo says he will pray in the church; his wife bows her head on his table 'with the patient suffering of black women.' 'All roads lead to Johannesburg.'"
+    }
+  ]
+}

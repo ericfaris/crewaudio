@@ -57,8 +57,25 @@
         <span id="resume-note"></span>
       </div>
 
+      <p id="quiz-note" hidden>📝 A short review quiz will appear when this chapter finishes.</p>
+      <button id="quiz-open" hidden>📝 Take the review quiz</button>
+
       <audio id="audio" preload="metadata"></audio>
     </div>
+
+    <section id="quiz" hidden>
+      <div class="quiz-head">
+        <h2 id="quiz-title">Chapter review</h2>
+        <button id="quiz-close" title="Close">✕</button>
+      </div>
+      <p class="quiz-intro">Pick an answer for each question — you'll see right away whether it's right, with a short explanation.</p>
+      <ol id="quiz-list"></ol>
+      <div class="quiz-foot">
+        <span id="quiz-score"></span>
+        <button id="quiz-retry" hidden>Try again</button>
+        <button id="quiz-continue" class="primary" hidden>Continue ▸</button>
+      </div>
+    </section>
   </main>
 </div>
 <script src="/app.js"></script>

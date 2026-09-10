@@ -1,0 +1,67 @@
+{
+  "chapter": 5,
+  "book": 1,
+  "title": "Book One, Chapter 5 — review",
+  "questions": [
+    {
+      "q": "Where does Msimangu arrange for Kumalo to sleep?",
+      "choices": ["In the Mission House itself", "In the house of Mrs Lithebe, a good church member who is an Msutu but speaks Zulu well", "In a boarding house in Claremont", "With his brother John"],
+      "answer": 1,
+      "explain": "The room costs three shillings a week and meals can be taken with the people of the Mission."
+    },
+    {
+      "q": "What does Kumalo tell the priests at dinner about his home district?",
+      "choices": ["That it is prosperous and growing", "About the sickness of the land — vanished grass, dongas, a land of old people and children, the broken tribe", "That he wants to leave it for the city", "Nothing; he stays silent"],
+      "answer": 1,
+      "explain": "He speaks of the eroded, failing land 'and the love of them must have been in his voice' — but says nothing of Gertrude or Absalom."
+    },
+    {
+      "q": "What newspaper headline is shown to Kumalo at dinner?",
+      "choices": ["A gold strike in the Free State", "An old couple robbed and beaten in a lonely house, four natives arrested", "A mine disaster", "A church appeal"],
+      "answer": 1,
+      "explain": "A priest shows him the Johannesburg paper in 'bold black letters' — the kind of crime headline white Johannesburg dreads."
+    },
+    {
+      "q": "How does Msimangu describe Gertrude's sickness?",
+      "choices": ["A fever that will pass", "Not that kind of sickness — 'another, a worse kind'; it would be truer to say 'she has many husbands'", "Tuberculosis from the mines", "A broken leg"],
+      "answer": 1,
+      "explain": "Gertrude makes and sells strong illicit liquor, sells herself, has been in prison more than once, and lives in Claremont, one of the worst places in Johannesburg."
+    },
+    {
+      "q": "What does Msimangu say has become of Kumalo's brother John?",
+      "choices": ["He has died", "He has become one of their great politicians and has no use for the Church any more", "He has returned to Ndotsheni", "He has been imprisoned"],
+      "answer": 1,
+      "explain": "John says 'that what God has not done for South Africa, man must do.'"
+    },
+    {
+      "q": "Which line of Msimangu's captures his view of the country's crisis?",
+      "choices": ["'The land will heal itself in time.'", "'The tragedy is not that things are broken. The tragedy is that they are not mended again.'", "'Only the mines can save us.'", "'The chief must rule again.'"],
+      "answer": 1,
+      "explain": "He adds that the white man broke the tribe but has not built anything in its place: 'It is fear that rules this land.'"
+    },
+    {
+      "q": "Whom does Msimangu suggest Kumalo talk to about these hard matters — 'a white man and can say what must be said'?",
+      "choices": ["The Bishop", "Father Vincent, the priest 'with the boy's cheeks'", "Mr Carmichael", "James Jarvis"],
+      "answer": 1,
+      "explain": "Father Vincent is the rosy-cheeked young priest from England who wanted to hear more about Kumalo's country."
+    },
+    {
+      "q": "Why was Msimangu 'firstly' asked to send for Kumalo about Gertrude?",
+      "choices": ["Because she owed the church money", "Because she is a woman that is alone, and secondly because her brother is a priest", "Because she had asked for him by name", "Because the police required it"],
+      "answer": 1,
+      "explain": "Msimangu also hopes that if Kumalo cannot save the mother, he can at least save her child."
+    },
+    {
+      "q": "When Kumalo calls him kind, how does Msimangu answer?",
+      "choices": ["'I try my best.'", "'I am not kind. I am a selfish and sinful man, but God put his hands on me, that is all.'", "'The Church pays me to be kind.'", "'Do not thank me yet.'"],
+      "answer": 1,
+      "explain": "He repeats this self-description more than once through the novel."
+    },
+    {
+      "q": "What single word closes the chapter as Kumalo lies in the small clean room?",
+      "choices": ["Ndotsheni", "'Johannesburg. Johannesburg.'", "Gertrude", "Absalom"],
+      "answer": 1,
+      "explain": "'Who could believe it?' — the vast, roaring city named twice."
+    }
+  ]
+}

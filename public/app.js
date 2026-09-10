@@ -11,8 +11,11 @@ let seeking = false;
 const PROGRESS_KEY = 'crewaudio.progress';
 const LAST_KEY = 'crewaudio.last';
 const MINI_KEY = 'crewaudio.mini';
+const QUIZ_KEY = 'crewaudio.quiz';
 const progress = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
 const saveProgress = () => localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+const quizScores = JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}');
+const saveQuizScores = () => localStorage.setItem(QUIZ_KEY, JSON.stringify(quizScores));
 
 function fmt(sec) {
   if (!isFinite(sec)) return '0:00';
@@ -56,7 +59,9 @@ function render() {
       const li = document.createElement('li');
       const pr = progress[f.path];
       const badge = pr && pr.ratio > 0.97 ? '✓' : pr && pr.ratio > 0.02 ? `${Math.round(pr.ratio * 100)}%` : '';
-      li.innerHTML = `<span class="name">${f.name}</span><span class="meta">${badge || humanSize(f.size)}</span>`;
+      const qz = quizScores[f.path];
+      const qzBadge = qz ? `<span class="quiz-badge">${qz.best}/${qz.total}</span>` : '';
+      li.innerHTML = `<span class="name">${f.name}</span><span class="meta">${qzBadge}${badge || humanSize(f.size)}</span>`;
       li.dataset.path = f.path;
       li.classList.toggle('active', f.path === current);
       li.onclick = () => play(f.path);
@@ -90,7 +95,41 @@ function play(pathRel, { resume = true, autoplay = true } = {}) {
   document.querySelectorAll('#groups li').forEach((li) =>
     li.classList.toggle('active', li.dataset.path === pathRel));
   updateMediaSession();
+  $('#quiz').hidden = true;
+  refreshQuizControls(pathRel);
 }
+
+// Heads-up note + a "take the quiz" button whenever this chapter has a quiz.
+// The quiz can be taken any number of times, before or after finishing the audio.
+let currentQuiz = null;
+async function refreshQuizControls(track) {
+  const note = $('#quiz-note');
+  const openBtn = $('#quiz-open');
+  note.hidden = true;
+  openBtn.hidden = true;
+  currentQuiz = null;
+  const n = chapterOf(track);
+  if (n < 1) return;
+  try {
+    const r = await fetch('/api/quiz?n=' + n);
+    if (!r.ok || track !== current) return;
+    const quiz = await r.json();
+    if (!(quiz.questions && quiz.questions.length)) return;
+    currentQuiz = { track, quiz };
+    const score = quizScores[track];
+    note.hidden = !!score; // only nag before the first attempt
+    openBtn.hidden = false;
+    openBtn.textContent = score
+      ? `📝 Retake the review quiz · best ${score.best}/${score.total}`
+      : '📝 Take the review quiz';
+  } catch { /* offline — no quiz controls */ }
+}
+
+$('#quiz-open').onclick = () => {
+  if (!currentQuiz || currentQuiz.track !== current) return;
+  audio.pause();
+  renderQuiz(currentQuiz.track, currentQuiz.quiz, { fromEnd: false });
+};
 
 function step(delta) {
   const i = queue.indexOf(current);
@@ -143,10 +182,132 @@ audio.addEventListener('timeupdate', () => {
     lastSave = Date.now();
   }
 });
-audio.addEventListener('ended', () => {
-  if (current) { progress[current] = { t: audio.duration, ratio: 1, at: Date.now() }; saveProgress(); render(); }
-  if ($('#autoplay').checked) step(1);
+audio.addEventListener('ended', async () => {
+  const finished = current;
+  if (finished) { progress[finished] = { t: audio.duration, ratio: 1, at: Date.now() }; saveProgress(); render(); }
+  const shown = await maybeShowQuiz(finished);
+  if (!shown && $('#autoplay').checked) step(1);
 });
+
+// ---- chapter review quiz ----
+// chapter number = the track's position within its book (1-based)
+const chapterOf = (p) => queue.indexOf(p) + 1;
+let pendingAdvance = false;
+
+async function maybeShowQuiz(track) {
+  if (!track) return false;
+  const n = chapterOf(track);
+  if (n < 1) return false;
+  let quiz;
+  try {
+    const r = await fetch('/api/quiz?n=' + n);
+    if (!r.ok) return false;
+    quiz = await r.json();
+  } catch { return false; }
+  if (!quiz.questions || !quiz.questions.length) return false;
+  renderQuiz(track, quiz, { fromEnd: true });
+  return true;
+}
+
+function renderQuiz(track, quiz, { fromEnd = true } = {}) {
+  pendingAdvance = fromEnd && $('#autoplay').checked;
+  const total = quiz.questions.length;
+  const answered = new Array(total).fill(false);
+  let correct = 0;
+
+  $('#quiz-title').textContent = quiz.title || `Chapter ${quiz.chapter} review`;
+  const list = $('#quiz-list');
+  list.innerHTML = '';
+
+  quiz.questions.forEach((q, qi) => {
+    const li = document.createElement('li');
+    const stem = document.createElement('p');
+    stem.className = 'q-stem';
+    stem.textContent = q.q;
+    li.appendChild(stem);
+
+    const verdict = document.createElement('p');
+    verdict.className = 'q-verdict';
+    verdict.hidden = true;
+
+    const ex = document.createElement('p');
+    ex.className = 'q-explain';
+    ex.hidden = true;
+    ex.textContent = q.explain || '';
+
+    q.choices.forEach((choice, ci) => {
+      const label = document.createElement('label');
+      label.className = 'q-choice';
+      label.innerHTML = `<input type="radio" name="q${qi}" value="${ci}"> <span></span>`;
+      label.querySelector('span').textContent = choice;
+      label.querySelector('input').addEventListener('change', () => {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const right = ci === q.answer;
+        if (right) correct++;
+        // lock this question and reveal the answer + explanation
+        li.querySelectorAll('.q-choice').forEach((lab, k) => {
+          lab.querySelector('input').disabled = true;
+          if (k === q.answer) lab.classList.add('right');
+          if (k === ci && !right) lab.classList.add('wrong');
+        });
+        verdict.hidden = false;
+        verdict.textContent = right ? '✓ Correct' : '✗ Not quite';
+        verdict.classList.toggle('right', right);
+        verdict.classList.toggle('wrong', !right);
+        if (ex.textContent) ex.hidden = false;
+        updateFoot();
+      });
+      li.appendChild(label);
+    });
+    li.appendChild(verdict);
+    li.appendChild(ex);
+    list.appendChild(li);
+  });
+
+  function updateFoot() {
+    const done = answered.filter(Boolean).length;
+    $('#quiz-score').textContent = `${correct} / ${done} answered`
+      + (done < total ? ` — ${total - done} to go` : '');
+    if (done === total) {
+      const prev = quizScores[track];
+      quizScores[track] = {
+        last: correct, total,
+        best: Math.max(correct, prev?.best || 0),
+        at: Date.now(),
+      };
+      saveQuizScores();
+      render();
+      $('#quiz-score').textContent = `${correct} / ${total}`
+        + (quizScores[track].best > correct ? `  (best ${quizScores[track].best})` : '');
+      $('#quiz-retry').hidden = false;
+      $('#quiz-continue').hidden = false;
+    }
+  }
+
+  $('#quiz-score').textContent = `0 / ${total}`;
+  $('#quiz-retry').hidden = true;
+  $('#quiz-continue').hidden = true;
+  $('#quiz-continue').textContent = pendingAdvance ? 'Continue ▸' : 'Close';
+
+  const section = $('#quiz');
+  section.hidden = false;
+  section.dataset.track = track;
+  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  $('#quiz-retry').onclick = () => renderQuiz(track, quiz, { fromEnd });
+  $('#quiz-continue').onclick = () => closeQuiz(true);
+  $('#quiz-close').onclick = () => closeQuiz(false);
+  updateFoot();
+}
+
+function closeQuiz(advance) {
+  $('#quiz').hidden = true;
+  const wasAdvance = advance && pendingAdvance;
+  pendingAdvance = false;
+  if (wasAdvance) step(1);
+  else refreshQuizControls(current); // update the "retake · best N/10" label
+}
 
 // OS-level media keys / lock-screen controls
 function updateMediaSession() {

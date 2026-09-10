@@ -1,0 +1,67 @@
+{
+  "chapter": 6,
+  "book": 1,
+  "title": "Book One, Chapter 6 — review",
+  "questions": [
+    {
+      "q": "How does the narrator describe Claremont?",
+      "choices": ["A model township", "The garbage-heap of the proud city", "A quiet farming village", "A wealthy suburb"],
+      "answer": 1,
+      "explain": "Sophiatown, Western Native Township and Claremont lie together; Kumalo is shocked by Claremont's shabbiness, dirt and crowding."
+    },
+    {
+      "q": "What nickname do John Kumalo and his friends give the Bantu Press?",
+      "choices": ["The Bantu Voice", "The Bantu Repress", "The White Sheet", "The City Liar"],
+      "answer": 1,
+      "explain": "They think it moderate and that it 'does not say all that could be said.'"
+    },
+    {
+      "q": "Who is the woman Msimangu points out as 'one of the queens'?",
+      "choices": ["A schoolteacher", "A liquor seller said to be one of the richest of their people in Johannesburg", "A nun", "Mrs Lithebe"],
+      "answer": 1,
+      "explain": "The 'queens' are the illicit liquor sellers of Claremont."
+    },
+    {
+      "q": "Why are many of the children in the streets not at school?",
+      "choices": ["It is a holiday", "Some do not care and some parents do not care, but many because the schools are full", "School has been banned", "They are all working in the mines"],
+      "answer": 1,
+      "explain": "Overcrowded, insufficient schools are part of the picture of the broken city."
+    },
+    {
+      "q": "At which address does Kumalo find Gertrude?",
+      "choices": ["Number thirteen Hyacinth Street", "Number eleven Hyacinth Street", "105 End Street", "79 Twenty-Third Avenue"],
+      "answer": 1,
+      "explain": "Msimangu waits next door at number thirteen while Kumalo goes in alone."
+    },
+    {
+      "q": "What does Kumalo hear from inside the house before Gertrude opens the door?",
+      "choices": ["Singing of hymns", "Laughter 'of which one is afraid' — a woman's voice and men's voices", "Complete silence", "A child crying"],
+      "answer": 1,
+      "explain": "Chairs are moved and things taken away before she comes to the door; there is fear in her eyes."
+    },
+    {
+      "q": "What reason does Gertrude give for never writing to her family?",
+      "choices": ["She could not read or write", "She had no money for a stamp", "The letters kept getting lost", "She was forbidden to"],
+      "answer": 1,
+      "explain": "Kumalo presses her — 'Not two pennies for a stamp?' — and she does not answer."
+    },
+    {
+      "q": "What does Gertrude say about the child when Kumalo asks where it is?",
+      "choices": ["It is at school", "She does not know — it must be fetched", "It is with brother John", "It has died"],
+      "answer": 1,
+      "explain": "That she is 'a liquor seller, a prostitute, with a child and you do not know where it is' is the shame Kumalo throws at her."
+    },
+    {
+      "q": "What finally moves Kumalo from anger to gentleness with Gertrude?",
+      "choices": ["She offers him money", "She weeps on the floor and says she wants to leave Johannesburg — 'I am a bad woman, my brother'", "Msimangu intervenes", "The child runs in"],
+      "answer": 1,
+      "explain": "His 'deep gentleness returns'; he lifts her up, says 'God forgives us... Let us pray,' and they are reconciled."
+    },
+    {
+      "q": "Who does Gertrude say will know where to find Absalom?",
+      "choices": ["The Bishop", "The son of their brother John, who was often with Absalom", "Mrs Lithebe", "The reformatory"],
+      "answer": 1,
+      "explain": "'The son of our brother John and your son were often together. He will know.'"
+    }
+  ]
+}
