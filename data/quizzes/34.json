@@ -1,0 +1,67 @@
+{
+  "chapter": 34,
+  "book": 3,
+  "title": "Book Three, Chapter 5 — review",
+  "questions": [
+    {
+      "q": "What church event is being prepared at the start of the chapter?",
+      "choices": ["A wedding", "A confirmation, with the Bishop coming and a simple shared meal afterward", "A funeral", "A harvest festival"],
+      "answer": 1,
+      "explain": "The children stand in white dresses and caps or brushed school clothes."
+    },
+    {
+      "q": "Why is Kumalo surprised to see his friend driving the milk cart so early?",
+      "choices": ["The cows had escaped", "The friend brings grave news: 'We work no more today. The inkosikazi is dead.'", "The dam has burst", "Jarvis has returned"],
+      "answer": 1,
+      "explain": "Mrs Jarvis died 'when the sun stood so' — pointing above his head."
+    },
+    {
+      "q": "What is Kumalo 'torn' about after the news of Mrs Jarvis's death?",
+      "choices": ["Whether to attend the funeral", "Whether he, the father of the man who killed her son, should send a letter of sympathy", "Whether to tell the Bishop", "Whether to leave Ndotsheni that day"],
+      "answer": 1,
+      "explain": "Remembering Jarvis's voice saying 'Is there mercy?', he decides to seal and send it."
+    },
+    {
+      "q": "In what conditions is the confirmation held?",
+      "choices": ["In bright sunshine", "In a dark church during a storm, with rain coming through the leaking roof onto the white dresses", "Outdoors on the hillside", "It is postponed"],
+      "answer": 1,
+      "explain": "A girl 'shivered there with the cold' but dared not move out of the rain."
+    },
+    {
+      "q": "What does the Bishop tell Kumalo, privately, after the confirmation?",
+      "choices": ["That he is doing excellent work", "That he thinks Kumalo should go away from Ndotsheni", "That the church will be closed", "That his son has been reprieved"],
+      "answer": 1,
+      "explain": "The Bishop would send him to Pietermaritzburg to help his old friend Ntombela."
+    },
+    {
+      "q": "What reasons does the Bishop give for Kumalo leaving?",
+      "choices": ["That Kumalo is too old", "That the murdered man's father, Jarvis, is his neighbour; that the church must be rebuilt; and that the daughter-in-law expecting a child would be better where these things are not known", "That the people no longer respect him", "That the drought will not end"],
+      "answer": 1,
+      "explain": "Kumalo silently thinks of all Jarvis has already done for the valley."
+    },
+    {
+      "q": "What arrives during the Bishop's talk that changes everything?",
+      "choices": ["A telegram about the execution", "A letter from Jarvis — thanking Kumalo for the sympathy, saying his wife 'knew of the things that are being done, and had the greatest part in it', and that one of her last wishes was a new church at Ndotsheni", "News that the dam is finished", "The magistrate"],
+      "answer": 1,
+      "explain": "Jarvis adds that his wife had been suffering before they went to Johannesburg."
+    },
+    {
+      "q": "How does Kumalo react to Jarvis's letter?",
+      "choices": ["With fear", "He stands up and says, in a voice full of relief, laughter and weeping, 'This is from God'", "He weeps and hides it", "He is suspicious of it"],
+      "answer": 1,
+      "explain": "The Bishop reads it and says a foolish jest about it, then, moved, blows his nose several times."
+    },
+    {
+      "q": "What does the Bishop conclude at the church door?",
+      "choices": ["That Kumalo must still leave", "'I see it is not God's will that you should leave Ndotsheni'", "That the new church will be built elsewhere", "That the confirmation must be repeated"],
+      "answer": 1,
+      "explain": "The line answering Kumalo's dread that he would be sent away."
+    },
+    {
+      "q": "What are the women of the church making at the end of the chapter?",
+      "choices": ["Bread for the meal", "A wreath — a cypress branch bent into a ring, with the flowers of the veld — to send to the house of Jarvis", "New white dresses", "A banner for the new church"],
+      "answer": 1,
+      "explain": "The friend offers to walk far to fetch white arum lilies for it, and Kumalo prints a card of sympathy from the people of St Mark's."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "chapter": 13,
+  "book": 1,
+  "title": "Book One, Chapter 13 — review",
+  "questions": [
+    {
+      "q": "What does the European Superintendent at Ezenzeleni do that is 'not the custom'?",
+      "choices": ["He shakes Kumalo's hand", "He calls him 'Mr Kumalo'", "He invites him to lunch", "He refuses to see him"],
+      "answer": 1,
+      "explain": "Msimangu has evidently spoken to him privately, and Kumalo is left in peace to rest."
+    },
+    {
+      "q": "What happens to Kumalo as he sits for hours in the sun above the wide plain?",
+      "choices": ["He falls asleep and misses the service", "There is 'some rising of the spirit, some lifting of the fear'", "He decides to give up the search", "He weeps without stopping"],
+      "answer": 1,
+      "explain": "He begins to accept Msimangu's point: why fear this one thing in a city of thousands upon thousands?"
+    },
+    {
+      "q": "As he sits, what does Kumalo finally admit to himself about the tribe?",
+      "choices": ["That it can be fully restored", "That 'the tribe was broken, and would be mended no more'", "That the chief will save it", "That the mines will save it"],
+      "answer": 1,
+      "explain": "It feels 'as though a man borne upward into the air felt suddenly that the wings of miracle dropped away from him.'"
+    },
+    {
+      "q": "What thoughts of rebuilding comfort Kumalo?",
+      "choices": ["Buying a farm on the tops", "That if Absalom and the girl marry, they might come back to Ndotsheni and he could give the child what he failed to give his own son", "Emigrating to England", "Becoming a shopkeeper"],
+      "answer": 1,
+      "explain": "He also resolves to return with 'a new and quickened interest in the school.'"
+    },
+    {
+      "q": "What does Msimangu say to Kumalo when he comes to fetch him for food?",
+      "choices": ["'Take your time.'", "'It is time to turn. This is madness... But it is also sin. I speak to you as a priest.'", "'Your son has confessed.'", "'We must leave at once for the prison.'"],
+      "answer": 1,
+      "explain": "Kumalo answers, 'You are right, father. I must sit here no longer.'"
+    },
+    {
+      "q": "What work is done at Ezenzeleni?",
+      "choices": ["Gold refining", "White men, some English- and some Afrikaans-speaking, help black people who are blind — teaching them to make baskets", "Training teachers", "Growing maize"],
+      "answer": 1,
+      "explain": "'It was white men who did this work of mercy... came together to open the eyes of black men that were blind.'"
+    },
+    {
+      "q": "What is remarkable about Msimangu's voice as he reads and preaches in the chapel?",
+      "choices": ["It is barely audible", "It is 'of gold' — Kumalo had not known his friend had such a voice", "It shakes with fear", "He sings rather than speaks"],
+      "answer": 1,
+      "explain": "'It was not only a voice of gold, but it was the voice of a man whose heart was golden.'"
+    },
+    {
+      "q": "From which book of the Bible does Msimangu read to the blind?",
+      "choices": ["The Psalms", "Isaiah — 'To open the blind eyes, to bring out the prisoners from the prison'", "The Gospel of John", "Revelation"],
+      "answer": 1,
+      "explain": "Kumalo hears it as spoken to him: 'we are not forsaken.'"
+    },
+    {
+      "q": "Which promise from the reading especially lifts Kumalo?",
+      "choices": ["'The meek shall inherit the earth'", "'They that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles'", "'Blessed are the poor'", "'I am the way, the truth and the life'"],
+      "answer": 1,
+      "explain": "'The people sigh, and Kumalo sighs, as though this is a great word that has been spoken.'"
+    },
+    {
+      "q": "How does Kumalo greet Msimangu after the service?",
+      "choices": ["'I must go home at once.'", "'Brother, I am recovered.'", "'There is still no hope.'", "'You should not have brought me here.'"],
+      "answer": 1,
+      "explain": "Msimangu answers humbly that he had tried every way to touch Kumalo but could not come near — 'So give thanks and be satisfied.'"
+    }
+  ]
+}

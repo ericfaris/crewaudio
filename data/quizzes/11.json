@@ -1,0 +1,67 @@
+{
+  "chapter": 11,
+  "book": 1,
+  "title": "Book One, Chapter 11 — review",
+  "questions": [
+    {
+      "q": "What does Msimangu propose to Kumalo on the train back to Sophiatown?",
+      "choices": ["That Kumalo return home at once", "That Kumalo rest for a while and come with him to Ezenzeleni, the place of the blind", "That they hire a private detective", "That they go to the police"],
+      "answer": 1,
+      "explain": "'While I work, you can rest'; the young man at the reformatory will search better than they can."
+    },
+    {
+      "q": "What is Ezenzeleni?",
+      "choices": ["A prison", "A place where white people work to help black people who are blind", "A mine", "A boys' club"],
+      "answer": 1,
+      "explain": "Msimangu goes there to hold a service and attend to their own people."
+    },
+    {
+      "q": "Who is the rosy-cheeked priest who talks with Kumalo about England that evening?",
+      "choices": ["Mr Carmichael", "Father Vincent", "The Bishop", "Msimangu"],
+      "answer": 1,
+      "explain": "He speaks of hedges and fields, Westminster Abbey and the great cathedrals."
+    },
+    {
+      "q": "What headline does the priest bring from the city in the Evening Star?",
+      "choices": ["A gold strike", "'MURDER IN PARKWOLD. WELL-KNOWN CITY ENGINEER SHOT DEAD. ASSAILANTS THOUGHT TO BE NATIVES'", "A mine strike", "A church appeal"],
+      "answer": 1,
+      "explain": "The dead man is Arthur Jarvis."
+    },
+    {
+      "q": "Who was Arthur Jarvis?",
+      "choices": ["A gold-mine owner", "A city engineer and a 'great fighter for justice', President of the African Boys' Club in Claremont", "A magistrate", "A newspaper editor"],
+      "answer": 1,
+      "explain": "He was also 'one of the finest of all our young laymen' of the Church."
+    },
+    {
+      "q": "How is Arthur Jarvis connected to Kumalo's home district?",
+      "choices": ["He preached at Ndotsheni", "He was the only child of Mr James Jarvis of High Place, Carisbrooke — the farm in the hills above Ndotsheni", "He owned land at Ixopo", "He taught at the reformatory"],
+      "answer": 1,
+      "explain": "Kumalo knows the father by sight and remembers 'a small bright boy' who rode past the church."
+    },
+    {
+      "q": "According to the newspaper report, where and how was Arthur Jarvis killed?",
+      "choices": ["In the street outside his office", "Shot dead at short range in the passage of his house after coming down to investigate a noise in the kitchen", "In a car", "At the Boys' Club"],
+      "answer": 1,
+      "explain": "His wife and children were away; the servant Richard Mpiring was knocked unconscious in the kitchen."
+    },
+    {
+      "q": "What was found on the table by the murdered man?",
+      "choices": ["A revolver", "An unfinished manuscript titled 'The Truth About Native Crime', and a pipe whose bowl was still warm", "A letter to his father", "A Bible"],
+      "answer": 1,
+      "explain": "He had got up from writing it to go to his death."
+    },
+    {
+      "q": "How many children does Arthur Jarvis leave?",
+      "choices": ["One", "A nine-year-old son and a five-year-old daughter", "Three sons", "None"],
+      "answer": 1,
+      "explain": "He leaves a widow and two young children."
+    },
+    {
+      "q": "How does Kumalo respond at the end of the chapter when Msimangu urges him to pray?",
+      "choices": ["He prays fervently", "'There is no prayer left in me. I am dumb here inside. I have no words at all.'", "He goes straight to the prison", "He blames the young white man"],
+      "answer": 1,
+      "explain": "'Here in my heart there is nothing but fear. Fear, fear, fear.'"
+    }
+  ]
+}

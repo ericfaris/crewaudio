@@ -1,0 +1,67 @@
+{
+  "chapter": 15,
+  "book": 1,
+  "title": "Book One, Chapter 15 — review",
+  "questions": [
+    {
+      "q": "Why does the young white man return to Mrs Lithebe's?",
+      "choices": ["To arrest Gertrude", "To apologise for his angry words and to talk about getting a lawyer", "To collect his money", "To take Kumalo to the prison"],
+      "answer": 1,
+      "explain": "'When my work goes wrong, I hurt myself and I hurt others also. But then I grow ashamed, and that is why I am here.'"
+    },
+    {
+      "q": "Why does the young man say Kumalo should have a lawyer?",
+      "choices": ["Because the truth must be hidden", "Not because the truth must not be told, but because 'I do not trust your brother' — John plans to deny Matthew and the third man were there", "Because lawyers are free", "Because the Bishop insists"],
+      "answer": 1,
+      "explain": "A lawyer would also know how to make the court believe Absalom fired 'because he was afraid', with no intention to kill."
+    },
+    {
+      "q": "What defence does Father Vincent say the lawyer will run?",
+      "choices": ["That Absalom is insane", "The plain truth — that the shot was fired in fear and not to kill", "That Absalom was elsewhere", "That the servant is lying"],
+      "answer": 1,
+      "explain": "'It is to be the truth, and nothing but the truth, and indeed, the man I am thinking of would not otherwise take the case.'"
+    },
+    {
+      "q": "What does Father Vincent say about sorrow and fear?",
+      "choices": ["Both are useless", "'Sorrow is better than fear. For fear impoverishes always, while sorrow may enrich.'", "Fear is the wiser feeling", "Neither can be helped"],
+      "answer": 1,
+      "explain": "'Fear is a journey, a terrible journey, but sorrow is at least an arriving.'"
+    },
+    {
+      "q": "What image does Father Vincent use for what a man can do after disaster?",
+      "choices": ["Flee the country", "'About a storm he can do nothing, but he can rebuild a house'", "Curse God", "Wait for the storm to pass"],
+      "answer": 1,
+      "explain": "He speaks 'in that symbolic language that is like the Zulu tongue.'"
+    },
+    {
+      "q": "When Father Vincent mentions 'a thief upon the cross', how does Kumalo answer sharply?",
+      "choices": ["'My son will repent.'", "'My son was not a thief' — and he insists the murdered man was 'a good man... devoted to our people'", "'The thief was forgiven, so is my son.'", "'Do not speak of the Bible to me.'"],
+      "answer": 1,
+      "explain": "Kumalo calls it 'the greatest evil I have known.'"
+    },
+    {
+      "q": "What does Kumalo say he sees in his son that grieves him most?",
+      "choices": ["Anger at the white man", "'I see no shame in him, no pity for those he has hurt' — the boy seems to weep only for himself, for his danger", "A desire to escape", "Hatred of his father"],
+      "answer": 1,
+      "explain": "'Can a person lose all sense of evil? A boy, brought up as he was brought up?'"
+    },
+    {
+      "q": "What does Father Vincent tell Kumalo NOT to pray for?",
+      "choices": ["The girl and the child", "For himself, and to understand the ways of God", "The soul of the murdered man", "All white people"],
+      "answer": 1,
+      "explain": "'For they are secret. Who knows what life is? — for life is a secret.'"
+    },
+    {
+      "q": "For whom does Father Vincent tell Kumalo to pray?",
+      "choices": ["Only his own family", "Gertrude and her child, the girl, the grandchild, the bereaved wife and children, the soul of the man who was killed, and all white people 'who would do justice if they were not afraid'", "Only his son", "The judge alone"],
+      "answer": 1,
+      "explain": "'And give thanks where you can give thanks. For nothing is better.'"
+    },
+    {
+      "q": "How does Kumalo react when he learns the lawyer will take the case 'pro deo'?",
+      "choices": ["He is suspicious of the offer", "He stammers, 'I have never met such kindness', and turns away his face because 'he wept easily in these days'", "He refuses out of pride", "He offers to pay anyway"],
+      "answer": 1,
+      "explain": "'Pro deo' means 'for God' — the case is taken for nothing, or almost nothing."
+    }
+  ]
+}

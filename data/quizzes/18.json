@@ -1,0 +1,67 @@
+{
+  "chapter": 18,
+  "book": 2,
+  "title": "Book Two, Chapter 1 — review",
+  "questions": [
+    {
+      "q": "How does the opening of Book Two echo the opening of Book One?",
+      "choices": ["It repeats the courtroom description", "It repeats the description of the lovely road from Ixopo into the hills — but now the view is from the tops, toward High Place", "It opens with a letter", "It opens in Johannesburg"],
+      "answer": 1,
+      "explain": "The perspective shifts from Kumalo's ruined valley to the rich farmland above it."
+    },
+    {
+      "q": "Whose farm is High Place?",
+      "choices": ["The chief's", "James Jarvis's — it stands high above Ndotsheni", "Kumalo's", "The magistrate's"],
+      "answer": 1,
+      "explain": "It is said to be 'one of the finest farms of this countryside.'"
+    },
+    {
+      "q": "Why does Jarvis watch the ploughing 'with a gloomy eye'?",
+      "choices": ["The oxen are sick", "There is a drought — no rain, and the clods turn up 'hard and unbroken' over the iron soil", "His labourers have left", "A fire has burned the fields"],
+      "answer": 1,
+      "explain": "'Rain, rain, there was no rain.'"
+    },
+    {
+      "q": "What does Jarvis think about the eroded reserves below him, like Ndotsheni?",
+      "choices": ["That the land is fine and only needs rain", "That it is 'a problem almost beyond solution' — the people are ignorant of farming methods and there are too many cattle", "That the government should give the land back entirely", "That it is not his concern"],
+      "answer": 1,
+      "explain": "He turns 'these old thoughts' over as he climbs to the tops."
+    },
+    {
+      "q": "Why did Jarvis's son not take over High Place?",
+      "choices": ["He died young", "He went in for engineering instead, married and settled in Johannesburg", "He quarrelled with his father", "He emigrated"],
+      "answer": 1,
+      "explain": "It had been 'a heavy blow' for Jarvis, but 'his life was his own.'"
+    },
+    {
+      "q": "Who brings the news to Jarvis on the hillside?",
+      "choices": ["The magistrate", "Captain van Jaarsveld of the police, with Binnendyk", "The Bishop", "A telegram boy"],
+      "answer": 1,
+      "explain": "Van Jaarsveld is 'one of the most popular men in the village.'"
+    },
+    {
+      "q": "What is the news?",
+      "choices": ["A fire on the farm", "Jarvis's son Arthur was shot dead at 1.30 that afternoon in Johannesburg", "The bank has failed", "War has been declared"],
+      "answer": 1,
+      "explain": "'It is suspected by a native housebreaker.'"
+    },
+    {
+      "q": "What help does the captain offer to get Jarvis to Johannesburg quickly?",
+      "choices": ["A special train that night", "An aeroplane waiting at Pietermaritzburg — 'You could be in Johannesburg at midnight'", "His own car", "Nothing; there is no way"],
+      "answer": 1,
+      "explain": "They must let the airport know by four o'clock."
+    },
+    {
+      "q": "What weighs on Jarvis as he comes down the hill?",
+      "choices": ["The cost of the journey", "That he must be the one to tell his wife Margaret, who 'isn't strong'", "That the murderer may not be caught", "That the ploughing is unfinished"],
+      "answer": 1,
+      "explain": "'I don't know how she will stand it.'"
+    },
+    {
+      "q": "How does Jarvis react when the captain asks if he can stand up?",
+      "choices": ["He springs up at once", "He sits without moving, dazed — 'Out of a cloudless sky these things come'", "He weeps aloud", "He refuses to move at all"],
+      "answer": 1,
+      "explain": "His wife is watching from a distance and already senses something is wrong."
+    }
+  ]
+}

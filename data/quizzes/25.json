@@ -1,0 +1,67 @@
+{
+  "chapter": 25,
+  "book": 2,
+  "title": "Book Two, Chapter 8 — review",
+  "questions": [
+    {
+      "q": "Why do Jarvis and his wife go to Springs?",
+      "choices": ["To attend the trial", "To spend a day with Margaret's niece Barbara Smith, on a day the Court is not sitting — Jarvis hopes it will do his grieving wife good", "To buy shares", "To visit the new gold field"],
+      "answer": 1,
+      "explain": "The two women talk of home while Jarvis, 'a man of the soil', walks in the garden."
+    },
+    {
+      "q": "Who knocks at the kitchen door while Jarvis reads the newspaper alone?",
+      "choices": ["A policeman", "An old, trembling native parson in black clothes 'green with age' — it is Kumalo", "John Harrison", "Barbara Smith's servant"],
+      "answer": 1,
+      "explain": "Kumalo sits down on the lowest step 'as though he were ill or starving.'"
+    },
+    {
+      "q": "What errand has brought Kumalo to that house?",
+      "choices": ["To beg forgiveness", "To inquire about Sibeko's daughter, who had come to work for Smith's married daughter and vanished", "To ask for money for the church", "To deliver a letter"],
+      "answer": 1,
+      "explain": "The address on his worn paper turns out to be the house where the Jarvises are visiting."
+    },
+    {
+      "q": "What does Kumalo finally tell Jarvis, once Jarvis presses him about 'something between you and me'?",
+      "choices": ["That he is a thief", "'It was my son that killed your son'", "That he cannot pay a debt", "That the girl has run away"],
+      "answer": 1,
+      "explain": "Kumalo says it is 'the heaviest thing of all my years' — and of Jarvis's too."
+    },
+    {
+      "q": "How does Jarvis respond after walking out into the garden?",
+      "choices": ["He calls the police", "He comes back and says, 'I have heard you. I understand what I did not understand. There is no anger in me.'", "He orders Kumalo off the property", "He weeps and cannot speak"],
+      "answer": 1,
+      "explain": "He then helps Kumalo do what he came to do — see Smith's daughter about Sibeko's girl."
+    },
+    {
+      "q": "What has become of Sibeko's daughter, according to Smith's daughter?",
+      "choices": ["She married well", "She 'went to the bad', brewed liquor in her room, was jailed for a month, and was sent away — 'I'm sure I do not know where she is. And I do not care.'", "She returned to Ixopo", "She is still working there"],
+      "answer": 1,
+      "explain": "Smith's daughter had promised the father to look after her."
+    },
+    {
+      "q": "How does Jarvis translate Smith's daughter's words into Zulu for Kumalo?",
+      "choices": ["Word for word, including 'And I do not care'", "He says only 'She does not know', and does not add that she said 'I do not care'", "He refuses to translate", "He softens it into a promise to help"],
+      "answer": 1,
+      "explain": "The small mercy is noticed later by Kumalo, who is grateful Jarvis spared him those words."
+    },
+    {
+      "q": "What memory does Jarvis share with Kumalo about Arthur as a boy?",
+      "choices": ["That he was cruel to animals", "The small boy who rode past Ndotsheni 'on a red horse with a white face', carrying wooden guns in his belt", "That he loved to fish", "That he never left the farm"],
+      "answer": 1,
+      "explain": "Kumalo answers, 'There was a brightness in him,' and Jarvis agrees."
+    },
+    {
+      "q": "What does Kumalo say to Jarvis before they part?",
+      "choices": ["That he expects forgiveness", "'My heart holds a deep sorrow for you, and for the inkosikazi, and for the young inkosikazi, and for the children.'", "That his son is innocent", "That he will pay compensation"],
+      "answer": 1,
+      "explain": "Jarvis answers fiercely, 'Yes, yes,' and calls the mistress of the house."
+    },
+    {
+      "q": "What does Jarvis tell his wife afterwards, when she asks why he was so disturbed?",
+      "choices": ["The whole truth", "'Something that came out of the past... You know how it comes, suddenly?'", "That Kumalo had threatened him", "Nothing; he stays silent"],
+      "answer": 1,
+      "explain": "She is satisfied and says, 'I know.'"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "chapter": 23,
+  "book": 2,
+  "title": "Book Two, Chapter 6 — review",
+  "questions": [
+    {
+      "q": "Why is 'little attention being paid to the trial'?",
+      "choices": ["A war has broken out", "Rich new gold has been discovered at Odendaalsrust in the Orange Free State", "The judge has fallen ill", "The newspapers are on strike"],
+      "answer": 1,
+      "explain": "Men prophesy 'a new Johannesburg will rise there.'"
+    },
+    {
+      "q": "How do men at the Stock Exchange behave when the news breaks?",
+      "choices": ["They stay calm", "They 'go mad' — shouting, screaming, throwing their hats in the air as shares climb", "They sell everything and go home", "They form an orderly queue"],
+      "answer": 1,
+      "explain": "The 'wonder-share of Tweede Vlei' rises from twenty shillings toward a hundred."
+    },
+    {
+      "q": "What alternative uses for the money do the welfare workers and Father Beresford suggest — before being dismissed as 'muddled'?",
+      "choices": ["Building a second Johannesburg", "Anti-erosion works, boys' and girls' clubs, social centres, more hospitals, and higher pay for the miners", "Lower taxes for shareholders", "A new stock exchange"],
+      "answer": 1,
+      "explain": "Most of them, it is admitted, 'haven't one share-certificate to rub against another.'"
+    },
+    {
+      "q": "What does Sir Ernest Oppenheimer say about the new gold field?",
+      "choices": ["That it should be nationalised", "That it 'need not be so' — here is a chance to try settled mine labour, in villages not compounds, where a man can live with his wife and children", "That it will not last", "Nothing at all"],
+      "answer": 1,
+      "explain": "There is also talk the Government may set up something like the Tennessee Valley Authority to control the area."
+    },
+    {
+      "q": "What refrain does the narrator repeat about money and the mines?",
+      "choices": ["'Gold is king.'", "'For mines are for men, not for money' — money is for food, clothes, comfort, security and dreams", "'The market never lies.'", "'South Africa is built on gold.'"],
+      "answer": 1,
+      "explain": "'Money is for buying the fruits of the earth, of the land where you were born.'"
+    },
+    {
+      "q": "How does the chapter end?",
+      "choices": ["With a stock-market crash", "'No second Johannesburg is needed upon the earth. One is enough.'", "With John Kumalo's arrest", "With rain falling on the Free State"],
+      "answer": 1,
+      "explain": "The line rejects the giddy dream of repeating Johannesburg's mistakes."
+    },
+    {
+      "q": "How is the site of the new gold field described before the drilling?",
+      "choices": ["A ruined mining town", "Flat rolling veld — sheep, cattle, native herd-boys, grass and bushes, a field of maize here and there", "Dense forest", "A desert"],
+      "answer": 1,
+      "explain": "The only watchers are a passing herd-boy or an old Afrikaans-speaking farmer on his horse."
+    },
+    {
+      "q": "What is 'Cross at the Crossroads'?",
+      "choices": ["A new mine", "An obscure weekly pamphlet brought out by the missionary Father Beresford", "A church in Parkwold", "A government report"],
+      "answer": 1,
+      "explain": "The 'Kafferboeties' and welfare workers write mostly for such small publications."
+    },
+    {
+      "q": "What is the tone of this chapter?",
+      "choices": ["Straight reportage", "Bitter satire — mocking the market frenzy and the excuses made for not spending the wealth on the poor", "Comic and light", "Mournful and quiet"],
+      "answer": 1,
+      "explain": "'A man must get something for his courage and foresight, and there's mental strain too.'"
+    },
+    {
+      "q": "According to the satirical logic of the chapter, why does the price of shares have 'nothing to do with' miners' wages?",
+      "choices": ["Because wages are fixed by law", "Because wages are said to be 'determined solely by mining costs and the price of gold' — so the windfall 'muddled' thinkers want spent on wages is treated as separate", "Because the miners own shares too", "Because there is no connection worth discussing"],
+      "answer": 1,
+      "explain": "The narrator lets the self-serving argument condemn itself."
+    }
+  ]
+}

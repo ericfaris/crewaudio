@@ -1,0 +1,67 @@
+{
+  "chapter": 14,
+  "book": 1,
+  "title": "Book One, Chapter 14 — review",
+  "questions": [
+    {
+      "q": "What bargaining is going on at Mrs Lithebe's when Kumalo returns from Ezenzeleni?",
+      "choices": ["Buying a stove for his wife", "Mrs Lithebe has found a buyer for Gertrude's table, chairs and pots and pans — sold for three pounds", "Selling the church's furniture", "Renting an extra room"],
+      "answer": 1,
+      "explain": "The aluminium pots, which black people do not usually buy, were 'the gift of a friend' — Kumalo does not inquire further."
+    },
+    {
+      "q": "How does Kumalo know, before a word is spoken, that Msimangu and the young white man bring bad news?",
+      "choices": ["They are running", "By their set faces and the low tones in which they speak", "They are carrying the newspaper", "They arrive in a police car"],
+      "answer": 1,
+      "explain": "'With the habit born of experience, he forced himself to go to the gate.'"
+    },
+    {
+      "q": "What does the young white man tell Kumalo in the room?",
+      "choices": ["That Absalom has been found alive and well", "'I have heard what you fear. It is true.' — Absalom is arrested", "That the search is over and hopeless", "That the reformatory will take Absalom back"],
+      "answer": 1,
+      "explain": "They speak 'as one talks in a room where someone is dead.'"
+    },
+    {
+      "q": "Who is 'one of the two others' arrested with Absalom?",
+      "choices": ["The taxi-driver Hlabeni", "Matthew Kumalo, the son of Kumalo's brother John", "Johannes Msimangu", "A stranger from Alexandra"],
+      "answer": 1,
+      "explain": "The third is Johannes Pafuri; 'it was he [Absalom] who fired the shot.'"
+    },
+    {
+      "q": "How does Kumalo physically respond to the news, again and again?",
+      "choices": ["He shouts", "He nods his head, 'not once, nor twice, but three or four times'", "He faints", "He runs from the room"],
+      "answer": 1,
+      "explain": "The old man's nodding becomes a haunting image of his shock and grief."
+    },
+    {
+      "q": "What does Kumalo decide to do first, before going to the prison?",
+      "choices": ["Write to his wife", "Go and tell his brother John", "Find a lawyer", "Pray in a church"],
+      "answer": 1,
+      "explain": "'My brother first, he said, if you will show me the way only.'"
+    },
+    {
+      "q": "How does John Kumalo react once he grasps that his own son was there too?",
+      "choices": ["He offers to confess everything", "Fear comes into his eyes; he says 'Who will believe your son?' — planning to deny that Matthew and the third man were present", "He weeps and forgives Absalom", "He goes at once to the police"],
+      "answer": 1,
+      "explain": "The young white man tells John, 'thank God you are not my brother.'"
+    },
+    {
+      "q": "How does the young white man describe his own work, in his angry speech?",
+      "choices": ["'It is only a job.'", "'It is my work to reform, to help, to uplift... You save souls, but I save souls also'", "'It is hopeless work.'", "'The Church should do it, not me.'"],
+      "answer": 1,
+      "explain": "'I saw this Absalom born into a new world and now I shall see him go out.'"
+    },
+    {
+      "q": "In the first prison visit, how does Absalom answer his father's questions about why he did it?",
+      "choices": ["Fully and honestly", "With almost nothing — 'I do not know', 'It is as my father says', 'It was bad companions', 'It was the devil'", "By blaming the white man", "By refusing to speak at all"],
+      "answer": 1,
+      "explain": "'He is a stranger, he said, I cannot touch him, I cannot reach him.'"
+    },
+    {
+      "q": "Why does Absalom say he was carrying a loaded revolver?",
+      "choices": ["To rob a bank", "'For safety' — Johannesburg is a dangerous place, 'A man never knows when he will be attacked'", "Someone gave it to him as a gift", "For hunting"],
+      "answer": 1,
+      "explain": "He also says he still wishes to marry the girl."
+    }
+  ]
+}

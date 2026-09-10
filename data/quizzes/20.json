@@ -1,0 +1,67 @@
+{
+  "chapter": 20,
+  "book": 2,
+  "title": "Book Two, Chapter 3 — review",
+  "questions": [
+    {
+      "q": "What overwhelms Jarvis as he sits in his son's study?",
+      "choices": ["The cold", "Books — 'more books than he had ever seen in a house' — plus stacks of papers and invitations", "Photographs of himself", "Farm accounts"],
+      "answer": 1,
+      "explain": "Invitations ask Arthur to speak at guilds, associations and a university symposium."
+    },
+    {
+      "q": "Which four pictures hang on the walls of the study?",
+      "choices": ["Four South African landscapes", "Christ crucified, Abraham Lincoln, the gabled house of Vergelegen, and leafless willows by a river in a wintry veld", "Portraits of the family", "Maps of Africa"],
+      "answer": 1,
+      "explain": "Jarvis returns again and again to look at them."
+    },
+    {
+      "q": "About which one man had Arthur collected hundreds of books?",
+      "choices": ["Cecil Rhodes", "Abraham Lincoln", "Jan Smuts", "Shakespeare"],
+      "answer": 1,
+      "explain": "Jarvis 'had not known that so many books had been written about any one man.'"
+    },
+    {
+      "q": "What position had the Claremont African Boys' Club just re-elected Arthur to, in the letter Jarvis reads?",
+      "choices": ["Treasurer", "President", "Secretary", "Coach"],
+      "answer": 1,
+      "explain": "The letter, from the secretary Washington Lefifi, is written in quaint, formal phrasing and apologises for the borrowed writing paper."
+    },
+    {
+      "q": "What is the subject of the manuscript pages Jarvis then reads?",
+      "choices": ["A history of the farm", "An argument about what was and is no longer 'permissible' in South Africa", "A speech about the mines", "A letter to Jarvis himself"],
+      "answer": 1,
+      "explain": "The pages are 'obviously part of some larger whole.'"
+    },
+    {
+      "q": "What is Arthur's central argument in the 'permissible' passage?",
+      "choices": ["That white settlement was always wrong", "That using unskilled labour was once permissible, but keeping men unskilled, and breaking up family life, now that we know the cost, is not", "That the mines should be nationalised", "That education should be left to the churches"],
+      "answer": 1,
+      "explain": "'Such development has only one true name, and that is exploitation.'"
+    },
+    {
+      "q": "What does Arthur say about the old tribal system?",
+      "choices": ["That it was worthless superstition", "That, for all its violence and superstition, it was 'a moral system', and our civilization destroyed it and put nothing in its place", "That it should be fully restored", "That it never really existed"],
+      "answer": 1,
+      "explain": "Our civilization therefore has 'an inescapable duty to set up another system of order.'"
+    },
+    {
+      "q": "What figure does Arthur cite about the division of the land?",
+      "choices": ["Half the land for each group", "'We set aside one-tenth of the land for four-fifths of the people'", "Equal shares by district", "Two-thirds for white farmers"],
+      "answer": 1,
+      "explain": "'We are caught in the toils of our own selfishness.'"
+    },
+    {
+      "q": "How does the manuscript passage end?",
+      "choices": ["With a signature", "In mid-thought — 'It is time...'", "With a prayer", "With a list of demands"],
+      "answer": 1,
+      "explain": "Arthur got up from writing that very line to go down to his death."
+    },
+    {
+      "q": "How does Jarvis respond to the manuscript?",
+      "choices": ["He throws it away in anger", "He reads it twice and sits 'deeply moved', lost in thought", "He shows it to the police", "He does not finish it"],
+      "answer": 1,
+      "explain": "He then takes down one of the Lincoln books to read."
+    }
+  ]
+}

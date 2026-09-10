@@ -1,0 +1,67 @@
+{
+  "chapter": 32,
+  "book": 3,
+  "title": "Book Three, Chapter 3 — review",
+  "questions": [
+    {
+      "q": "How many letters arrive from Johannesburg, and which one does Kumalo open first, 'fearfully'?",
+      "choices": ["Two — the one from Msimangu", "Four — and he opens Mr Carmichael's first, because it will be about the mercy", "One — from Absalom", "Three — the Bishop's"],
+      "answer": 1,
+      "explain": "The others are from Absalom (to his wife and to his parents) and from Msimangu."
+    },
+    {
+      "q": "What does Mr Carmichael's letter say?",
+      "choices": ["That there will be an appeal", "That there will be no mercy, and Absalom will be hanged on the fifteenth day of that month", "That Absalom has been reprieved", "That the fee is due"],
+      "answer": 1,
+      "explain": "Kumalo sits 'an hour, two hours maybe', seeing and hearing nothing."
+    },
+    {
+      "q": "How does Kumalo's wife respond to the news?",
+      "choices": ["She collapses for days", "She reads it, sits briefly with 'lost and terrible eyes', then stands: 'It is not good to sit idle' — and sends him to visit the sick", "She refuses to believe it", "She blames Kumalo"],
+      "answer": 1,
+      "explain": "'This was the child of her womb, of her breasts.'"
+    },
+    {
+      "q": "In his letter, what does Absalom say about Ndotsheni?",
+      "choices": ["That he never wants to go back", "That he will not see it again — 'if I were back there I should not leave it again'", "That he blames his home for what happened", "Nothing about it"],
+      "answer": 1,
+      "explain": "A black priest from Pretoria is preparing him and speaks well to him."
+    },
+    {
+      "q": "What is the 'business of the sticks' that a survey party plants in the valley?",
+      "choices": ["Marking a new road", "The building of a dam", "Boundary lines for the chief", "A new school"],
+      "answer": 1,
+      "explain": "The magistrate, Jarvis and other white men set up sticks and flags while the chief looks on, not understanding."
+    },
+    {
+      "q": "What breaks over the valley the same day the sticks are planted?",
+      "choices": ["A fire", "A great storm — the drought breaks at last, with thunder and heavy rain", "A dust storm", "Nothing changes"],
+      "answer": 1,
+      "explain": "Jarvis had said, 'This'll be no ordinary storm.'"
+    },
+    {
+      "q": "Where does Jarvis take shelter during the downpour?",
+      "choices": ["Under a tree", "In Kumalo's church — where 'the roof leaks in many places'", "In his car", "At the chief's place"],
+      "answer": 1,
+      "explain": "They sit in near-darkness while the rain drums on the iron roof."
+    },
+    {
+      "q": "What does Jarvis quietly ask Kumalo in the church, and how does he respond to the answer?",
+      "choices": ["Whether the church needs repair", "'Is there mercy?' — Kumalo hands him Carmichael's letter; Jarvis reads it and says he understands, and 'When it comes to this fifteenth day... I shall remember'", "Whether Kumalo blames him", "Whether the dam site is right"],
+      "answer": 1,
+      "explain": "'I do not understand these matters, but otherwise I understand completely.'"
+    },
+    {
+      "q": "How does Kumalo behave toward Jarvis as he leaves the church?",
+      "choices": ["He thanks him profusely", "He is too overcome to say 'go well', to carry the saddle, or to thank Jarvis for the milk", "He asks Jarvis for money", "He follows him home"],
+      "answer": 1,
+      "explain": "The valley is now 'full of sound, of streams and rivers, all red with the blood of the earth.'"
+    },
+    {
+      "q": "What happens with the survey sticks after the storm?",
+      "choices": ["The white men remove them", "Children play at pulling them out; Dazuma's young son pulls one out in error, and the men carefully replace it so no one can tell", "They are washed away", "The chief burns them"],
+      "answer": 1,
+      "explain": "The chief had ordered that not one stick be touched or removed."
+    }
+  ]
+}

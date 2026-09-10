@@ -1,0 +1,67 @@
+{
+  "chapter": 22,
+  "book": 2,
+  "title": "Book Two, Chapter 5 — review",
+  "questions": [
+    {
+      "q": "How are the public seats at the back of the Court arranged?",
+      "choices": ["First come, first served", "In tiers — the right for Europeans, the left for non-Europeans, 'according to the custom'", "By ticket only", "There is no public seating"],
+      "answer": 1,
+      "explain": "The chapter sets out at length the rules of respect owed to the Judge."
+    },
+    {
+      "q": "What does the narrator say about the Judge and the Law?",
+      "choices": ["The Judge writes the Law", "'The Judge does not make the Law. It is the People that make the Law' — so an unjust outcome is the fault of the People, meaning the White People", "The Judge can ignore an unjust law", "The Law comes from the King alone"],
+      "answer": 1,
+      "explain": "In a land of fear, the incorruptibility of the judges is 'like a lamp set upon a stand.'"
+    },
+    {
+      "q": "How does Absalom plead?",
+      "choices": ["Not guilty", "'I plead guilty to killing, but I did not mean to kill' — which the court records as a plea of not guilty to murder", "Guilty to murder", "He refuses to plead"],
+      "answer": 1,
+      "explain": "There is no charge of culpable homicide; it is murder or nothing."
+    },
+    {
+      "q": "Who, according to Absalom's testimony, put forward the plan and chose the time?",
+      "choices": ["Absalom himself", "Johannes Pafuri, who said the time was told to him 'by a voice'", "Matthew Kumalo", "Baby Mkize"],
+      "answer": 1,
+      "explain": "Pafuri also carried the iron bar, which he said 'had been blessed.'"
+    },
+    {
+      "q": "What did the three do on entering the kitchen?",
+      "choices": ["Demanded to see the master", "Tied handkerchiefs over their mouths; then Pafuri struck the servant Richard Mpiring once over the head with the iron bar", "Ran away at once", "Took only food"],
+      "answer": 1,
+      "explain": "Mpiring had called out 'Master, master' before he was struck."
+    },
+    {
+      "q": "What does Absalom say happened when the white man appeared in the passage?",
+      "choices": ["He surrendered", "'I was frightened. I fired the revolver' — and the white man fell", "Pafuri shot him", "They all fled without firing"],
+      "answer": 1,
+      "explain": "Then Pafuri said they must go, and they scattered into the plantation."
+    },
+    {
+      "q": "Where did Absalom say he got the revolver?",
+      "choices": ["From his uncle John", "He bought it from a man in Alexandra; it had two bullets", "From the reformatory", "He found it"],
+      "answer": 1,
+      "explain": "He had fired one bullet earlier at a tree in the plantations, to prove it worked."
+    },
+    {
+      "q": "What did Absalom do after burying the revolver in a plantation?",
+      "choices": ["He caught a train home", "He prayed there — 'I prayed for forgiveness'", "He went straight to the police", "He went back to Pimville"],
+      "answer": 1,
+      "explain": "The prosecutor seems 'taken aback' by this answer."
+    },
+    {
+      "q": "When asked whether he had any reason for repenting other than being in trouble, what does Absalom say?",
+      "choices": ["That he feared for his soul", "'No, I had no other reason' — he repented 'because I was in trouble'", "That the priest had persuaded him", "He does not answer"],
+      "answer": 1,
+      "explain": "His plain honesty on this point becomes important at the sentencing."
+    },
+    {
+      "q": "During Absalom's testimony, how do the other two accused behave?",
+      "choices": ["They weep and confess", "They 'look grieved and shocked to think such things are said' — maintaining they were not there", "They shout at the judge", "They agree with everything"],
+      "answer": 1,
+      "explain": "Absalom, by contrast, is 'still and silent.'"
+    }
+  ]
+}

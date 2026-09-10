@@ -1,0 +1,67 @@
+{
+  "chapter": 24,
+  "book": 2,
+  "title": "Book Two, Chapter 7 — review",
+  "questions": [
+    {
+      "q": "How does Jarvis enter the house this time, though he calls it 'foolish'?",
+      "choices": ["Through the front door", "Through the kitchen, past the stain on the floor, up the stairs", "Through a window", "He does not go in at all"],
+      "answer": 1,
+      "explain": "He goes not to the bedroom but to the study full of books."
+    },
+    {
+      "q": "Where does Jarvis find more of his son's writing?",
+      "choices": ["In a safe", "In a deep drawer of the table — typewritten articles neatly pinned together", "On the bookshelves", "In a suitcase"],
+      "answer": 1,
+      "explain": "Titles include 'The Need for Social Centres', 'Birds of a Parkwold Garden' and 'India and South Africa'."
+    },
+    {
+      "q": "Which essay does Jarvis take out to read?",
+      "choices": ["'The Truth About Native Crime'", "'Private Essay on the Evolution of a South African'", "'Birds of a Parkwold Garden'", "A letter to his father"],
+      "answer": 1,
+      "explain": "It opens: 'It is hard to be born a South African.'"
+    },
+    {
+      "q": "What does Arthur write about his own upbringing on the farm?",
+      "choices": ["That it taught him everything about the country", "That his parents were 'upright and kind and law-abiding' and taught him honour and charity — 'But of South Africa I learned nothing at all'", "That it was cruel and cold", "That he hated it"],
+      "answer": 1,
+      "explain": "He could ride over the hills and see the reserves and yet 'see nothing of what was happening there at all.'"
+    },
+    {
+      "q": "How does Jarvis first react to the essay?",
+      "choices": ["He is delighted", "He is 'shocked and hurt' — almost angry — and starts to leave, but comes back to read it to the end", "He falls asleep", "He tears it up"],
+      "answer": 1,
+      "explain": "He wants 'to understand his son... with his head, not his heart.'"
+    },
+    {
+      "q": "What does Arthur pledge in the closing paragraphs of the essay?",
+      "choices": ["To leave South Africa", "To devote himself to South Africa's service — 'I shall no longer ask myself if this or that is expedient, but only if it is right'", "To go into politics for the money", "To give up writing"],
+      "answer": 1,
+      "explain": "He needs 'a star that will not play false to me, a compass that will not lie.'"
+    },
+    {
+      "q": "Why does Arthur say he does this — 'not because I am courageous and honest'?",
+      "choices": ["For fame", "'Because it is the only way to end the conflict of my deepest soul' — he cannot aspire to the highest with one part of himself and deny it with another", "To please his wife", "Because the church told him to"],
+      "answer": 1,
+      "explain": "'I would rather die than live like that.'"
+    },
+    {
+      "q": "What does Arthur say about his wife in the essay?",
+      "choices": ["That she disagrees with him", "That he is fortunate to have married a wife who thinks as he does and has tried to conquer her own fears and hates", "That she knows nothing of his views", "Nothing at all"],
+      "answer": 1,
+      "explain": "'Aspiration is thus made easy.'"
+    },
+    {
+      "q": "What does Jarvis read next, going up to fetch a book?",
+      "choices": ["The Bible", "Abraham Lincoln's Second Inaugural Address", "A book on South African birds", "Arthur's letters"],
+      "answer": 1,
+      "explain": "He feels 'a secret unfolding, a track picked up again' — he begins to understand why Lincoln fills the study."
+    },
+    {
+      "q": "What are the last words on Arthur's unfinished page?",
+      "choices": ["'The truth is simple.'", "'Allow me a minute...'", "'It is time.'", "'God help us all.'"],
+      "answer": 1,
+      "explain": "Jarvis broods: 'Allow me a minute, while I go to my death.'"
+    }
+  ]
+}

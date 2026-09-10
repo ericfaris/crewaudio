@@ -1,0 +1,67 @@
+{
+  "chapter": 29,
+  "book": 2,
+  "title": "Book Two, Chapter 12 — review",
+  "questions": [
+    {
+      "q": "Why does the party return to the prison in this chapter?",
+      "choices": ["To hear an appeal", "For the marriage of Absalom and the girl in the prison chapel", "To collect Absalom's belongings", "To visit Matthew and Pafuri"],
+      "answer": 1,
+      "explain": "When Absalom sees them, hope briefly shows in his eyes until Kumalo says gently, 'we are come for the marriage.'"
+    },
+    {
+      "q": "How do Absalom and the girl greet each other?",
+      "choices": ["With a long embrace", "'Like strangers' — hands held loosely, no words beyond 'Are you in health?'", "Warmly, laughing", "They refuse to look at each other"],
+      "answer": 1,
+      "explain": "They are 'bound in a great constraint.'"
+    },
+    {
+      "q": "What does Absalom ask about a possible son?",
+      "choices": ["That he be sent to St Chad's", "That he be named Peter", "That he be raised by John", "Nothing"],
+      "answer": 1,
+      "explain": "He also asks for the small Post Office savings and mentions a parcel at Germiston."
+    },
+    {
+      "q": "How does Absalom break down as his father must leave?",
+      "choices": ["He curses the court", "He sobs, 'I am afraid of the hanging', and clings to his father's knees crying 'You must not leave me'", "He faints", "He says nothing and turns away"],
+      "answer": 1,
+      "explain": "Warders have to pull his arms away so Kumalo can go."
+    },
+    {
+      "q": "What does Kumalo do at his brother John's shop that he is ashamed of afterwards?",
+      "choices": ["He steals a tool", "He lies — telling John a man may have been sent to the shop 'to deceive you. As a friend' — to wound him over Matthew's betrayal of Absalom", "He curses John", "He asks John for money"],
+      "answer": 1,
+      "explain": "John understands the barb — 'My son had two such friends' — and roars 'Out of my shop!', bolting the door."
+    },
+    {
+      "q": "What had Kumalo actually come to say to John?",
+      "choices": ["Goodbye only", "That power corrupts, that a man who fights for justice must be cleansed and purified, that love is greater than force — 'And none of these things had he done'", "That he forgave Matthew", "That he would testify for John"],
+      "answer": 1,
+      "explain": "He is left 'humiliated and ashamed' in the street."
+    },
+    {
+      "q": "What does Jarvis give John Harrison in an envelope at the station?",
+      "choices": ["A letter of complaint", "A cheque for one thousand pounds for the Boys' Club — he would be pleased if it were called the 'Arthur Jarvis Club'", "Arthur's manuscript", "Tickets to Natal"],
+      "answer": 1,
+      "explain": "John exclaims, 'Helen of Troy, one thousand pounds!'"
+    },
+    {
+      "q": "What news does Msimangu announce at the farewell party at Mrs Lithebe's?",
+      "choices": ["That he is becoming a bishop", "That he is retiring into a community, forswearing the world and all possessions — 'the first time that a black man had done such a thing in South Africa'", "That he is leaving the church", "That he has found Gertrude a job"],
+      "answer": 1,
+      "explain": "The guests clap and give thanks."
+    },
+    {
+      "q": "What gift does Msimangu give Kumalo at the gate?",
+      "choices": ["His clerical robes", "His savings — a Post Office Book in Kumalo's name with over thirty-three pounds in it", "A Bible", "A letter for the Bishop"],
+      "answer": 1,
+      "explain": "'Do not spoil my pleasure, for I have never had a pleasure like this one.'"
+    },
+    {
+      "q": "What does Kumalo discover on the morning they are to leave for Ndotsheni?",
+      "choices": ["That Absalom has been reprieved", "That Gertrude is gone — her red dress and white turban left behind, and the little boy still there, but Gertrude vanished", "That the train is cancelled", "That John has come to say goodbye"],
+      "answer": 1,
+      "explain": "The night before, Kumalo had knelt and repented of the lie, and meant to write his brother a letter."
+    }
+  ]
+}

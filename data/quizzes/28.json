@@ -1,0 +1,67 @@
+{
+  "chapter": 28,
+  "book": 2,
+  "title": "Book Two, Chapter 11 — review",
+  "questions": [
+    {
+      "q": "What does the Judge decide about the second and third accused, Matthew Kumalo and Johannes Pafuri?",
+      "choices": ["They are found guilty of murder", "Their guilt is 'not established', and they are discharged", "They are found guilty of theft only", "Their case is postponed"],
+      "answer": 1,
+      "explain": "The Judge adds that their previous criminal association 'will be exhaustively investigated.'"
+    },
+    {
+      "q": "Why does the identification of Pafuri by the servant Mpiring fail to convince the court?",
+      "choices": ["Mpiring never saw the attackers", "Mpiring picked Pafuri from ten disguised men, but a tic is a 'marked characteristic' that can lead as easily to wrong identification as to right, especially with the face half-covered", "Mpiring was bribed", "Pafuri was not in the line-up"],
+      "answer": 1,
+      "explain": "Identification 'depends on the recognition of a pattern, of a whole.'"
+    },
+    {
+      "q": "How does the court regard Baby Mkize as a witness?",
+      "choices": ["Reliable and clear", "'A most unsatisfactory witness' — confused, contradictory and frightened; her fear could have many causes", "The best witness in the case", "Never called at all"],
+      "answer": 1,
+      "explain": "She had first lied to the police, saying she had not seen Absalom for a year."
+    },
+    {
+      "q": "Why does the court accept that Absalom is telling the truth about the other two?",
+      "choices": ["Because they confessed", "Because he gave a straightforward account of his own actions and 'there seems no reason' for him to shield the real confederates and falsely implicate two innocent men", "Because a fourth man testified", "Because the police proved it"],
+      "answer": 1,
+      "explain": "Yet 'previous association... is not in itself a proof of association in the grave crime.'"
+    },
+    {
+      "q": "What does the Judge say about administering an unjust law?",
+      "choices": ["A judge may bend it when society is unjust", "'A Judge may not trifle with the Law because the society is defective' — if the law is unjust, it is the law and the society that must be changed", "A judge should resign rather than apply it", "The King decides such cases"],
+      "answer": 1,
+      "explain": "It is 'the sacred duty of a Judge to administer it.'"
+    },
+    {
+      "q": "On what point does the Judge quote 'a great South African judge'?",
+      "choices": ["The definition of theft", "That an intention to kill 'may be inferred from the relevant circumstances', and is present where the object is grievous bodily harm calculated to cause death", "The rules of evidence", "The meaning of mercy"],
+      "answer": 1,
+      "explain": "The Judge cannot believe there was 'no intention to inflict grievous bodily harm' should the need arise."
+    },
+    {
+      "q": "What is the verdict for Absalom?",
+      "choices": ["Culpable homicide", "Guilty of the murder of Arthur Trevelyan Jarvis", "Not guilty", "Guilty but insane"],
+      "answer": 1,
+      "explain": "The court finds his confession thoroughly investigated and true."
+    },
+    {
+      "q": "Why does the Judge make no recommendation to mercy?",
+      "choices": ["He forgets to", "He can 'find no extenuating circumstances' — a young man of manhood's age went to a house with two dangerous weapons, both of which were used", "The prosecutor forbids it", "Because the victim was white"],
+      "answer": 1,
+      "explain": "A higher authority, the Governor-General-in-Council, may still be merciful."
+    },
+    {
+      "q": "What is the sentence?",
+      "choices": ["Life imprisonment", "That Absalom Kumalo be returned to custody 'and be hanged by the neck until you are dead'", "Twenty years' hard labour", "Deportation"],
+      "answer": 1,
+      "explain": "'And may the Lord have mercy upon your soul.'"
+    },
+    {
+      "q": "What breaks the courtroom custom as the broken Kumalo leaves?",
+      "choices": ["He collapses on the floor", "The young white man and Msimangu help him out, one on each side — white and black together, though 'white on one side, the black on the other' is the custom", "The judge comes down to comfort him", "Jarvis speaks to him"],
+      "answer": 1,
+      "explain": "'It is only when there is a deep experience that such a custom is broken.'"
+    }
+  ]
+}

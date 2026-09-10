@@ -1,0 +1,67 @@
+{
+  "chapter": 33,
+  "book": 3,
+  "title": "Book Three, Chapter 4 — review",
+  "questions": [
+    {
+      "q": "Where has Jarvis gone while the survey sticks stand untouched in the valley?",
+      "choices": ["Back to England", "To Pretoria — his business is 'surely the business of the sticks, which was the business of the dam'", "To Johannesburg for the trial", "To the coast"],
+      "answer": 1,
+      "explain": "Kumalo waits more and more for news of Jarvis's return."
+    },
+    {
+      "q": "Whom does Kumalo increasingly believe can 'perform the great miracle' for Ndotsheni?",
+      "choices": ["The chief", "Jarvis, and Jarvis alone", "The Bishop", "The magistrate"],
+      "answer": 1,
+      "explain": "Kuluse's child has recovered on the milk Jarvis sent."
+    },
+    {
+      "q": "What does the small white boy come to the church to do?",
+      "choices": ["Bring another message", "'Talk Zulu again' — Kumalo teaches him words like amanzi (water), ihashi (horse), inkomo (cow)", "Ride the church's horses", "Attend a service"],
+      "answer": 1,
+      "explain": "By the end he can say a whole sentence, and Kumalo claps his hands in delight."
+    },
+    {
+      "q": "What Zulu sentence does Kumalo say to the boy, meaning 'when you are gone, something bright will go out of Ndotsheni'?",
+      "choices": ["A curse", "A tribute to the boy — the child laughs with pleasure and makes Kumalo repeat it", "A warning", "A joke about the milk"],
+      "answer": 1,
+      "explain": "The boy has 'a brightness inside him', like his father Arthur before him."
+    },
+    {
+      "q": "Who arrives to stay at the church, sent by Jarvis?",
+      "choices": ["A new priest", "Napoleon Letsitsi, a young agricultural demonstrator, 'come here to teach farming'", "A doctor", "A schoolteacher from Pietermaritzburg"],
+      "answer": 1,
+      "explain": "Kumalo, overjoyed, tells him 'You are an angel from God.'"
+    },
+    {
+      "q": "How did Jarvis come to hire Letsitsi?",
+      "choices": ["The Bishop recommended him", "Jarvis went to his home in Krugersdorp, where he was teaching, and asked if he would do 'a great work' at Ndotsheni — for ten pounds a month", "He answered a newspaper advertisement", "The chief chose him"],
+      "answer": 1,
+      "explain": "Xosa and Zulu are 'almost the same', and Letsitsi's mother was a Xosa."
+    },
+    {
+      "q": "What does Letsitsi say he would do in a valley like Ndotsheni?",
+      "choices": ["Give up on it", "Stop the burning of dung and put it back in the land, gather and treat the weeds, plough round the hills, plant quick-growing trees for fuel, and share the land for pastures", "Bring in tractors and machines", "Move the people to the towns"],
+      "answer": 1,
+      "explain": "Hardest of all, he says, is the custom of lobola, which makes people keep too many cattle."
+    },
+    {
+      "q": "Where is the water for the planned dam to come from?",
+      "choices": ["Boreholes", "By a pipe from the river — 'That will be his [Jarvis's] river,' says Kumalo", "Rainfall alone", "The stream past the church"],
+      "answer": 1,
+      "explain": "Water from the dam can be let out to irrigate the land and the pastures."
+    },
+    {
+      "q": "Why does the small white boy gallop back a second time — 'That was a close shave', he says?",
+      "choices": ["He forgot his cap", "His grandfather came back early enough that he still had time to ride down and say goodbye — he leaves for Johannesburg on the small train tomorrow", "The horse bolted", "He wanted more milk"],
+      "answer": 1,
+      "explain": "'Close shave' is slang, he explains — 'a narrow escape.'"
+    },
+    {
+      "q": "What does Letsitsi say about how quickly the valley can be restored?",
+      "choices": ["It is impossible", "'There is no reason why this valley should not be what it was before. But it will not happen quickly. Not in a day.'", "It will be done by next harvest", "Only Jarvis can decide"],
+      "answer": 1,
+      "explain": "Kumalo hopes it will happen 'before I die.'"
+    }
+  ]
+}

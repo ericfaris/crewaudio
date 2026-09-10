@@ -1,0 +1,67 @@
+{
+  "chapter": 10,
+  "book": 1,
+  "title": "Book One, Chapter 10 — review",
+  "questions": [
+    {
+      "q": "Whom does Kumalo turn to 'for his enjoyment' while waiting for Msimangu?",
+      "choices": ["His brother John", "Gertrude's small serious son, whom he plays with and tells of the great valley", "Father Vincent", "Mrs Lithebe"],
+      "answer": 1,
+      "explain": "He is homesick, and reciting the names of hills and rivers to the child deeply satisfies him."
+    },
+    {
+      "q": "Why is there never again much real talk between Kumalo and his sister Gertrude?",
+      "choices": ["They quarrel constantly", "She is much younger, only went to the fifth standard, and cannot speak with him of the deep things of Johannesburg", "She has already left", "He forbids her to speak"],
+      "answer": 1,
+      "explain": "They exchange 'conventional conversation'; it is Mrs Lithebe she talks with, about 'things dear to the heart of women.'"
+    },
+    {
+      "q": "Who at Shanty Town first tells them she knew Absalom?",
+      "choices": ["A nurse working there", "A policeman", "The white superintendent", "A liquor seller"],
+      "answer": 0,
+      "explain": "The nurse, in her red and white with her cap, directs them to the Hlatshwayos' house."
+    },
+    {
+      "q": "What has become of Absalom, according to Mrs Hlatshwayo?",
+      "choices": ["He has gone home to Ndotsheni", "The police took him away, and she heard the magistrate had sent him to the reformatory", "He is working in the town", "He has died"],
+      "answer": 1,
+      "explain": "The Hlatshwayos had taken pity on him 'because he had no place to go.'"
+    },
+    {
+      "q": "Why was Absalom released from the reformatory a month early?",
+      "choices": ["Overcrowding", "Partly good behaviour and his age, but mainly because a girl was pregnant by him and he seemed anxious about the child", "A clerical error", "His father petitioned the Minister"],
+      "answer": 1,
+      "explain": "The reformatory even arranged the marriage, since both he and the girl 'had no people.'"
+    },
+    {
+      "q": "What had the young white man arranged for Absalom on his release?",
+      "choices": ["A place at St Chad's", "Work in the town, and a Post Office Book with three or four pounds saved in it", "A passage back to Natal", "Nothing"],
+      "answer": 1,
+      "explain": "The reports of his work had been good, and 'I persuaded him to open a Post Office Book.'"
+    },
+    {
+      "q": "What kind of place is Pimville, where Absalom and the girl live?",
+      "choices": ["A modern housing estate", "A village of half-tanks used as houses, set up years before 'in emergency' and used ever since", "A hostel run by the church", "A block of flats"],
+      "answer": 1,
+      "explain": "A white man may not enter without permission at the gate."
+    },
+    {
+      "q": "What does the girl tell them about Absalom?",
+      "choices": ["He is asleep inside", "He went to Springs on Saturday and has not returned — and it is now Tuesday", "He has gone back to the reformatory", "He is at work"],
+      "answer": 1,
+      "explain": "She says it 'tonelessly, hopelessly, as one who is used to waiting, to desertion.'"
+    },
+    {
+      "q": "What bitter thing does Msimangu say to the girl?",
+      "choices": ["'You should never have trusted him.'", "'Perhaps you will find another man.'", "'The police will come for you.'", "'You must go back to your mother.'"],
+      "answer": 1,
+      "explain": "He immediately regrets it and later asks Kumalo's forgiveness for his 'ugly words.'"
+    },
+    {
+      "q": "What does the young white man's telephone call to the factory reveal?",
+      "choices": ["Absalom has been promoted", "Absalom has not been at work all week", "The factory has closed", "Absalom was arrested there"],
+      "answer": 1,
+      "explain": "He also checks with the Superintendent's office, confirming Absalom has vanished."
+    }
+  ]
+}

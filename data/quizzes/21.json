@@ -1,0 +1,67 @@
+{
+  "chapter": 21,
+  "book": 2,
+  "title": "Book Two, Chapter 4 — review",
+  "questions": [
+    {
+      "q": "What was 'the first time' for Jarvis and his wife at the Parkwold Church service?",
+      "choices": ["The first time they had been to a funeral", "The first time they had sat in a church with people who were not white", "The first time they had heard the Bishop", "The first time they had left the farm"],
+      "answer": 1,
+      "explain": "White, black, coloured and Indian people came, and the church was too small for them all."
+    },
+    {
+      "q": "What did the Bishop say in his address?",
+      "choices": ["That the killer must hang", "That men do not understand the riddle of why such a young man of promise was cut off — and he spoke of a life devoted to South Africa 'of love that cast out fear'", "That the family should leave the country", "Nothing of substance"],
+      "answer": 1,
+      "explain": "Jarvis feels pride 'in the stranger who had been his son.'"
+    },
+    {
+      "q": "What 'first time' does Jarvis experience at the funeral itself?",
+      "choices": ["The first time he had cried in public", "The first time he had ever shaken hands with black people", "The first time he had flown", "The first time he had missed the ploughing"],
+      "answer": 1,
+      "explain": "'The black people — yes, the black people also' — shook hands with him."
+    },
+    {
+      "q": "How does Harrison say the people of Johannesburg feel about crime at that moment?",
+      "choices": ["Unconcerned", "'Scared stiff' — they barricade their houses at night", "Confident the police have it in hand", "Sympathetic to the criminals"],
+      "answer": 1,
+      "explain": "He cites the Phillipsons, robbed and beaten three doors down."
+    },
+    {
+      "q": "What does Harrison say about a threatened mine strike?",
+      "choices": ["It will not happen", "The miners want ten shillings a day (they get about three shillings a shift), and 'if mining costs go up much more there won't be any mines'", "The mines have already agreed to the demand", "It is only a rumour"],
+      "answer": 1,
+      "explain": "Harrison argues the whole country depends on the mines."
+    },
+    {
+      "q": "How did Arthur respond, according to Harrison, when asked about the robbery of the Phillipsons?",
+      "choices": ["He demanded harsher sentences", "He 'reckoned we were to blame somehow'", "He said nothing", "He blamed the police"],
+      "answer": 1,
+      "explain": "Harrison couldn't always follow Arthur but felt 'he had a kind of sincerity.'"
+    },
+    {
+      "q": "What does John Harrison quietly tell Jarvis about his father's use of the word 'Afrikaners'?",
+      "choices": ["That his father is an Afrikaner himself", "That when his father says 'Afrikaners' he means 'Nationalists' — Arthur was always telling him that", "That his father hates all Afrikaners", "Nothing about it at all"],
+      "answer": 1,
+      "explain": "'And father would agree too, but he just doesn't seem able to remember.'"
+    },
+    {
+      "q": "What does Jarvis ask John Harrison to show him?",
+      "choices": ["Arthur's grave", "The Boys' Club in Gladiolus Street, Claremont", "The mine compounds", "The non-European Hospital"],
+      "answer": 1,
+      "explain": "'It was our Club. Arthur's and mine,' John says."
+    },
+    {
+      "q": "What does Jarvis say to Harrison about talking of his son?",
+      "choices": ["That he cannot bear to", "That it does him good — 'I'm not a man to sit and talk about death by the hour', but hearing about Arthur's work helps", "That Harrison should stop", "That it is a private matter"],
+      "answer": 1,
+      "explain": "He wishes he could have heard Arthur argue with Harrison."
+    },
+    {
+      "q": "What does the chapter suggest Jarvis is slowly doing as he listens?",
+      "choices": ["Planning revenge", "Coming to know, and to understand, a son who had become a stranger to him", "Deciding to sell the farm", "Losing interest in the case"],
+      "answer": 1,
+      "explain": "The theme of Book Two: Jarvis's education by his dead son's words and example."
+    }
+  ]
+}

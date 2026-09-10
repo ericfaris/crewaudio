@@ -1,0 +1,67 @@
+{
+  "chapter": 8,
+  "book": 1,
+  "title": "Book One, Chapter 8 — review",
+  "questions": [
+    {
+      "q": "What obstacle do Msimangu and Kumalo meet at the bus rank for Alexandra?",
+      "choices": ["The buses are cancelled by a strike of drivers", "A boycott of the buses — people refuse to ride until the fare is brought back to fourpence", "A police roadblock", "Flooding on the road"],
+      "answer": 1,
+      "explain": "A man persuades them not to ride: 'If you use this bus you are weakening the cause of the black people.'"
+    },
+    {
+      "q": "Who is the man organising the boycott at the bus rank?",
+      "choices": ["John Kumalo", "Dubula — 'the famous Dubula', said to have 'the heart'", "Tomlinson", "Professor Hoernle"],
+      "answer": 1,
+      "explain": "They say Tomlinson has the brains and John the voice, but Dubula has the heart; he has given up his own work to picket the buses."
+    },
+    {
+      "q": "How far is it to walk to Alexandra?",
+      "choices": ["Three miles", "Eleven miles", "Twenty miles", "Half a mile"],
+      "answer": 1,
+      "explain": "People of all ages, some sick or crippled, are walking it daily — starting at four in the morning."
+    },
+    {
+      "q": "How do Msimangu and Kumalo actually get most of the way to Alexandra?",
+      "choices": ["They take the bus after all", "A white man stops his car and gives them a lift, then drives back to Johannesburg", "They ride bicycles", "The police give them a lift"],
+      "answer": 1,
+      "explain": "Many white people are stopping to carry the walking people, especially the old and the crippled."
+    },
+    {
+      "q": "Why did white residents get up a petition to do away with Alexandra altogether?",
+      "choices": ["To build a park there", "Because of crime — an old white woman died of shock after a bag-snatch, and a white woman was killed resisting robbers", "Because the land was needed for mining", "Because of disease"],
+      "answer": 1,
+      "explain": "Their white friends fought the petition, arguing the good of Alexandra — owning a house, a place of one's own — outweighed the bad."
+    },
+    {
+      "q": "At 79 Twenty-Third Avenue, what does Mrs Mkize first tell them?",
+      "choices": ["That Absalom still lives there", "That Absalom and another Kumalo (John's son) left about a year ago, talking of many places", "That she has never heard of Absalom", "That Absalom is in hospital"],
+      "answer": 1,
+      "explain": "There is 'fear in her eyes'; Msimangu sends Kumalo on ahead and returns alone."
+    },
+    {
+      "q": "What does Msimangu get Mrs Mkize to admit, after swearing to her on the Bible?",
+      "choices": ["That she is Absalom's aunt", "That the two young men brought stolen goods to the house at night — clothes, watches, money — and left when 'near to being discovered'", "That Absalom has already been hanged", "That the police paid her"],
+      "answer": 1,
+      "explain": "She never saw blood on them, 'umfundisi' — 'only a little, but something.'"
+    },
+    {
+      "q": "Whom does Mrs Mkize name as a friend of the young men who might know where they went?",
+      "choices": ["The taxi-driver Hlabeni", "A priest in Pretoria", "Mr Carmichael", "The chief"],
+      "answer": 0,
+      "explain": "'They were friendly with the taxi-driver Hlabeni. Near the bus rank he lives.'"
+    },
+    {
+      "q": "Where does Hlabeni say Absalom has gone?",
+      "choices": ["Back to Ndotsheni", "To Orlando, to live among the squatters in Shanty Town", "To the mines", "To Springs"],
+      "answer": 1,
+      "explain": "He suggests asking the Municipality people who work among the squatters and know them all."
+    },
+    {
+      "q": "What exchange on the road, involving a white man carrying black passengers, leaves Msimangu saying 'That is what beats me'?",
+      "choices": ["The white man demands payment", "A traffic officer says he is carrying passengers on a bus route, and the white man answers, 'Then take me to court'", "The white man refuses to stop", "The passengers refuse to get in"],
+      "answer": 1,
+      "explain": "Msimangu hits himself across the chest, repeating 'Take me to court' — astonished by such open defiance in a white man on the black people's behalf."
+    }
+  ]
+}

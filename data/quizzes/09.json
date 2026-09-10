@@ -1,0 +1,67 @@
+{
+  "chapter": 9,
+  "book": 1,
+  "title": "Book One, Chapter 9 — review",
+  "questions": [
+    {
+      "q": "What is the form of this chapter?",
+      "choices": ["A single scene with Kumalo and Msimangu", "A chorus of many anonymous voices about the housing shortage and the making of Shanty Town", "A courtroom transcript", "A letter from Absalom"],
+      "answer": 1,
+      "explain": "It opens 'All roads lead to Johannesburg' and moves through many unnamed speakers."
+    },
+    {
+      "q": "What refrain runs through the chapter?",
+      "choices": ["'Cry, the beloved country'", "'Have you a room to let?'", "'All is quiet, they report'", "'Tixo, Tixo'"],
+      "answer": 1,
+      "explain": "The desperate search for lodging is asked and refused over and over."
+    },
+    {
+      "q": "In the itemised weekly budget, how much is left for food for a family of six?",
+      "choices": ["Seventeen shillings", "Thirty-five shillings", "Six shillings", "Nothing at all"],
+      "answer": 0,
+      "explain": "After rent, travel, burial insurance, books, clothes, church and sickness, 'that leaves seventeen shillings for food for six, and we are always hungry.'"
+    },
+    {
+      "q": "How long can people wait on the list for a municipal house?",
+      "choices": ["A few weeks", "About a year", "Five or six years — one man is told he is 'about number six thousand on the list'", "It is instant if you apply"],
+      "answer": 2,
+      "explain": "A bribe can move your name up, but 'the European manager has said that he will deal severely with any who tamper with the list.'"
+    },
+    {
+      "q": "What confuses Mrs Seme when a man says his wife wants to discuss 'the work of the Committee'?",
+      "choices": ["She has never heard of any committee — it is really a coded offer to arrange a bribe for a house", "The man has mistaken her for someone else entirely", "The meeting is at midnight", "The committee wants her to join it"],
+      "answer": 0,
+      "explain": "'He wants to discuss with you the money you are willing to pay for a house.'"
+    },
+    {
+      "q": "Whose plan is it to build Shanty Town?",
+      "choices": ["John Kumalo's", "Dubula's — build your own houses on the open ground by the railway line at Orlando", "The Municipality's", "Msimangu's"],
+      "answer": 1,
+      "explain": "Each family pays a shilling a week to the committee, which arranges lavatories so there is no sickness."
+    },
+    {
+      "q": "Where do the people get the materials to build Shanty Town?",
+      "choices": ["The Municipality supplies them", "They quietly take planks, corrugated iron, sacks and poles from the hospital, the reformatory, a station and the mines", "They buy them from a merchant", "They use mud bricks"],
+      "answer": 1,
+      "explain": "'Shanty Town is up overnight' — sacks, planks and iron, with a shilling to the Committee and no rent."
+    },
+    {
+      "q": "What happens to the sick child in Shanty Town?",
+      "choices": ["A white doctor cures her", "The Committee sends a black doctor, but the child dies before he can help", "She recovers on her own", "She is taken to hospital in time"],
+      "answer": 1,
+      "explain": "'We do not need the doctor any more. No white doctor, no black doctor can help her any more.'"
+    },
+    {
+      "q": "How do the white authorities respond after Shanty Town appears?",
+      "choices": ["They ignore it", "First they photograph it and start building rough houses; then, when more squatters arrive, the police come and drive people away", "They give everyone a proper house at once", "They burn it down immediately"],
+      "answer": 1,
+      "explain": "Pity turns to anger when squatters from Pimville, Alexandra and Sophiatown also put up shacks."
+    },
+    {
+      "q": "What is sung round a fire in Shanty Town at night?",
+      "choices": ["'God Save The King'", "Nkosi Sikelel' iAfrika — 'God Save Africa'", "A Zulu war song", "A hymn in English"],
+      "answer": 1,
+      "explain": "'God save this piece of Africa that is my own, delivered in travail from my body.'"
+    }
+  ]
+}

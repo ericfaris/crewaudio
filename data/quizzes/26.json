@@ -1,0 +1,67 @@
+{
+  "chapter": 26,
+  "book": 2,
+  "title": "Book Two, Chapter 9 — review",
+  "questions": [
+    {
+      "q": "Who is speaking to the crowd in the square with 'the great bull voice'?",
+      "choices": ["Dubula", "John Kumalo", "Tomlinson", "Msimangu"],
+      "answer": 1,
+      "explain": "'The voice has magic in it... A lion growls in it, and thunder echoes in it over black mountains.'"
+    },
+    {
+      "q": "How do Dubula and Tomlinson regard John Kumalo's oratory?",
+      "choices": ["With admiration", "With 'contempt, and with envy' — a voice to move thousands 'with no brain behind it... with no courage to say it if it knew'", "With fear", "With indifference"],
+      "answer": 1,
+      "explain": "They say Tomlinson has the brains and Dubula the heart, but John Kumalo has only the voice."
+    },
+    {
+      "q": "What is John Kumalo asking for in his speech?",
+      "choices": ["Equality, the vote and the removal of the colour bar", "Only 'our share' of the wealth produced by black labour — more money from the richest industry in the world", "Independence for Africa", "Land in the reserves"],
+      "answer": 1,
+      "explain": "'We are not asking here for equality and the franchise... We are asking only for more money.'"
+    },
+    {
+      "q": "Why, according to the narrator, does John Kumalo always 'go so far and no further'?",
+      "choices": ["He runs out of things to say", "He is afraid — he knows that truly rousing words would send him to prison, and 'There is no applause in prison'", "The police stop him each time", "He forgets his speech"],
+      "answer": 1,
+      "explain": "'He is corrupted by his possessions, and he fears their loss.'"
+    },
+    {
+      "q": "What do the two policemen say about John Kumalo?",
+      "choices": ["That he is harmless", "'This man is dangerous' — 'Why don't they shoot him?'", "That he speaks well", "That they cannot understand him"],
+      "answer": 1,
+      "explain": "The high officer later calls him 'Yellow' — dangerous, but a coward."
+    },
+    {
+      "q": "How does Jarvis react to hearing John Kumalo speak?",
+      "choices": ["He is moved to tears", "'I don't care for that sort of thing' — he wants to move on to the Boys' Club", "He applauds", "He wants to meet the speaker"],
+      "answer": 1,
+      "explain": "John Harrison thinks, 'He's too old to face it... Just like my father. But we have to face it.'"
+    },
+    {
+      "q": "What is Msimangu's judgement on John Kumalo's power?",
+      "choices": ["That he should use it fully", "'Perhaps we should thank God he is corrupt. For if he were not corrupt, he could plunge this country into bloodshed.'", "That it is a gift from God to be admired", "That it means nothing"],
+      "answer": 1,
+      "explain": "'Why God should give such power is not for us to understand.'"
+    },
+    {
+      "q": "What happens with the mine strike in this chapter?",
+      "choices": ["It spreads to the whole country", "It never goes beyond the mines; the worst is at Driefontein, where police drive the miners underground and three are killed", "It is called off before it starts", "It succeeds and wages are doubled"],
+      "answer": 1,
+      "explain": "'All is quiet, they report, all is quiet.'"
+    },
+    {
+      "q": "What did a clergyman urge at the Annual Synod of the Diocese of Johannesburg?",
+      "choices": ["Harsher policing", "That it was time to recognize the African Mine Workers' Union — and he 'prophesied a blood-bath if it were not'", "That the church stay out of politics", "That the mines be closed"],
+      "answer": 1,
+      "explain": "A 'spokesman' replies that the miners are 'simple souls... an easy tool for unscrupulous agitators.'"
+    },
+    {
+      "q": "How does the chapter end?",
+      "choices": ["With rain", "'Nothing is ever quiet, except for fools.' — after images of water lapping a deserted harbour and a white ant eating hidden wood", "With John Kumalo's arrest", "With a second strike"],
+      "answer": 1,
+      "explain": "The official calm hides deep, continuing decay."
+    }
+  ]
+}

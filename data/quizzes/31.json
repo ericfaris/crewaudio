@@ -1,0 +1,67 @@
+{
+  "chapter": 31,
+  "book": 3,
+  "title": "Book Three, Chapter 2 — review",
+  "questions": [
+    {
+      "q": "What does Kumalo realise about praying for the restoration of Ndotsheni?",
+      "choices": ["That prayer alone will bring the rain", "That it is not enough — 'men must come together, think something, do something'", "That the Bishop must do it", "That it is hopeless"],
+      "answer": 1,
+      "explain": "Looking round, he can find only two men to turn to: the chief and the headmaster."
+    },
+    {
+      "q": "How severe is the drought when Kumalo goes to see the chief?",
+      "choices": ["Mild", "Worse than the oldest men can remember — leaves fall as in winter, grass crackles like after a fire, not one stream is running", "Only the tops are dry", "It has just started"],
+      "answer": 1,
+      "explain": "The cattle move 'thin and listless' to the dried-up streams."
+    },
+    {
+      "q": "What does Kumalo ponder while he is made to wait at the chief's place?",
+      "choices": ["What to have for supper", "The ways of a chief — how the white man 'knocked these chiefs down, and put them up again, to hold the pieces together', but took most of the pieces away", "How to leave Ndotsheni", "The words of his next sermon"],
+      "answer": 1,
+      "explain": "'Who would be chief over this desolation?'"
+    },
+    {
+      "q": "What does Kumalo propose to the chief?",
+      "choices": ["A new church", "Caring for the land before it is too late, and teaching the children in the school how to care for it, so that some stay in Ndotsheni instead of going to Johannesburg", "That the chief resign", "Moving the whole tribe elsewhere"],
+      "answer": 1,
+      "explain": "The chief keeps trying to bring the matter 'to a successful end' without doing anything."
+    },
+    {
+      "q": "What does the chief finally say he will do?",
+      "choices": ["Nothing", "'I shall see the magistrate' — adding heavily, 'I have spoken to the magistrate before'", "Build a dam himself", "Send Kumalo away"],
+      "answer": 1,
+      "explain": "His counsellors stand 'frowning and perplexed'."
+    },
+    {
+      "q": "What does the narrator say of the chief's counsellors?",
+      "choices": ["They are wise and decisive", "'The counsellors of a broken tribe have counsel for many things, but none for the matter of a broken tribe'", "They refuse to speak at all", "They advise war"],
+      "answer": 1,
+      "explain": "The tribe's institutions have no answer to the tribe's collapse."
+    },
+    {
+      "q": "What does Kumalo find at the headmaster's school?",
+      "choices": ["A thriving farm", "Schemes of work, drawings of seeds, tubes of soil — and school gardens where 'there was no water, and everything was dead'", "Nothing at all", "A full harvest"],
+      "answer": 1,
+      "explain": "The headmaster talks of 'economic causes' and says the school is 'a place of little power.'"
+    },
+    {
+      "q": "How does Kumalo feel after seeing both the chief and the headmaster?",
+      "choices": ["Hopeful", "Dispirited and depressed — 'Where was the great vision that he had seen at Ezenzeleni?'", "Angry with the people", "Ready to leave the ministry"],
+      "answer": 1,
+      "explain": "He prays: 'Into Thy hands, O God, I commend Ndotsheni.'"
+    },
+    {
+      "q": "Who arrives at the church on a red horse at the end of the chapter?",
+      "choices": ["The magistrate", "A small white boy — 'as like to another who had ridden here as any could be' — Arthur Jarvis's son", "The Bishop", "Napoleon Letsitsi"],
+      "answer": 1,
+      "explain": "The boy does not know the custom, and raises his cap and says 'Good morning.'"
+    },
+    {
+      "q": "What does Kumalo tell the small boy happens to the children of Ndotsheni for want of milk?",
+      "choices": ["They grow up thin but well", "'They die, my child. Some of them are dying now' — the child of Kuluse", "They drink water instead", "They go to Johannesburg"],
+      "answer": 1,
+      "explain": "The doctor had said the child must have milk; the parents could only answer, 'we have heard what you say.'"
+    }
+  ]
+}

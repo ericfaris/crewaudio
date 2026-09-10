@@ -1,0 +1,67 @@
+{
+  "chapter": 30,
+  "book": 3,
+  "title": "Book Three, Chapter 1 — review",
+  "questions": [
+    {
+      "q": "Who travels home to Ndotsheni with Kumalo?",
+      "choices": ["Msimangu and Gertrude", "The little boy (Gertrude's son) and the girl, Absalom's wife", "His brother John", "Only the girl"],
+      "answer": 1,
+      "explain": "The girl carries her 'worldly possessions in one of those paper carriers.'"
+    },
+    {
+      "q": "What does Kumalo tell the little boy when he asks for his mother?",
+      "choices": ["That she is coming later", "That she has gone away — and the boy does not ask again", "That she is dead", "Nothing"],
+      "answer": 1,
+      "explain": "Gertrude vanished on the morning of their departure."
+    },
+    {
+      "q": "What does Kumalo say to his wife when she meets him and looks her question?",
+      "choices": ["'All is well.'", "'Our son is to die, perhaps there may be mercy, but let us not talk of it now'", "'He has been set free.'", "'We must move away from here.'"],
+      "answer": 1,
+      "explain": "He also tells her Gertrude is gone: 'Let us not talk of it now.'"
+    },
+    {
+      "q": "How does Kumalo's wife receive the girl?",
+      "choices": ["Coldly", "She embraces her 'after the European fashion' and says, 'You are my daughter'", "She sends her away", "She ignores her"],
+      "answer": 1,
+      "explain": "The girl bursts into weeping and says, 'Mother, that is all that I desire.'"
+    },
+    {
+      "q": "How is Kumalo welcomed back at Ndotsheni?",
+      "choices": ["With suspicion and blame", "Women of the church in white dresses with green cloths sing a hymn of thanksgiving, and people run down from the hills calling out", "In complete silence", "Only the chief greets him"],
+      "answer": 1,
+      "explain": "'One woman... runs to the hut, calling and crying more like a child than a woman, It is the umfundisi that has returned.'"
+    },
+    {
+      "q": "Why does a child tell Kumalo they are glad he is back, rather than the young priest the Bishop had sent?",
+      "choices": ["The young priest was cruel", "'We did not understand him. It is only our umfundisi that we understand.'", "The young priest never came", "The young priest stole from them"],
+      "answer": 1,
+      "explain": "The people's love for Kumalo, despite his son's crime, is made plain."
+    },
+    {
+      "q": "What hard thing does Kumalo bring himself to pray aloud, before the whole congregation?",
+      "choices": ["For the death of the murderer", "'And Tixo, my son... Forgive him his trespasses'", "For rain only", "For the Bishop"],
+      "answer": 1,
+      "explain": "'It is done, it is out, the hard thing that was so feared.'"
+    },
+    {
+      "q": "What does the new teacher want to sing that the old teacher says 'has not come here yet'?",
+      "choices": ["A hymn in English", "Nkosi Sikelel' iAfrika — 'God Save Africa'", "A Zulu war song", "The national anthem"],
+      "answer": 1,
+      "explain": "The old teacher is 'cold with this new teacher, and she is ashamed too, because she does not know' it."
+    },
+    {
+      "q": "What does Kumalo also pray for in this homecoming service?",
+      "choices": ["A new church building", "Rain, and protection against hunger and starvation if the rain does not come", "Money from the Bishop", "The return of his son"],
+      "answer": 1,
+      "explain": "The valley is in the grip of drought; 'our mealies are nearly finished.'"
+    },
+    {
+      "q": "How does the chapter close?",
+      "choices": ["With rain falling", "Addressing the small boy: 'Call and dance... For this is a prelude, it is only a beginning.'", "With Kumalo leaving Ndotsheni", "With a letter from Absalom"],
+      "answer": 1,
+      "explain": "'It is life you are going into, you are not afraid because you do not know.'"
+    }
+  ]
+}

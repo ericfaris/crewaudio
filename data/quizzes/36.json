@@ -1,0 +1,67 @@
+{
+  "chapter": 36,
+  "book": 3,
+  "title": "Book Three, Chapter 7 — review",
+  "questions": [
+    {
+      "q": "Why does Kumalo go up into the mountain on 'the fourteenth day'?",
+      "choices": ["To pray, as he had done twice before at times of great trouble — the eve of his son's execution", "To fetch firewood", "To look for a lost sheep", "To meet the Bishop"],
+      "answer": 0,
+      "explain": "He had gone before when Absalom was 'sick unto death' and when tempted to leave the ministry."
+    },
+    {
+      "q": "Why can Kumalo's wife not come with him?",
+      "choices": ["She is ill", "The girl — Absalom's wife — is near her time and the child may come at any moment", "She must cook for the Bishop", "She is angry with him"],
+      "answer": 1,
+      "explain": "She makes him a bottle of boiled tea and cakes of maize, and says, 'you must certainly go.'"
+    },
+    {
+      "q": "Whom does Kumalo meet on the path up the mountain?",
+      "choices": ["The chief", "Jarvis, on his horse in the dark, carrying a letter for the church people about the new church", "Napoleon Letsitsi", "The small white boy"],
+      "answer": 1,
+      "explain": "The plans for the new church will come to Kumalo shortly."
+    },
+    {
+      "q": "What does Jarvis tell Kumalo about his own future?",
+      "choices": ["That he will never return to the district", "That he is going to Johannesburg to live with his daughter and grandchildren, but 'I shall be often here. You know I have a work in Ndotsheni.'", "That he is selling High Place to the chief", "That he is retiring completely"],
+      "answer": 1,
+      "explain": "He is alone in his house now that his wife has died."
+    },
+    {
+      "q": "What does Jarvis say about the work in the valley?",
+      "choices": ["That it is finished", "'One thing is about to be finished, but here is something that is only begun. And while I live it will continue.'", "That the church should take it over", "That it has failed"],
+      "answer": 1,
+      "explain": "When Kumalo begins to praise him, Jarvis says fiercely, 'I am no saintly man.'"
+    },
+    {
+      "q": "What does Kumalo do during his vigil on the mountain through the night?",
+      "choices": ["He sleeps until dawn", "He confesses his sins — the lies, the loss of faith, the wish to hurt the girl — and gives thanks for the many kindnesses of men", "He curses the court", "He decides to leave Ndotsheni"],
+      "answer": 1,
+      "explain": "He gives thanks for Msimangu, Father Vincent, Mrs Lithebe, the young man from the reformatory and the lawyer."
+    },
+    {
+      "q": "What does Kumalo conclude about the fear that grips the land?",
+      "choices": ["That more police will cure it", "That 'such fear could not be cast out, but by love'", "That it can never be cured", "That only the government can end it"],
+      "answer": 1,
+      "explain": "He recalls Msimangu's fear that white and black will turn to loving and hating at opposite times."
+    },
+    {
+      "q": "What does Kumalo do at the moment he believes his son is being executed?",
+      "choices": ["He shouts aloud", "He rises, takes off his hat and lays it on the earth, and clasps his hands in prayer as the sun rises in the east", "He walks back down the mountain", "He weeps and cannot move"],
+      "answer": 1,
+      "explain": "'When he expected it, he rose to his feet... And while he stood there the sun rose in the east.'"
+    },
+    {
+      "q": "How does Kumalo picture his son's last hours as he keeps watch?",
+      "choices": ["Calm and untroubled", "As a boy afraid of death — wondering if Absalom eats, prays, weeps, or is comforted by a priest, since 'a boy is afraid of death' and 'the murderer afraid of death had once been a child afraid of the night'", "Angry and defiant", "Already at peace"],
+      "answer": 1,
+      "explain": "'Aye, but the hand that had murdered had once pressed the mother's breast into the thirsting mouth.'"
+    },
+    {
+      "q": "How does the novel end?",
+      "choices": ["With the birth of the grandchild", "With the dawn breaking over Ndotsheni, and the thought that the coming of a greater dawn — 'of our emancipation, from the fear of bondage and the bondage of fear' — is 'a secret'", "With Kumalo leaving the valley", "With Jarvis's return to Johannesburg"],
+      "answer": 1,
+      "explain": "'For it is the dawn that has come, as it has come for a thousand centuries, never failing.'"
+    }
+  ]
+}

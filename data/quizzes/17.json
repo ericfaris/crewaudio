@@ -1,0 +1,67 @@
+{
+  "chapter": 17,
+  "book": 1,
+  "title": "Book One, Chapter 17 — review",
+  "questions": [
+    {
+      "q": "Why does Mrs Lithebe, unlike most people, not let rooms to strangers?",
+      "choices": ["Her house is too small", "Her late husband, a builder, built her a fine big house and she 'has money enough'; she keeps rooms only for the priest and for Gertrude and the child", "The Municipality forbids it", "She dislikes company"],
+      "answer": 1,
+      "explain": "She thinks it 'good to have prayers in the house.'"
+    },
+    {
+      "q": "What kindness does Kumalo ask of Mrs Lithebe in this chapter?",
+      "choices": ["To lend him money", "To take in the girl who is with child by Absalom, to get her away from Pimville", "To care for Gertrude's son", "To find him a lawyer"],
+      "answer": 1,
+      "explain": "Mrs Lithebe agrees; the girl can sleep on the floor of the room where they eat — 'better... than to...'."
+    },
+    {
+      "q": "Where must Kumalo now get money from, his own being nearly gone?",
+      "choices": ["From his brother John", "From the Post Office Book — the ten pounds saved for his wife's stove", "From the church fund", "From Msimangu"],
+      "answer": 1,
+      "explain": "His wife must wait longer for her stove, and he for his new black clothes and collars."
+    },
+    {
+      "q": "What does Mrs Lithebe warn the girl about, in the kitchen?",
+      "choices": ["Talking to the police", "Her 'careless laughter' — 'This old man has been hurt greatly... he shall not be hurt any more, not in my house'", "Spending money", "Leaving the house alone"],
+      "answer": 1,
+      "explain": "The girl answers each warning with 'I understand you completely.'"
+    },
+    {
+      "q": "How does the girl behave in Mrs Lithebe's house, compared with Gertrude?",
+      "choices": ["She is sullen and difficult", "She is 'openly glad to be in this house', calls Mrs Lithebe 'mother', and is obedient and quick to learn", "She refuses to speak", "She keeps trying to leave"],
+      "answer": 1,
+      "explain": "She had never before lived in such a house; she can speak Sesuto 'after a broken fashion.'"
+    },
+    {
+      "q": "Who is Mr Carmichael?",
+      "choices": ["A prison warder", "The tall, grave lawyer who will take Absalom's case", "A newspaper reporter", "The reformatory superintendent"],
+      "answer": 1,
+      "explain": "He looks 'like a man used to great matters, much greater than the case of a black boy who has killed a man.'"
+    },
+    {
+      "q": "On what terms does Mr Carmichael take the case?",
+      "choices": ["For a large fee paid by John", "'Pro deo' — for God, meaning for nothing, or at least very little", "For a share of any damages", "Only if Absalom pleads guilty"],
+      "answer": 1,
+      "explain": "Father Vincent explains the Latin phrase to Kumalo, who has not heard it before."
+    },
+    {
+      "q": "What did the other two accused do when the police brought them face to face with Absalom?",
+      "choices": ["They confessed", "They cursed him and said 'How can he lie so about us?'", "They stayed silent", "They attacked him"],
+      "answer": 1,
+      "explain": "Their defence will be that they were never there at all."
+    },
+    {
+      "q": "Why does Carmichael say he cannot defend Matthew Kumalo and Johannes Pafuri?",
+      "choices": ["He is too busy", "Their defence — that they were not present — directly contradicts Absalom's truthful account, which Carmichael believes", "The judge forbids it", "They cannot pay"],
+      "answer": 1,
+      "explain": "He inclines to the opinion that Absalom has no motive to implicate them falsely."
+    },
+    {
+      "q": "How does Father Vincent describe the lawyer to Kumalo?",
+      "choices": ["'A dangerous man'", "'One of the greatest lawyers in South Africa and one of the greatest friends of your people'", "'A man who takes any case for money'", "'A stranger we cannot trust'"],
+      "answer": 1,
+      "explain": "'You may thank God that we have got this man.'"
+    }
+  ]
+}

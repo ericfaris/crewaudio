@@ -1,0 +1,67 @@
+{
+  "chapter": 7,
+  "book": 1,
+  "title": "Book One, Chapter 7 — review",
+  "questions": [
+    {
+      "q": "What does Kumalo buy for Gertrude to replace her dirty clothes?",
+      "choices": ["A blanket and shoes", "A red dress and a white turban for her head", "A grey coat", "Nothing; he cannot afford it"],
+      "answer": 1,
+      "explain": "He also buys a shirt, short trousers and a jersey for the boy, though his own frayed collars must wait."
+    },
+    {
+      "q": "How is Kumalo's brother John sitting when they arrive at his shop?",
+      "choices": ["Bent over his workbench", "On a chair 'like a chief', talking to two other men", "Asleep", "Praying"],
+      "answer": 1,
+      "explain": "John has grown fat and sits with his hands on his knees, a man of importance in Sophiatown."
+    },
+    {
+      "q": "Why does John say he stopped writing home and stopped going to church?",
+      "choices": ["He lost his faith after an illness", "In Johannesburg he has become 'a man of some importance', free of the chief — and the Church, he says, 'is like the chief'", "The Bishop expelled him", "He could not afford stamps"],
+      "answer": 1,
+      "explain": "John insists on speaking English to explain his 'experience': the tribal society is breaking apart and a new society is being built in Johannesburg."
+    },
+    {
+      "q": "What happened to John's wife Esther?",
+      "choices": ["She died", "She left him ten years ago; he now lives with another woman", "She returned to Ndotsheni with the children", "She is in prison"],
+      "answer": 1,
+      "explain": "Msimangu coldly suggests Esther 'believed in fidelity', a word John does not recognise."
+    },
+    {
+      "q": "According to John, what is Johannesburg — and South Africa — really built on?",
+      "choices": ["Gold from the mines", "The backs, sweat and labour of black workers paid three shillings a day", "British investment", "The farms of the tops"],
+      "answer": 1,
+      "explain": "'It is not built on the mines... it is built on our backs, on our sweat, on our labour.'"
+    },
+    {
+      "q": "Where does John say Absalom and his own son went to work?",
+      "choices": ["The Crown Mines", "A factory — the Doornfontein Textiles Company, 14 Krause Street", "The railways", "A building site in Parktown"],
+      "answer": 1,
+      "explain": "John looks the address up in the telephone book; he cannot simply phone, 'They do not do such things for a black man.'"
+    },
+    {
+      "q": "What does Msimangu say is the one thing that 'has power completely'?",
+      "choices": ["Money", "The vote", "Love — 'because when a man loves, he seeks no power, and therefore he has power'", "The Church"],
+      "answer": 2,
+      "explain": "He warns that a man who gets power and money is often corrupted and comes to enjoy them for their own sake."
+    },
+    {
+      "q": "What is Msimangu's 'one great fear'?",
+      "choices": ["That the mines will close", "That 'one day when they are turned to loving, they will find we are turned to hating'", "That the chief will die", "That he will lose his faith"],
+      "answer": 1,
+      "explain": "He fears the white man will come to love justice only after the black man has given up on it."
+    },
+    {
+      "q": "Where do they learn Absalom went after leaving the factory about a year before?",
+      "choices": ["Straight back to Ndotsheni", "To stay with Mrs Ndlela at 105 End Street, Sophiatown", "To the mines at Springs", "To prison"],
+      "answer": 1,
+      "explain": "A workman, Dhlamini, remembers Absalom was friendly with him and gives Mrs Ndlela's address."
+    },
+    {
+      "q": "What forwarding address does Mrs Ndlela's letter from Absalom give?",
+      "choices": ["c/o Mrs Mkize, 79 Twenty-Third Avenue, Alexandra", "The reformatory", "12 Maseru Street, Germiston", "Shanty Town, Orlando"],
+      "answer": 0,
+      "explain": "Mrs Ndlela looks at Kumalo 'half with pity'; she 'did not like his son's friends', which is why Absalom left her house."
+    }
+  ]
+}

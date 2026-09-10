@@ -1,0 +1,67 @@
+{
+  "chapter": 12,
+  "book": 1,
+  "title": "Book One, Chapter 12 — review",
+  "questions": [
+    {
+      "q": "What is the dominant subject of this chapter's chorus of voices?",
+      "choices": ["The gold discovery", "Fear in the land, and the many clashing opinions about what to do about native crime", "The bus boycott", "The weather"],
+      "answer": 1,
+      "explain": "'There are voices crying what must be done, a hundred, a thousand voices' — but 'one cries this, and one cries that.'"
+    },
+    {
+      "q": "What do the suburban public meetings mostly demand?",
+      "choices": ["Better schools and higher wages", "More police, heavier sentences, and the death penalty for housebreakers who carry weapons", "Abolition of the pass laws", "Land for the reserves"],
+      "answer": 1,
+      "explain": "One speaker still argues the answer 'does not lie, except temporarily, in more police and more protection.'"
+    },
+    {
+      "q": "What figure does Mr de Villiers give for native schooling in Johannesburg?",
+      "choices": ["Nine in ten children are at school", "Not more than four in ten are at school, and of those four not even one will reach the sixth standard", "All children are at school by law", "Half reach matriculation"],
+      "answer": 1,
+      "explain": "'Six are being educated in the streets.'"
+    },
+    {
+      "q": "In the pass-laws argument, what does Jackson point out?",
+      "choices": ["The pass laws have ended crime", "That about one hundred thousand natives are sent to prison every year, where they mix with real criminals", "That passes are cheap and easy to get", "That the laws only apply to men"],
+      "answer": 1,
+      "explain": "He keeps insisting 'the pass-laws don't work' and are unenforceable, without a better answer of his own."
+    },
+    {
+      "q": "How do the tennis-club women in the chapter propose to solve the problem of where black people can go on a Sunday?",
+      "choices": ["Open the Zoo Lake to everyone", "Vaguely suggest big recreation centres 'somewhere' — but every specific site is objected to as too noisy or too far", "Give servants the whole weekend off", "Build a park in Parkwold"],
+      "answer": 1,
+      "explain": "'It's too hot to argue' — they break off to play tennis."
+    },
+    {
+      "q": "What does the narrator say 'we' will do to live with the fear?",
+      "choices": ["Leave the country", "Put more locks on the doors, get a fierce dog, hold handbags tighter, and give up the beauty of the night", "Arm every household", "Trust the police"],
+      "answer": 1,
+      "explain": "'Our lives will shrink, but they shall be the lives of superior beings.'"
+    },
+    {
+      "q": "Why will the Cathedral Guild meeting on 'The Real Causes of Native Crime' have 'a gloom over it'?",
+      "choices": ["Bad weather is forecast", "Its scheduled speaker, Arthur Jarvis, has just been shot dead", "No one will attend", "The venue has been changed"],
+      "answer": 1,
+      "explain": "The irony: the man killed by native crime was the one about to speak on its causes."
+    },
+    {
+      "q": "What news does Mrs Ndlela bring to Msimangu?",
+      "choices": ["That Absalom has come home", "That the police have been to her, looking for Absalom, and she gave them the Mkize address in Alexandra", "That Gertrude is missing", "That Arthur Jarvis is alive"],
+      "answer": 1,
+      "explain": "'It is the law, mother. We must uphold the law,' Msimangu tells her."
+    },
+    {
+      "q": "What do Kumalo and Msimangu spend the chapter doing after Mrs Ndlela's visit?",
+      "choices": ["Praying at the church", "Chasing by taxi from address to address, always arriving just after the police who are hunting Absalom", "Visiting Arthur Jarvis's house", "Meeting a lawyer"],
+      "answer": 1,
+      "explain": "Mkize sends them to Shanty Town, Hlatshwayo to the school, the reformatory to Pimville — 'now, now, that they left.'"
+    },
+    {
+      "q": "What phrase does the girl at Pimville say she overheard the police use?",
+      "choices": ["'The case is closed'", "'die spoor loop dood' — the trail runs dead", "'He has confessed'", "'Take him to Pretoria'"],
+      "answer": 1,
+      "explain": "Kumalo, trembling in the taxi, says only 'I am cold, very cold.'"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "chapter": 35,
+  "book": 3,
+  "title": "Book Three, Chapter 6 — review",
+  "questions": [
+    {
+      "q": "How does the ploughing in Ndotsheni now go, at the demonstrator's direction?",
+      "choices": ["Straight up and down the hills as before", "Round the hills, throwing up walls of earth, so the fields look different from the old days", "Not at all, because of the drought", "Only on the tops"],
+      "answer": 1,
+      "explain": "The demonstrator still 'shakes his head' over how little food is in the soil."
+    },
+    {
+      "q": "Why has the chief ordered a kraal to be built?",
+      "choices": ["To hold more cattle for wealth", "So the cattle stay in one place and the dung can be easily collected and put back on the land", "To keep the cattle safe from thieves", "For the demonstrator to live in"],
+      "answer": 1,
+      "explain": "It is 'a hard thing, because there will be nothing to eat in the kraal.'"
+    },
+    {
+      "q": "What new practice, unheard of in the valley, do the people adopt for the tree seed?",
+      "choices": ["Planting it at full moon", "Boiling the wattle seed before planting", "Soaking it in milk", "Burning the ground first"],
+      "answer": 1,
+      "explain": "Those who have worked for white farmers confirm it is right."
+    },
+    {
+      "q": "How were these changes actually achieved?",
+      "choices": ["The people welcomed them eagerly", "Through meetings marked by 'much silence, and much sullenness' — 'It was only the fear of the chief that made anything come out of these meetings'", "By order of the magistrate", "By paying the people"],
+      "answer": 1,
+      "explain": "No one is more dissatisfied than those who must give up their fields to the dam."
+    },
+    {
+      "q": "Why does Kuluse's brother eventually stop resisting the loss of his land?",
+      "choices": ["He is paid well for it", "It is hard to refuse the umfundisi, through whom came the milk that saved his brother's child", "The chief threatens him", "He is given the best land instead"],
+      "answer": 1,
+      "explain": "He is also consoled that Zuma and his brother will lose land next year too."
+    },
+    {
+      "q": "What is 'the greatest wonder of all' brought into the valley?",
+      "choices": ["A tractor", "A great machine that 'was fighting in the war', which pushes the earth into the wall of the dam", "A water pump", "An aeroplane"],
+      "answer": 1,
+      "explain": "Even sullen Kuluse's brother 'breaks out into unwilling laughter' watching it."
+    },
+    {
+      "q": "For whom does Letsitsi say he really works?",
+      "choices": ["For Jarvis, who pays him", "'We work for Africa... not for this man or that man. Not for a white man or a black man, but for Africa'", "For the chief", "For himself"],
+      "answer": 1,
+      "explain": "A white man taught him 'that we do not work for men, that we work for the land and the people.'"
+    },
+    {
+      "q": "What does Letsitsi argue that troubles Kumalo?",
+      "choices": ["That the church is useless", "That even a restored Ndotsheni could not hold all the tribe if they returned — 'when the children grow up, there will again be too many'", "That Jarvis should be repaid in money", "That farming cannot be taught"],
+      "answer": 1,
+      "explain": "Kumalo sighs, 'You are too clever for me.'"
+    },
+    {
+      "q": "What does Letsitsi say about what the good white man does for the valley?",
+      "choices": ["That it is a pure gift", "That it is 'only a repayment' — because the white man gave them so little land and took them away to work", "That it is charity to be grateful for forever", "That it is not enough to matter"],
+      "answer": 1,
+      "explain": "Kumalo says he does not like this talk, and reminds Letsitsi to 'hate no man, and desire power over no man.'"
+    },
+    {
+      "q": "What warning does Kumalo give the young demonstrator?",
+      "choices": ["To leave the valley", "'Hate no man, and desire power over no man. For I have a friend who taught me that power corrupts.'", "To obey the chief in all things", "To ask Jarvis for more money"],
+      "answer": 1,
+      "explain": "'For there is enough hating in our land already.'"
+    }
+  ]
+}

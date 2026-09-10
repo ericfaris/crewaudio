@@ -1,0 +1,67 @@
+{
+  "chapter": 19,
+  "book": 2,
+  "title": "Book Two, Chapter 2 — review",
+  "questions": [
+    {
+      "q": "Who meets Jarvis and his wife at the airport in Johannesburg?",
+      "choices": ["The Bishop", "John Harrison, the brother of Arthur's wife Mary", "A police detective", "Msimangu"],
+      "answer": 1,
+      "explain": "John says of Arthur, 'the finest man I ever knew.'"
+    },
+    {
+      "q": "Where are Mary and the grandchildren staying?",
+      "choices": ["Alone at Arthur's house", "At the Harrisons' — Mary's parents' home, where Jarvis and his wife will also stay", "In a hotel", "At the mission"],
+      "answer": 1,
+      "explain": "Looking after the badly-shaken children 'has given Mary something to occupy herself.'"
+    },
+    {
+      "q": "When is the funeral arranged for?",
+      "choices": ["A week later", "The next afternoon at three o'clock, after a service in the Parkwold Church", "That same night", "It has not been decided"],
+      "answer": 1,
+      "explain": "Harrison and John have arranged it 'provisionally.'"
+    },
+    {
+      "q": "What kind of messages of sympathy have poured in for Arthur?",
+      "choices": ["Only from the family's church", "From the Bishop, the Acting Prime Minister, the Mayor — and also from native organisations, coloured people, Indians and Jews", "None; the death is being kept quiet", "Only from the mining companies"],
+      "answer": 1,
+      "explain": "A 'sad pride' rises in Jarvis at the range of people his son had touched."
+    },
+    {
+      "q": "What causes had Arthur Jarvis taken up publicly?",
+      "choices": ["Tax reform and roads", "Native crime, more Native schools, conditions at the non-European Hospital, and the mine compound system — he wanted settled labour with wife and family", "Land redistribution only", "Prohibition of liquor"],
+      "answer": 1,
+      "explain": "There had even been talk of getting him to stand as a native M.P."
+    },
+    {
+      "q": "What had Hathaway of the Chamber of Mines asked Harrison to do?",
+      "choices": ["Fund Arthur's campaign", "Warn Arthur to 'pipe down a bit', because his firm did a lot of business with the Mines", "Report Arthur to the police", "Hire Arthur"],
+      "answer": 1,
+      "explain": "Arthur's reply, through Mary: 'it's more important to speak the truth than to make money.'"
+    },
+    {
+      "q": "How does Jarvis privately regard the picture of his son that emerges from Harrison's talk?",
+      "choices": ["As exactly the son he knew", "As 'a stranger' — 'this boy of his had gone journeying in strange waters, further than his parents had known'", "As a disappointment", "As a fool"],
+      "answer": 1,
+      "explain": "He suspects his son's mother may have understood him better."
+    },
+    {
+      "q": "What does Jarvis privately admit about his own view of missionaries and such work?",
+      "choices": ["He had always admired it", "He had 'never thought much of missionaries', and remembered the Ndotsheni mission only as a 'sad', dirty, forlorn place", "He had funded it generously for years", "He knew nothing about it"],
+      "answer": 1,
+      "explain": "Yet he finds himself calling his own son 'a missionary.'"
+    },
+    {
+      "q": "In bed that night, what does Margaret say about what she has heard of Arthur's work?",
+      "choices": ["'It frightens me.'", "'It makes me proud' — and she reminds James she always knew he was like that", "'He should have been more careful.'", "'We must never speak of it.'"],
+      "answer": 1,
+      "explain": "She had always been nearer to their son than James was."
+    },
+    {
+      "q": "What does Jarvis whisper to his wife about his son's life and ideas?",
+      "choices": ["'I always agreed with him.'", "'I'm sorry I didn't understand it... I didn't know it would ever be so important to understand it.'", "'He wasted his life.'", "'We should have stopped him.'"],
+      "answer": 1,
+      "explain": "There remains 'one thing I don't understand, why it should have happened to him.'"
+    }
+  ]
+}

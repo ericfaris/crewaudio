@@ -1,0 +1,67 @@
+{
+  "chapter": 16,
+  "book": 1,
+  "title": "Book One, Chapter 16 — review",
+  "questions": [
+    {
+      "q": "Why does Kumalo go to Pimville alone to see the girl?",
+      "choices": ["He is angry with Msimangu", "He feels he can reach his goal more surely without others, whose pace his slow tribal manner irritates", "Msimangu is ill", "The girl asked to see only him"],
+      "answer": 1,
+      "explain": "He chooses a time when Msimangu cannot come."
+    },
+    {
+      "q": "How does Kumalo break the news to the girl?",
+      "choices": ["He hands her a letter", "He tells her Absalom is in prison 'for the most terrible deed that a man can do' — he has killed a white man", "He says nothing and lets her guess", "He tells her Absalom has run away again"],
+      "answer": 1,
+      "explain": "She does not fully understand at first; she is 'surely but a child.'"
+    },
+    {
+      "q": "What does Kumalo leave with the girl, warning her not to show it to others?",
+      "choices": ["Money", "The white man's newspaper", "A Bible", "His address in Ndotsheni"],
+      "answer": 1,
+      "explain": "She can read 'a little.'"
+    },
+    {
+      "q": "What is the girl's family history?",
+      "choices": ["Her parents are dead", "Her father left because her mother was so often drunk; she could not understand her 'second father', so she left and lived in Sophiatown", "She was raised by the church", "She ran away from a farm"],
+      "answer": 1,
+      "explain": "She has had three 'husbands' — the first two were 'caught', and now the third is caught, for murder."
+    },
+    {
+      "q": "In his 'wild and cruel mood', what does Kumalo ask the girl?",
+      "choices": ["To leave Johannesburg immediately", "Whether she would be willing to be with him — 'Not even, he asked, if I desired you?'", "To testify against Absalom", "To give up the child"],
+      "answer": 1,
+      "explain": "She answers 'I could be willing', and he covers his face, ashamed — 'but for his cruelty, not her compliance.'"
+    },
+    {
+      "q": "How old is the girl?",
+      "choices": ["Fourteen", "About sixteen", "Twenty", "She does not know at all"],
+      "answer": 1,
+      "explain": "'I do not know, she sobbed, but I think I am sixteen.'"
+    },
+    {
+      "q": "What does the girl say she desires, when Kumalo warns her that life at Ndotsheni is very quiet?",
+      "choices": ["Excitement and city life", "Quietness — 'That shall be my desire... the desire that will be upon me'", "To stay in Johannesburg", "To become a nurse"],
+      "answer": 1,
+      "explain": "Her turning the word 'desire' to mean the wish for peace astonishes him."
+    },
+    {
+      "q": "What one promise does Kumalo ask of the girl?",
+      "choices": ["Never to speak to men", "That if she ever repents of the plan, she will tell him and not shut it up inside her or run away as she did from her mother", "To go to church every day", "To keep the marriage secret"],
+      "answer": 1,
+      "explain": "She promises, then adds eagerly, 'I shall never repent.'"
+    },
+    {
+      "q": "What church does the girl say she belongs to?",
+      "choices": ["Roman Catholic", "Church of England", "Dutch Reformed", "None"],
+      "answer": 1,
+      "explain": "She says it 'eagerly', to please him."
+    },
+    {
+      "q": "How does Kumalo feel as he walks away from the girl at the end of the chapter?",
+      "choices": ["Angrier than before", "'Like a man from whom a pain has lifted a little, not altogether, but a little'", "Certain his son will be freed", "Determined to abandon her"],
+      "answer": 1,
+      "explain": "He remembers with a shock that Father Vincent had said, 'I shall pray, night and day.'"
+    }
+  ]
+}
