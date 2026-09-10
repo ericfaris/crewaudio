@@ -47,6 +47,18 @@ test('app shell is sent no-cache and supports 304 revalidation', async () => {
   assert.equal(revalidated.status, 304);
 });
 
+test('index.html injects a build hash onto shell asset URLs (Cloudflare cache-bust)', async () => {
+  const html = await (await fetch(server.origin)).text();
+  const m = html.match(/\/app\.js\?v=([a-f0-9]{6,})/);
+  assert.ok(m, 'app.js should carry a ?v= hash');
+  assert.match(html, /\/styles\.css\?v=[a-f0-9]{6,}/);
+  assert.match(html, /window\.__ASSET_V__=/);
+
+  // a ?v= URL is content-addressed -> cache it hard
+  const v = await fetch(`${server.origin}/app.js?v=${m[1]}`);
+  assert.match(v.headers.get('cache-control'), /immutable/);
+});
+
 test('icons are cacheable', async () => {
   const r = await fetch(`${server.origin}/icon-192.png`);
   assert.equal(r.status, 200);

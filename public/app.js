@@ -239,7 +239,9 @@ window.addEventListener('beforeunload', () => {
 });
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').catch(() => {});
+  // Versioned URL so a deploy re-registers past Cloudflare's edge cache.
+  const v = window.__ASSET_V__ ? `?v=${window.__ASSET_V__}` : '';
+  navigator.serviceWorker.register('/sw.js' + v).catch(() => {});
 }
 
 loadFiles();

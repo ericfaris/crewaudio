@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { importPlaylist, findYtDlp } from './import.js';
 
@@ -159,6 +160,18 @@ function streamAudio(req, res, file) {
   }
 }
 
+// Short hash of the shell files. Injected into index.html as ?v= on every
+// asset URL so a deploy changes those URLs — the only reliable way past
+// Cloudflare's default edge-cache of .js/.css (it overrides our no-cache).
+let ASSET_V = 'dev';
+async function computeAssetVersion() {
+  try {
+    const parts = await Promise.all(['app.js', 'styles.css', 'sw.js', 'index.html']
+      .map((f) => fsp.stat(path.join(PUBLIC_DIR, f)).then((s) => `${f}:${s.size}:${s.mtimeMs}`)));
+    ASSET_V = createHash('sha1').update(parts.join('|')).digest('hex').slice(0, 10);
+  } catch { /* keep 'dev' */ }
+}
+
 async function serveStatic(req, res, urlPath) {
   const rel = urlPath === '/' ? 'index.html' : urlPath.replace(/^\/+/, '');
   const full = path.join(PUBLIC_DIR, path.normalize(rel));
@@ -166,16 +179,32 @@ async function serveStatic(req, res, urlPath) {
   try {
     const st = await fsp.stat(full);
     if (!st.isFile()) throw new Error('not a file');
+
+    // index.html: rewrite shell asset URLs to carry the build hash, and expose
+    // it to the client (for the service-worker registration URL).
+    if (rel === 'index.html') {
+      let html = await fsp.readFile(full, 'utf8');
+      html = html
+        .replace('<head>', `<head>\n<script>window.__ASSET_V__=${JSON.stringify(ASSET_V)}</script>`)
+        .replace('/styles.css', `/styles.css?v=${ASSET_V}`)
+        .replace('/app.js', `/app.js?v=${ASSET_V}`);
+      const body = Buffer.from(html);
+      res.writeHead(200, { 'Content-Type': MIME['.html'], 'Cache-Control': 'no-cache',
+        'Content-Length': body.length });
+      return res.end(req.method === 'HEAD' ? undefined : body);
+    }
+
     // Weak validator from size + mtime; lets browsers/Cloudflare revalidate
     // cheaply (304) instead of serving a stale app shell after a deploy.
     const etag = `W/"${st.size.toString(16)}-${st.mtimeMs.toString(16)}"`;
     const lastMod = st.mtime.toUTCString();
 
-    // Icons are content-stable and safe to cache hard; everything else
-    // (html/js/css/manifest/sw) must revalidate so a deploy takes effect at once.
-    const cacheControl = /\.(png|svg|ico)$/.test(rel)
-      ? 'public, max-age=86400'
-      : 'no-cache';
+    // A ?v= URL is content-addressed — cache it hard. Icons are stable too.
+    // Everything else must revalidate so a deploy takes effect at once.
+    const versioned = /[?&]v=/.test(req.url || '');
+    const cacheControl = versioned
+      ? 'public, max-age=31536000, immutable'
+      : /\.(png|svg|ico)$/.test(rel) ? 'public, max-age=86400' : 'no-cache';
 
     const headers = {
       'Content-Type': MIME[path.extname(full).toLowerCase()] || 'application/octet-stream',
@@ -268,7 +297,9 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
+await computeAssetVersion();
+
 server.listen(Number(PORT), () => {
   console.log(`crewaudio → http://localhost:${server.address().port}`);
-  console.log(`audio folder: ${AUDIO_DIR}`);
+  console.log(`audio folder: ${AUDIO_DIR}  ·  assets v${ASSET_V}`);
 });
