@@ -1,0 +1,20 @@
+name: crewaudio
+
+services:
+  app:
+    build: .
+    image: ericfaris/crewaudio:latest
+    restart: unless-stopped
+    ports:
+      # The Cloudflare Tunnel (study.mooseflip.com -> 8250) is the only public entry.
+      - "127.0.0.1:8250:8250"
+    volumes:
+      # Downloaded audiobooks and the chapter-analysis cache persist across rebuilds.
+      - ./audio:/app/audio
+      - ./.cache:/app/.cache
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8250/api/files"]
+      interval: 1m
+      timeout: 10s
+      start_period: 20s
+      retries: 3

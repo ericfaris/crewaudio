@@ -1,0 +1,8 @@
+.git
+node_modules
+audio
+.cache
+tests
+cookies.txt
+*.md
+scratchpad
