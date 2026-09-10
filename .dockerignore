@@ -4,5 +4,7 @@ audio
 .cache
 tests
 cookies.txt
+book.txt
+text
 *.md
 scratchpad

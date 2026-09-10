@@ -3,3 +3,5 @@ node_modules/
 audio/*
 !audio/.gitkeep
 cookies.txt
+book.txt
+text/
