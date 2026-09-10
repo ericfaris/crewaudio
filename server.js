@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { importPlaylist, findYtDlp } from './import.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8250;
 const AUDIO_DIR = path.join(__dirname, 'audio');
 const CACHE_DIR = path.join(__dirname, '.cache');
 const PUBLIC_DIR = path.join(__dirname, 'public');

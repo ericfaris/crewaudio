@@ -1,15 +1,13 @@
 const $ = (s) => document.querySelector(s);
 const audio = $('#audio');
 const groupsEl = $('#groups');
-const chapterList = $('#chapter-list');
-const chapterStatus = $('#chapter-status');
 
 let files = [];          // flat list from server
 let queue = [];          // ordered paths within the current book
 let current = null;      // rel path of loaded track
-let chapters = [];
 
 const PROGRESS_KEY = 'crewaudio.progress';
+const LAST_KEY = 'crewaudio.last';
 const progress = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
 const saveProgress = () => localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
 
@@ -30,6 +28,11 @@ const encPath = (p) => p.split('/').map(encodeURIComponent).join('/');
 async function loadFiles() {
   files = (await (await fetch('/api/files')).json()).files;
   render();
+  // Restore whatever was last open (paused, at its saved position).
+  if (!current) {
+    const last = localStorage.getItem(LAST_KEY);
+    if (last && files.some((f) => f.path === last)) play(last, { autoplay: false });
+  }
 }
 
 function render() {
@@ -62,8 +65,9 @@ function render() {
   }
 }
 
-function play(pathRel, { resume = true } = {}) {
+function play(pathRel, { resume = true, autoplay = true } = {}) {
   current = pathRel;
+  localStorage.setItem(LAST_KEY, pathRel);
   const book = bookOf(pathRel);
   queue = files.filter((f) => bookOf(f.path) === book).map((f) => f.path);
   $('#np-book').textContent = book || '';
@@ -74,15 +78,12 @@ function play(pathRel, { resume = true } = {}) {
   audio.onloadedmetadata = () => {
     if (resume && pr && pr.t > 5 && pr.ratio < 0.97) {
       audio.currentTime = pr.t;
-      $('#resume-note').textContent = `resumed at ${fmt(pr.t)}`;
+      $('#resume-note').textContent = `${autoplay ? 'resumed' : 'ready'} at ${fmt(pr.t)}`;
     } else {
       $('#resume-note').textContent = '';
     }
-    audio.play().catch(() => {});
+    if (autoplay) audio.play().catch(() => {});
   };
-  chapters = [];
-  chapterList.innerHTML = '';
-  chapterStatus.textContent = 'Click Detect to split this track into chapters by silence.';
   document.querySelectorAll('#groups li').forEach((li) =>
     li.classList.toggle('active', li.dataset.path === pathRel));
 }
@@ -102,40 +103,11 @@ audio.addEventListener('timeupdate', () => {
     saveProgress();
     lastSave = Date.now();
   }
-  [...chapterList.children].forEach((li) =>
-    li.classList.toggle('active', t >= +li.dataset.start && t < +li.dataset.end));
 });
 audio.addEventListener('ended', () => {
   if (current) { progress[current] = { t: audio.duration, ratio: 1, at: Date.now() }; saveProgress(); render(); }
   if ($('#autoplay').checked) step(1);
 });
-
-// ---- chapters ----
-function renderChapters() {
-  chapterList.innerHTML = '';
-  chapters.forEach((c) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<span>${c.title}</span><span class="t">${fmt(c.start)} – ${fmt(c.end)}</span>`;
-    li.dataset.start = c.start; li.dataset.end = c.end;
-    li.onclick = () => { audio.currentTime = c.start + 0.01; audio.play().catch(() => {}); };
-    chapterList.appendChild(li);
-  });
-}
-async function detect(force) {
-  if (!current) { chapterStatus.textContent = 'Load a track first.'; return; }
-  const q = new URLSearchParams({ file: current, noise: $('#p-noise').value,
-    minSilence: $('#p-min').value, gap: $('#p-gap').value });
-  if (force) q.set('force', '1');
-  chapterStatus.textContent = 'Analyzing…';
-  try {
-    const r = await fetch('/api/chapters?' + q);
-    const data = await r.json();
-    if (!r.ok) throw new Error(data.error || 'failed');
-    chapters = data.chapters;
-    renderChapters();
-    chapterStatus.textContent = `${chapters.length} chapters from ${data.silenceCount} silences · ${fmt(data.duration)}`;
-  } catch (e) { chapterStatus.textContent = 'Error: ' + e.message; }
-}
 
 // ---- import ----
 function runImport() {
@@ -161,8 +133,6 @@ function runImport() {
 }
 
 $('#refresh').onclick = loadFiles;
-$('#detect').onclick = () => detect(false);
-$('#redetect').onclick = () => detect(true);
 $('#prev').onclick = () => step(-1);
 $('#next').onclick = () => step(1);
 $('#yt-go').onclick = runImport;

@@ -56,6 +56,8 @@ export async function importPlaylist(url, opts = {}) {
   fs.mkdirSync(dir, { recursive: true });
 
   const args = [
+    // yt-dlp needs a JS runtime to solve YouTube's challenges; Node is on PATH.
+    '--js-runtimes', process.env.YT_DLP_JS_RUNTIME || 'node',
     '-x', '--audio-format', 'mp3', '--audio-quality', '0',
     '--embed-metadata', '--embed-thumbnail',
     '--ignore-errors', '--no-overwrites', '--continue',
