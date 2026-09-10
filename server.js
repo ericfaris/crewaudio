@@ -20,6 +20,8 @@ const MIME = {
   '.wav': 'audio/wav', '.webm': 'audio/webm',
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8',
+  '.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon',
 };
 
 await fsp.mkdir(AUDIO_DIR, { recursive: true });
@@ -159,7 +161,14 @@ async function serveStatic(res, urlPath) {
   if (!full.startsWith(PUBLIC_DIR)) { res.writeHead(403); return res.end(); }
   try {
     const data = await fsp.readFile(full);
-    res.writeHead(200, { 'Content-Type': MIME[path.extname(full).toLowerCase()] || 'application/octet-stream' });
+    const headers = { 'Content-Type': MIME[path.extname(full).toLowerCase()] || 'application/octet-stream' };
+    if (rel === 'sw.js') {
+      headers['Service-Worker-Allowed'] = '/';
+      headers['Cache-Control'] = 'no-cache';
+    } else if (rel === 'manifest.webmanifest') {
+      headers['Cache-Control'] = 'no-cache';
+    }
+    res.writeHead(200, headers);
     res.end(data);
   } catch {
     res.writeHead(404, { 'Content-Type': 'text/plain' });

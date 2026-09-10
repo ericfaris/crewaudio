@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>crewaudio</title>
+<meta name="theme-color" content="#14161a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="crewaudio">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -11,7 +19,10 @@
   <aside id="library">
     <header>
       <h1>crewaudio</h1>
-      <button id="refresh" title="Rescan audio folder">↻</button>
+      <div class="hdr-btns">
+        <button id="install" hidden title="Install app">Install</button>
+        <button id="refresh" title="Rescan audio folder">↻</button>
+      </div>
     </header>
 
     <div id="import">
@@ -27,15 +38,25 @@
 
   <main id="player-pane">
     <div id="now-playing">
-      <div id="np-book"></div>
-      <div id="np-title">Select a track</div>
-      <audio id="audio" controls preload="metadata"></audio>
+      <div class="np-row">
+        <div class="np-text">
+          <div id="np-book"></div>
+          <div id="np-title">Select a track</div>
+        </div>
+        <button id="mini-toggle" title="Minimize to widget">▁</button>
+      </div>
+
       <div id="transport">
         <button id="prev" title="Previous">⏮</button>
+        <button id="playpause" title="Play / pause" class="primary">▶</button>
         <button id="next" title="Next">⏭</button>
-        <label><input type="checkbox" id="autoplay" checked> Auto-advance</label>
+        <input id="seek" type="range" min="0" max="1000" value="0" step="1" title="Seek">
+        <span id="clock">0:00 / 0:00</span>
+        <label class="auto"><input type="checkbox" id="autoplay" checked> Auto-advance</label>
         <span id="resume-note"></span>
       </div>
+
+      <audio id="audio" preload="metadata"></audio>
     </div>
   </main>
 </div>

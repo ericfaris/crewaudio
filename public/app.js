@@ -1,13 +1,16 @@
 const $ = (s) => document.querySelector(s);
 const audio = $('#audio');
 const groupsEl = $('#groups');
+const seek = $('#seek');
 
 let files = [];          // flat list from server
 let queue = [];          // ordered paths within the current book
 let current = null;      // rel path of loaded track
+let seeking = false;
 
 const PROGRESS_KEY = 'crewaudio.progress';
 const LAST_KEY = 'crewaudio.last';
+const MINI_KEY = 'crewaudio.mini';
 const progress = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
 const saveProgress = () => localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
 
@@ -28,7 +31,6 @@ const encPath = (p) => p.split('/').map(encodeURIComponent).join('/');
 async function loadFiles() {
   files = (await (await fetch('/api/files')).json()).files;
   render();
-  // Restore whatever was last open (paused, at its saved position).
   if (!current) {
     const last = localStorage.getItem(LAST_KEY);
     if (last && files.some((f) => f.path === last)) play(last, { autoplay: false });
@@ -82,10 +84,12 @@ function play(pathRel, { resume = true, autoplay = true } = {}) {
     } else {
       $('#resume-note').textContent = '';
     }
+    updateClock();
     if (autoplay) audio.play().catch(() => {});
   };
   document.querySelectorAll('#groups li').forEach((li) =>
     li.classList.toggle('active', li.dataset.path === pathRel));
+  updateMediaSession();
 }
 
 function step(delta) {
@@ -95,8 +99,26 @@ function step(delta) {
   if (n >= 0 && n < queue.length) play(queue[n]);
 }
 
+// ---- transport ----
+function updateClock() {
+  const d = audio.duration || 0, t = audio.currentTime || 0;
+  $('#clock').textContent = `${fmt(t)} / ${fmt(d)}`;
+  if (!seeking) seek.value = d ? Math.round((t / d) * 1000) : 0;
+}
+$('#playpause').onclick = () => (audio.paused ? audio.play().catch(() => {}) : audio.pause());
+$('#prev').onclick = () => step(-1);
+$('#next').onclick = () => step(1);
+seek.addEventListener('input', () => { seeking = true; });
+seek.addEventListener('change', () => {
+  if (audio.duration) audio.currentTime = (seek.value / 1000) * audio.duration;
+  seeking = false;
+});
+audio.addEventListener('play', () => { $('#playpause').textContent = '⏸'; updateMediaSession(); });
+audio.addEventListener('pause', () => { $('#playpause').textContent = '▶'; });
+
 let lastSave = 0;
 audio.addEventListener('timeupdate', () => {
+  updateClock();
   const t = audio.currentTime, d = audio.duration;
   if (current && d && Date.now() - lastSave > 3000) {
     progress[current] = { t, ratio: t / d, at: Date.now() };
@@ -108,6 +130,64 @@ audio.addEventListener('ended', () => {
   if (current) { progress[current] = { t: audio.duration, ratio: 1, at: Date.now() }; saveProgress(); render(); }
   if ($('#autoplay').checked) step(1);
 });
+
+// OS-level media keys / lock-screen controls
+function updateMediaSession() {
+  if (!('mediaSession' in navigator) || !current) return;
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: files.find((f) => f.path === current)?.name || current,
+    artist: bookOf(current),
+    album: 'crewaudio',
+  });
+  navigator.mediaSession.setActionHandler('play', () => audio.play());
+  navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+  navigator.mediaSession.setActionHandler('previoustrack', () => step(-1));
+  navigator.mediaSession.setActionHandler('nexttrack', () => step(1));
+  navigator.mediaSession.setActionHandler('seekbackward', () => { audio.currentTime -= 15; });
+  navigator.mediaSession.setActionHandler('seekforward', () => { audio.currentTime += 30; });
+}
+
+// ---- mini / widget mode ----
+const isStandalone = () =>
+  matchMedia('(display-mode: standalone)').matches ||
+  matchMedia('(display-mode: minimal-ui)').matches ||
+  window.navigator.standalone === true;
+let restoreSize = null;
+
+function setMini(on) {
+  document.body.classList.toggle('mini', on);
+  localStorage.setItem(MINI_KEY, on ? '1' : '0');
+  $('#mini-toggle').textContent = on ? '▢' : '▁';
+  $('#mini-toggle').title = on ? 'Expand' : 'Minimize to widget';
+  if (!isStandalone()) return;
+  try {
+    if (on) {
+      restoreSize = { w: window.outerWidth, h: window.outerHeight };
+      window.resizeTo(400, 132);
+    } else if (restoreSize) {
+      window.resizeTo(restoreSize.w, restoreSize.h);
+      restoreSize = null;
+    }
+  } catch { /* resizeTo is blocked outside app windows */ }
+}
+$('#mini-toggle').onclick = () => setMini(!document.body.classList.contains('mini'));
+if (localStorage.getItem(MINI_KEY) === '1') setMini(true);
+
+// ---- install prompt ----
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  $('#install').hidden = false;
+});
+$('#install').onclick = async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  $('#install').hidden = true;
+};
+window.addEventListener('appinstalled', () => { $('#install').hidden = true; });
 
 // ---- import ----
 function runImport() {
@@ -133,8 +213,6 @@ function runImport() {
 }
 
 $('#refresh').onclick = loadFiles;
-$('#prev').onclick = () => step(-1);
-$('#next').onclick = () => step(1);
 $('#yt-go').onclick = runImport;
 window.addEventListener('beforeunload', () => {
   if (current && audio.duration) {
@@ -142,5 +220,9 @@ window.addEventListener('beforeunload', () => {
     saveProgress();
   }
 });
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(() => {});
+}
 
 loadFiles();
