@@ -15,7 +15,11 @@ by silence.
   chmod +x ~/.local/bin/yt-dlp
   ```
   yt-dlp needs a JS runtime to extract from YouTube; import passes
-  `--js-runtimes node` (override with `YT_DLP_JS_RUNTIME`).
+  `--js-runtimes node` (override with `YT_DLP_JS_RUNTIME`), plus a socket timeout
+  and 2–5s inter-video sleep.
+- **Cookies (optional):** if YouTube demands "confirm you're not a bot", drop a
+  Netscape-format `cookies.txt` in the project root (or `~/.config/yt-dlp/cookies.txt`,
+  or point `YT_DLP_COOKIES` at one) and import will pass `--cookies`.
 
 ## Run
 

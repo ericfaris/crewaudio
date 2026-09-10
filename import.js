@@ -55,9 +55,19 @@ export async function importPlaylist(url, opts = {}) {
   const dir = path.join(AUDIO_DIR, folder);
   fs.mkdirSync(dir, { recursive: true });
 
+  // Optional Netscape-format cookies file for videos behind YouTube's bot check.
+  const cookies = process.env.YT_DLP_COOKIES
+    || [path.join(__dirname, 'cookies.txt'), path.join(process.env.HOME || '', '.config/yt-dlp/cookies.txt')]
+      .find((f) => { try { return fs.statSync(f).size > 0; } catch { return false; } });
+
   const args = [
     // yt-dlp needs a JS runtime to solve YouTube's challenges; Node is on PATH.
     '--js-runtimes', process.env.YT_DLP_JS_RUNTIME || 'node',
+    // Bound every socket op so one stalled read can't hang the whole import.
+    '--socket-timeout', '30',
+    // Space out requests a little so YouTube doesn't start throttling mid-playlist.
+    '--sleep-interval', '2', '--max-sleep-interval', '5',
+    ...(cookies ? ['--cookies', cookies] : []),
     '-x', '--audio-format', 'mp3', '--audio-quality', '0',
     '--embed-metadata', '--embed-thumbnail',
     '--ignore-errors', '--no-overwrites', '--continue',
