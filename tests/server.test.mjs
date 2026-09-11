@@ -88,3 +88,18 @@ test('unknown API endpoints 404 as JSON', async () => {
   assert.equal(r.status, 404);
   assert.deepEqual(await r.json(), { error: 'unknown endpoint' });
 });
+
+test('GET /api/import rejects a non-YouTube url over SSE (no shell/SSRF via yt-dlp)', async () => {
+  const r = await fetch(`${server.origin}/api/import?url=` + encodeURIComponent('https://evil.example.com/'));
+  assert.equal(r.status, 200); // SSE stream always starts 200; the rejection is in-band
+  const body = await r.text();
+  assert.match(body, /event: start/);
+  assert.match(body, /event: error/);
+  assert.match(body, /not a YouTube host/);
+});
+
+test('GET /api/import rejects argv-injection-shaped input', async () => {
+  const r = await fetch(`${server.origin}/api/import?url=` + encodeURIComponent('--exec=touch /tmp/pwned'));
+  const body = await r.text();
+  assert.match(body, /event: error/);
+});

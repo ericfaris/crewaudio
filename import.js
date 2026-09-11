@@ -28,10 +28,37 @@ function sanitize(s) {
   return String(s).replace(/[/\\?%*:|"<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 120);
 }
 
+// study.mooseflip.com has no login (it's meant to stay public), so this is the
+// only gate between the internet and a `spawn(yt-dlp, [..., url])` call.
+// Reject anything that isn't an http(s) YouTube URL *before* it reaches
+// yt-dlp's argv — otherwise a value like "--exec=..." would be parsed as a
+// yt-dlp option instead of a URL (yt-dlp has options that read/write files
+// and run commands), and any other host would let yt-dlp be used as an SSRF
+// probe into the LAN.
+const ALLOWED_YOUTUBE_HOSTS = new Set([
+  'youtube.com', 'www.youtube.com', 'm.youtube.com',
+  'music.youtube.com', 'youtu.be',
+]);
+
+export function assertYoutubeUrl(raw) {
+  let u;
+  try { u = new URL(String(raw)); } catch { throw new Error('not a valid URL'); }
+  if (u.protocol !== 'https:' && u.protocol !== 'http:') {
+    throw new Error('URL must be http(s)');
+  }
+  if (!ALLOWED_YOUTUBE_HOSTS.has(u.hostname.toLowerCase())) {
+    throw new Error(`URL host "${u.hostname}" is not a YouTube host`);
+  }
+  // Re-serialize the parsed URL rather than trusting the raw string: this
+  // guarantees what we hand to yt-dlp always starts with "http(s)://" and can
+  // never be interpreted as a flag, independent of the "--" below.
+  return u.toString();
+}
+
 // Resolve the playlist/video title so we can name the folder up front.
 function getTitle(bin, url) {
   return new Promise((resolve) => {
-    const p = spawn(bin, ['--flat-playlist', '--no-warnings', '-J', url]);
+    const p = spawn(bin, ['--flat-playlist', '--no-warnings', '-J', '--', url]);
     let out = '';
     p.stdout.on('data', (d) => (out += d));
     p.on('close', () => {
@@ -49,7 +76,8 @@ function getTitle(bin, url) {
  * @param {object} opts { name?, onLine?: (line)=>void }
  * @returns {Promise<{dir: string, folder: string}>}
  */
-export async function importPlaylist(url, opts = {}) {
+export async function importPlaylist(rawUrl, opts = {}) {
+  const url = assertYoutubeUrl(rawUrl);
   const bin = findYtDlp();
   const folder = sanitize(opts.name || (await getTitle(bin, url)));
   const dir = path.join(AUDIO_DIR, folder);
@@ -75,6 +103,7 @@ export async function importPlaylist(url, opts = {}) {
     '--newline',
     '-o', path.join(dir, '%(playlist_index)02d - %(title)s.%(ext)s'),
     '-o', 'chapter:' + path.join(dir, '%(title)s.%(ext)s'),
+    '--',
     url,
   ];
 
