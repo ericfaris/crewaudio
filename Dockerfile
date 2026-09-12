@@ -6,7 +6,7 @@ WORKDIR /app
 # curl: yt-dlp download + the compose healthcheck.
 # yt-dlp: standalone binary (needs a JS runtime — Node, already in this image —
 # passed as `--js-runtimes node` by import.js).
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
       ffmpeg curl ca-certificates \
     && rm -rf /var/lib/apt/lists/* \
     && curl -fsSL -o /usr/local/bin/yt-dlp \
