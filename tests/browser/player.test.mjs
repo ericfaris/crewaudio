@@ -119,7 +119,7 @@ suite('progress is saved and the last track is restored on reload', async () => 
   // jump past the 5s "don't resume tiny offsets" threshold, then let a save tick fire
   await page.evaluate(() => { document.querySelector('#audio').currentTime = 7; });
   await page.waitForFunction(() => {
-    try { return JSON.parse(localStorage['crewaudio.progress'])['Test Book/01 - Chapter 1.mp3']?.t > 6; }
+    try { return JSON.parse(localStorage['study.progress'])['Test Book/01 - Chapter 1.mp3']?.t > 6; }
     catch { return false; }
   }, null, { timeout: 6000 });
 
@@ -206,7 +206,7 @@ suite('finishing all questions records a score and offers Continue', async () =>
   const score = await page.textContent('#quiz-score');
   assert.match(score, /\/\s*10/);
 
-  const stored = await page.evaluate(() => JSON.parse(localStorage['crewaudio.quiz'] || '{}'));
+  const stored = await page.evaluate(() => JSON.parse(localStorage['study.quiz'] || '{}'));
   const rec = stored['Test Book/01 - Chapter 1.mp3'];
   assert.ok(rec && rec.total === 10 && Number.isInteger(rec.best), 'score persisted to localStorage');
 

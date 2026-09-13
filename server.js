@@ -10,15 +10,15 @@ import { importPlaylist, findYtDlp } from './import.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 8250;
-const AUDIO_DIR = process.env.CREWAUDIO_AUDIO_DIR
-  ? path.resolve(process.env.CREWAUDIO_AUDIO_DIR)
+const AUDIO_DIR = process.env.STUDY_AUDIO_DIR
+  ? path.resolve(process.env.STUDY_AUDIO_DIR)
   : path.join(__dirname, 'audio');
-const CACHE_DIR = process.env.CREWAUDIO_CACHE_DIR
-  ? path.resolve(process.env.CREWAUDIO_CACHE_DIR)
+const CACHE_DIR = process.env.STUDY_CACHE_DIR
+  ? path.resolve(process.env.STUDY_CACHE_DIR)
   : path.join(__dirname, '.cache');
 const PUBLIC_DIR = path.join(__dirname, 'public');
-const QUIZ_DIR = process.env.CREWAUDIO_QUIZ_DIR
-  ? path.resolve(process.env.CREWAUDIO_QUIZ_DIR)
+const QUIZ_DIR = process.env.STUDY_QUIZ_DIR
+  ? path.resolve(process.env.STUDY_QUIZ_DIR)
   : path.join(__dirname, 'data', 'quizzes');
 
 const AUDIO_EXTS = new Set(['.mp3', '.m4a', '.m4b', '.aac', '.ogg', '.oga', '.opus', '.flac', '.wav', '.webm']);

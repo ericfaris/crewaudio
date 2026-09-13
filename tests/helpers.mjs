@@ -8,7 +8,7 @@ export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 
 /** Write a temp quiz dir with a valid quiz for the given chapter numbers. */
 export function makeQuizDir(chapters = [1]) {
-  const dir = mkdtempSync(path.join(tmpdir(), 'crewaudio-quiz-'));
+  const dir = mkdtempSync(path.join(tmpdir(), 'study-quiz-'));
   for (const n of chapters) {
     const quiz = {
       chapter: n, book: 1, title: `Chapter ${n} review`,
@@ -26,7 +26,7 @@ export function makeQuizDir(chapters = [1]) {
 
 /** Create a temp audio library with `count` mp3s (`seconds` each) under "<tmp>/Test Book/". */
 export function makeAudioLibrary(count = 3, seconds = 12) {
-  const dir = mkdtempSync(path.join(tmpdir(), 'crewaudio-audio-'));
+  const dir = mkdtempSync(path.join(tmpdir(), 'study-audio-'));
   const book = path.join(dir, 'Test Book');
   mkdirSync(book, { recursive: true });
   for (let i = 1; i <= count; i++) {
@@ -42,14 +42,14 @@ export function makeAudioLibrary(count = 3, seconds = 12) {
 
 /** Start the server on an ephemeral port. Returns { origin, close }. */
 export function startServer(audioDir, { quizDir } = {}) {
-  const cacheDir = mkdtempSync(path.join(tmpdir(), 'crewaudio-cache-'));
+  const cacheDir = mkdtempSync(path.join(tmpdir(), 'study-cache-'));
   const child = spawn(process.execPath, [path.join(ROOT, 'server.js')], {
     env: {
       ...process.env,
       PORT: '0',
-      CREWAUDIO_AUDIO_DIR: audioDir,
-      CREWAUDIO_CACHE_DIR: cacheDir,
-      ...(quizDir ? { CREWAUDIO_QUIZ_DIR: quizDir } : {}),
+      STUDY_AUDIO_DIR: audioDir,
+      STUDY_CACHE_DIR: cacheDir,
+      ...(quizDir ? { STUDY_QUIZ_DIR: quizDir } : {}),
     },
     stdio: ['ignore', 'pipe', 'pipe'],
   });

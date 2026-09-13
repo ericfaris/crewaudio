@@ -8,10 +8,22 @@ let queue = [];          // ordered paths within the current book
 let current = null;      // rel path of loaded track
 let seeking = false;
 
-const PROGRESS_KEY = 'crewaudio.progress';
-const LAST_KEY = 'crewaudio.last';
-const MINI_KEY = 'crewaudio.mini';
-const QUIZ_KEY = 'crewaudio.quiz';
+const PROGRESS_KEY = 'study.progress';
+const LAST_KEY = 'study.last';
+const MINI_KEY = 'study.mini';
+const QUIZ_KEY = 'study.quiz';
+
+// One-time migration from the app's former name (crewaudio) so existing
+// listeners don't lose saved progress/quiz scores across the rename.
+for (const [oldKey, newKey] of [
+  ['crewaudio.progress', PROGRESS_KEY], ['crewaudio.last', LAST_KEY],
+  ['crewaudio.mini', MINI_KEY], ['crewaudio.quiz', QUIZ_KEY],
+]) {
+  const old = localStorage.getItem(oldKey);
+  if (old !== null && localStorage.getItem(newKey) === null) localStorage.setItem(newKey, old);
+  if (old !== null) localStorage.removeItem(oldKey);
+}
+
 const progress = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
 const saveProgress = () => localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
 const quizScores = JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}');
