@@ -1,6 +1,6 @@
-// crewaudio service worker — app-shell cache so the PWA opens offline.
+// study service worker — app-shell cache so the PWA opens offline.
 // Audio and API calls always go to the network (never cached).
-const CACHE = 'crewaudio-v4';
+const CACHE = 'study-v5';
 const SHELL = [
   '/',
   '/index.html',

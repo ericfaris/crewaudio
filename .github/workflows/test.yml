@@ -48,7 +48,7 @@ jobs:
         run: |
           curl -sf -X POST http://127.0.0.1:7891/api/deploy \
             -H 'Content-Type: application/json' \
-            -d '{"repo":"crewaudio","containerName":"crewaudio-app-1"}' \
+            -d '{"repo":"study","containerName":"study-app-1"}' \
             -o deploy-result.json
           cat deploy-result.json
           jq -e '.deployStatus == "done"' deploy-result.json

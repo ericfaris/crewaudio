@@ -1,9 +1,9 @@
 {
-  "name": "crewaudio",
+  "name": "study",
   "version": "0.2.0",
   "description": "Simple audio/audiobook player with YouTube playlist import",
   "type": "module",
-  "bin": { "crewaudio": "server.js" },
+  "bin": { "study": "server.js" },
   "scripts": {
     "start": "node server.js",
     "icons": "node tools/gen-icons.mjs",

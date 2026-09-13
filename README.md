@@ -1,8 +1,8 @@
-# crewaudio
+# study
 
-Minimal Node.js audiobook player (shown in the UI as **study**): import audio
-from YouTube playlists, play them grouped as "books", resume where you left off.
-Installable as a PWA with a compact widget mode.
+Minimal Node.js audiobook player: import audio from YouTube playlists, play
+them grouped as "books", resume where you left off. Installable as a PWA
+with a compact widget mode.
 
 ## Requirements
 

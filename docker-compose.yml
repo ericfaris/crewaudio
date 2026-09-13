@@ -1,9 +1,9 @@
-name: crewaudio
+name: study
 
 services:
   app:
     build: .
-    image: ericfaris/crewaudio:latest
+    image: ericfaris/study:latest
     restart: unless-stopped
     ports:
       # The Cloudflare Tunnel (study.mooseflip.com -> 8250) is the only public entry.

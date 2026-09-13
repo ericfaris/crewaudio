@@ -317,6 +317,6 @@ const server = http.createServer(async (req, res) => {
 await computeAssetVersion();
 
 server.listen(Number(PORT), () => {
-  console.log(`crewaudio → http://localhost:${server.address().port}`);
+  console.log(`study → http://localhost:${server.address().port}`);
   console.log(`audio folder: ${AUDIO_DIR}  ·  assets v${ASSET_V}`);
 });

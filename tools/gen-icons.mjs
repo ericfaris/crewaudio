@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generate crewaudio PWA icons as PNGs — no image libraries, just zlib.
+// Generate study PWA icons as PNGs — no image libraries, just zlib.
 // Draws a rounded-square badge with a headphone arc + play triangle.
 import zlib from 'node:zlib';
 import fs from 'node:fs';
