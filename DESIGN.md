@@ -150,6 +150,13 @@ part of the same light:
   the browser default gray.
 - **Badges** — quiz-score badge (`.quiz-badge`) uses `--accent-2-soft`/`--accent-2`
   (blue, not violet) to visually separate "quiz result" from "active/selected".
+- **Type tabs** (`.type-tab`, `#type-tabs`) — equal-width flat tab row atop
+  the sidebar list, one per library type (Books/Music/Other) that actually
+  has content; auto-hidden when only one type exists. Default/hover mirror
+  the button language (transparent → `--surface-2` tint); active state uses
+  `--accent-soft`/`--accent-strong` (a *tint*, not the solid `--accent` fill
+  list rows use) so the active tab reads as "selected filter" rather than
+  "selected track".
 
 ## Backgrounds & texture
 
@@ -199,3 +206,6 @@ components/motion).
   unstyled dark shell with the full light violet/blue system above: tokens,
   self-hosted type, restyled components, the play-ring + book-gauge signature
   motif, and this document + the showcase page. No prior `DESIGN.md` existed.
+- **2026-09-13** — Library types moved from stacked section headers
+  (`.type-head`) to a `.type-tab` row atop the sidebar; added the tab
+  component here and to the showcase page.

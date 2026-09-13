@@ -198,13 +198,21 @@ h1, h2 { font-family: var(--font-display); margin: 0; }
   max-height: 140px; overflow: auto; white-space: pre-wrap;
 }
 
-#groups { overflow-y: auto; flex: 1; padding: var(--sp-2) var(--sp-3) var(--sp-4); }
-.type-group { margin-bottom: var(--sp-3); }
-.type-head {
-  font: var(--text-2xs); text-transform: uppercase; letter-spacing: .08em; color: var(--text-3);
-  margin: var(--sp-3) var(--sp-2) var(--sp-1);
+#type-tabs[hidden] { display: none; }
+#type-tabs {
+  display: flex; gap: var(--sp-1); padding: 0 var(--sp-4) var(--sp-3);
+  border-bottom: 1px solid var(--border);
 }
-.type-group:first-child .type-head { margin-top: var(--sp-1); }
+.type-tab {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: var(--sp-2) var(--sp-2); border: 0; border-radius: var(--r-md); background: transparent;
+  color: var(--text-3); font: var(--text-xs); font-weight: 700; cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast);
+}
+.type-tab:hover { background: var(--surface-2); color: var(--text-2); }
+.type-tab.active { background: var(--accent-soft); color: var(--accent-strong); }
+
+#groups { overflow-y: auto; flex: 1; padding: var(--sp-2) var(--sp-3) var(--sp-4); }
 #groups details { margin-bottom: var(--sp-1); }
 #groups summary {
   padding: var(--sp-2) var(--sp-2); cursor: pointer; border-radius: var(--r-md);

@@ -1,6 +1,7 @@
 const $ = (s) => document.querySelector(s);
 const audio = $('#audio');
 const groupsEl = $('#groups');
+const tabsEl = $('#type-tabs');
 const seek = $('#seek');
 
 let files = [];          // flat list from server
@@ -18,6 +19,8 @@ const MINI_KEY = 'study.mini';
 const QUIZ_KEY = 'study.quiz';
 const SHUFFLE_KEY = 'study.shuffle';
 let shuffleOn = localStorage.getItem(SHUFFLE_KEY) === '1';
+const TYPE_TAB_KEY = 'study.type-tab';
+let activeType = null; // which type tab is showing; set on first render()
 
 // One-time migration from the app's former name (crewaudio) so existing
 // listeners don't lose saved progress/quiz scores across the rename.
@@ -62,15 +65,21 @@ async function loadFiles() {
   const data = await (await fetch('/api/files')).json();
   files = data.files;
   folderTypes = data.folderTypes || {};
-  render();
+  let last = null;
   if (!current) {
-    const last = localStorage.getItem(LAST_KEY);
-    if (last && files.some((f) => f.path === last)) play(last, { autoplay: false });
+    const saved = localStorage.getItem(LAST_KEY);
+    if (saved && files.some((f) => f.path === saved)) last = saved;
   }
+  current = current || last; // hint render()'s tab pick at the last-played track, without fully loading it yet
+  render();
+  if (last) play(last, { autoplay: false });
 }
 
 // Library hierarchy: Type (Books / Music / Other) -> playlist/book -> track.
+// Types render as tabs at the top of the library; only the active tab's
+// playlists show in #groups below.
 const TYPE_LABEL = { book: 'Books', music: 'Music', other: 'Other' };
+const TYPE_ICON = { book: '📖', music: '🎵', other: '🗂️' };
 const TYPE_ORDER = ['book', 'music', 'other'];
 
 function render() {
@@ -86,44 +95,61 @@ function render() {
     if (!byType.has(type)) byType.set(type, []);
     byType.get(type).push(book);
   }
+  const presentTypes = TYPE_ORDER.filter((t) => byType.get(t)?.length);
+
+  // Pick which tab is active: keep the current one if it's still present,
+  // else fall back to the current track's type, the last saved tab, or the
+  // first type that has anything in it.
+  if (!presentTypes.includes(activeType)) {
+    const currentBookType = current ? (folderTypes[bookOf(current)] || 'book') : null;
+    const saved = localStorage.getItem(TYPE_TAB_KEY);
+    activeType = [currentBookType, saved].find((t) => presentTypes.includes(t)) || presentTypes[0] || null;
+  }
+
+  tabsEl.innerHTML = '';
+  tabsEl.hidden = presentTypes.length < 2;
+  for (const type of presentTypes) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'type-tab';
+    btn.classList.toggle('active', type === activeType);
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('aria-selected', String(type === activeType));
+    btn.innerHTML = `${TYPE_ICON[type]} ${TYPE_LABEL[type]}`;
+    btn.onclick = () => {
+      if (activeType === type) return;
+      activeType = type;
+      localStorage.setItem(TYPE_TAB_KEY, type);
+      render();
+    };
+    tabsEl.appendChild(btn);
+  }
 
   groupsEl.innerHTML = '';
   $('#empty').hidden = files.length > 0;
 
-  for (const type of TYPE_ORDER) {
-    const bookNames = byType.get(type);
-    if (!bookNames || !bookNames.length) continue;
-    const typeWrap = document.createElement('div');
-    typeWrap.className = 'type-group';
-    const head = document.createElement('h2');
-    head.className = 'type-head';
-    head.textContent = TYPE_LABEL[type];
-    typeWrap.appendChild(head);
-
-    for (const book of bookNames) {
-      const list = books.get(book);
-      const wrap = document.createElement('details');
-      wrap.open = true;
-      const done = list.filter((f) => (progress[f.path]?.ratio || 0) > 0.97).length;
-      const pct = list.length ? Math.round((done / list.length) * 100) : 0;
-      wrap.innerHTML = `<summary><span class="book-gauge" style="--gauge:${pct}"></span>${book || 'Library'} <span class="count">${done}/${list.length}</span></summary>`;
-      const ul = document.createElement('ul');
-      for (const f of list) {
-        const li = document.createElement('li');
-        const pr = progress[f.path];
-        const badge = pr && pr.ratio > 0.97 ? '✓' : pr && pr.ratio > 0.02 ? `${Math.round(pr.ratio * 100)}%` : '';
-        const qz = quizScores[f.path];
-        const qzBadge = qz ? `<span class="quiz-badge">${qz.best}/${qz.total}</span>` : '';
-        li.innerHTML = `<span class="name">${f.name}</span><span class="meta">${qzBadge}${badge || humanSize(f.size)}</span>`;
-        li.dataset.path = f.path;
-        li.classList.toggle('active', f.path === current);
-        li.onclick = () => play(f.path);
-        ul.appendChild(li);
-      }
-      wrap.appendChild(ul);
-      typeWrap.appendChild(wrap);
+  for (const book of byType.get(activeType) || []) {
+    const list = books.get(book);
+    const wrap = document.createElement('details');
+    wrap.open = true;
+    const done = list.filter((f) => (progress[f.path]?.ratio || 0) > 0.97).length;
+    const pct = list.length ? Math.round((done / list.length) * 100) : 0;
+    wrap.innerHTML = `<summary><span class="book-gauge" style="--gauge:${pct}"></span>${book || 'Library'} <span class="count">${done}/${list.length}</span></summary>`;
+    const ul = document.createElement('ul');
+    for (const f of list) {
+      const li = document.createElement('li');
+      const pr = progress[f.path];
+      const badge = pr && pr.ratio > 0.97 ? '✓' : pr && pr.ratio > 0.02 ? `${Math.round(pr.ratio * 100)}%` : '';
+      const qz = quizScores[f.path];
+      const qzBadge = qz ? `<span class="quiz-badge">${qz.best}/${qz.total}</span>` : '';
+      li.innerHTML = `<span class="name">${f.name}</span><span class="meta">${qzBadge}${badge || humanSize(f.size)}</span>`;
+      li.dataset.path = f.path;
+      li.classList.toggle('active', f.path === current);
+      li.onclick = () => play(f.path);
+      ul.appendChild(li);
     }
-    groupsEl.appendChild(typeWrap);
+    wrap.appendChild(ul);
+    groupsEl.appendChild(wrap);
   }
 }
 

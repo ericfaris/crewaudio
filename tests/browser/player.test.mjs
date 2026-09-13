@@ -265,23 +265,26 @@ suite('the quiz can be retaken any number of times, before or after the audio', 
 });
 
 // ---- library hierarchy (Type -> playlist -> track) & music-only shuffle ----
-suite('the sidebar groups by type, and shuffle only appears for music', async () => {
+suite('the library groups by type as tabs, and shuffle only appears for music', async () => {
   const page = await freshPage();
 
-  const headings = await page.$$eval('.type-head', (els) => els.map((e) => e.textContent));
-  assert.deepEqual(headings, ['Books', 'Music']);
+  const tabs = await page.$$eval('.type-tab', (els) => els.map((e) => e.textContent.trim()));
+  assert.deepEqual(tabs, ['📖 Books', '🎵 Music']);
+  assert.equal(await page.locator('.type-tab.active').textContent(), '📖 Books');
 
   // "Test Book" (no .type marker) plays with no shuffle control
   await playFirstTrack(page);
   assert.equal(await page.isVisible('#shuffle'), false);
 
-  // "Some Album" is typed "music" -> shuffle appears
+  // switch to the Music tab -> "Some Album" (typed "music") -> shuffle appears
+  await page.locator('.type-tab', { hasText: 'Music' }).click();
   const albumTrack = page.locator('#groups li', { hasText: '01 - Track 1' });
   await albumTrack.click();
   await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
   assert.equal(await page.isVisible('#shuffle'), true);
 
-  // switching back to the book hides it again
+  // switching back to the Books tab and playing the book hides it again
+  await page.locator('.type-tab', { hasText: 'Books' }).click();
   await page.locator('#groups li', { hasText: 'Chapter 1.mp3' }).click();
   await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
   assert.equal(await page.isVisible('#shuffle'), false);
@@ -289,6 +292,7 @@ suite('the sidebar groups by type, and shuffle only appears for music', async ()
 
 suite('shuffle toggles on click and persists across reload (music only)', async () => {
   const page = await freshPage();
+  await page.locator('.type-tab', { hasText: 'Music' }).click();
   await page.locator('#groups li', { hasText: '01 - Track 1' }).click();
   await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
 
