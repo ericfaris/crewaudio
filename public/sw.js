@@ -1,6 +1,6 @@
 // crewaudio service worker — app-shell cache so the PWA opens offline.
 // Audio and API calls always go to the network (never cached).
-const CACHE = 'crewaudio-v3';
+const CACHE = 'crewaudio-v4';
 const SHELL = [
   '/',
   '/index.html',
@@ -11,6 +11,8 @@ const SHELL = [
   '/icon-192.png',
   '/icon-512.png',
   '/icon-maskable-512.png',
+  '/fonts/lexend-variable.woff2',
+  '/fonts/jakarta-variable.woff2',
 ];
 
 self.addEventListener('install', (e) => {

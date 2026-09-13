@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>study — design system</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  body { overflow: auto; background: var(--bg-grad) fixed; }
+  .doc { max-width: 1040px; margin: 0 auto; padding: var(--sp-8) var(--sp-6) 80px; }
+  .doc h1 { font: var(--text-3xl); margin-bottom: var(--sp-2); }
+  .doc > p.lede { font: var(--text-md); color: var(--text-2); max-width: 62ch; margin: 0 0 var(--sp-8); font-weight: 400; }
+  section.block { margin-bottom: var(--sp-8); }
+  section.block h2 { font: var(--text-xl); margin-bottom: var(--sp-2); padding-bottom: var(--sp-2); border-bottom: 1px solid var(--border); }
+  section.block > p.desc { color: var(--text-2); font: var(--text-sm); max-width: 70ch; margin: 0 0 var(--sp-5); }
+  .grid { display: grid; gap: var(--sp-4); }
+  .cols-swatch { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .swatch { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-sm); }
+  .swatch .chip { height: 64px; }
+  .swatch .label { padding: var(--sp-2) var(--sp-3); font: var(--text-xs); }
+  .swatch .label b { display: block; font: var(--text-sm); margin-bottom: 2px; }
+  .swatch .label code { color: var(--text-3); }
+
+  .type-row { display: flex; align-items: baseline; gap: var(--sp-5); padding: var(--sp-3) 0; border-bottom: 1px dashed var(--border); }
+  .type-row .sample { flex: 1; color: var(--text); }
+  .type-row .meta { flex: none; width: 220px; font: var(--text-xs); color: var(--text-3); }
+  .meta code { display: block; }
+
+  .scale-row { display: flex; align-items: center; gap: var(--sp-4); padding: 6px 0; }
+  .scale-row .box { background: var(--accent); border-radius: var(--r-sm); flex: none; }
+  .scale-row .lbl { font: var(--text-xs); color: var(--text-2); width: 160px; }
+  .radius-row .box { background: var(--surface); border: 2px solid var(--accent-2); }
+
+  .shadow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--sp-5); }
+  .shadow-card { background: var(--surface); border-radius: var(--r-lg); height: 100px; display: grid; place-items: center;
+    font: var(--text-xs); color: var(--text-2); }
+
+  .motion-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--sp-4);
+    cursor: pointer; text-align: center; font: var(--text-sm); color: var(--text); transition: transform var(--dur-med) var(--ease-spring), box-shadow var(--dur-med); }
+  .motion-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: var(--shadow-lg); }
+
+  .comp-grid { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; }
+  .comp-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--shadow-sm); }
+  .comp-card h3 { font: var(--text-sm); color: var(--text-3); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 var(--sp-3); }
+  .row { display: flex; gap: var(--sp-3); flex-wrap: wrap; align-items: center; }
+
+  .fake-li { padding: var(--sp-2) var(--sp-3); border-radius: var(--r-md); font: var(--text-base-md); color: var(--text-2); display: flex; justify-content: space-between; width: 220px; }
+  .fake-li.active { background: var(--accent); color: #fff; }
+  .fake-li:not(.active) { background: var(--surface-2); }
+
+  .texture-sample { height: 120px; border-radius: var(--r-lg); border: 1px solid var(--border); }
+  .texture-sample.grad { background: var(--bg-grad); }
+  .texture-sample.card { background: var(--surface); box-shadow: var(--shadow-md); }
+
+  footer.doc-foot { color: var(--text-3); font: var(--text-xs); text-align: center; margin-top: var(--sp-8); }
+</style>
+</head>
+<body>
+<div class="doc">
+  <h1>study — design system</h1>
+  <p class="lede">"Reading room": a light, violet-and-sky-blue study desk. Every token and
+    component below is pulled live from <code>/styles.css</code> — see
+    <a href="/DESIGN.md" style="color:var(--accent)">DESIGN.md</a> for the full rationale.</p>
+
+  <section class="block">
+    <h2>Color</h2>
+    <p class="desc">Dominant violet (<code>--accent</code>) for brand and active state, sky blue
+      (<code>--accent-2</code>) reserved for playback/progress, plus semantic good/bad/warn.</p>
+    <div class="grid cols-swatch">
+      <div class="swatch"><div class="chip" style="background:var(--bg)"></div><div class="label"><b>bg</b><code>#f3f1fb</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--surface)"></div><div class="label"><b>surface</b><code>#ffffff</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--surface-2)"></div><div class="label"><b>surface-2</b><code>#f8f6fd</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--surface-3)"></div><div class="label"><b>surface-3</b><code>#f1eefa</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--border)"></div><div class="label"><b>border</b><code>#e5e1f5</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--text)"></div><div class="label"><b>text</b><code>#201c34</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--text-2)"></div><div class="label"><b>text-2</b><code>#625d80</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--text-3)"></div><div class="label"><b>text-3</b><code>#948fb0</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--accent)"></div><div class="label"><b>accent</b><code>#6d5ef8</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--accent-strong)"></div><div class="label"><b>accent-strong</b><code>#5541f0</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--accent-soft)"></div><div class="label"><b>accent-soft</b><code>#ece8ff</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--accent-2)"></div><div class="label"><b>accent-2</b><code>#2f9dff</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--accent-2-soft)"></div><div class="label"><b>accent-2-soft</b><code>#e4f3ff</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--good)"></div><div class="label"><b>good</b><code>#17a869</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--good-soft)"></div><div class="label"><b>good-soft</b><code>#e2f8ee</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--bad)"></div><div class="label"><b>bad</b><code>#e5484d</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--bad-soft)"></div><div class="label"><b>bad-soft</b><code>#fdeaea</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--warn)"></div><div class="label"><b>warn</b><code>#f2a30f</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--warn-soft)"></div><div class="label"><b>warn-soft</b><code>#fef3e0</code></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Type</h2>
+    <p class="desc">Display: <b>Lexend</b> (self-hosted variable, 400–800) — chosen because it's
+      literally designed to improve reading fluency, a direct fit for a study/audiobook app.
+      Body: <b>Plus Jakarta Sans</b> (self-hosted variable, 300–800).</p>
+    <div class="type-row"><span class="sample" style="font:var(--text-3xl)">Aa Study Room</span><span class="meta"><code>--text-3xl</code>700 · 36/1.1 · Lexend — hero/showcase only</span></div>
+    <div class="type-row"><span class="sample" style="font:var(--text-2xl)">study</span><span class="meta"><code>--text-2xl</code>700 · 26/1.2 · Lexend — brand wordmark</span></div>
+    <div class="type-row"><span class="sample" style="font:var(--text-xl)">Chapter review</span><span class="meta"><code>--text-xl</code>600 · 20/1.3 · Lexend — section heads</span></div>
+    <div class="type-row"><span class="sample" style="font:var(--text-lg)">What fills the gap</span><span class="meta"><code>--text-lg</code>600 · 17/1.35 · Lexend — now-playing title</span></div>
+    <div class="type-row"><span class="sample" style="font:var(--text-md)">Take the review quiz</span><span class="meta"><code>--text-md</code>600 · 15/1.4 · Jakarta — buttons, emphasis</span></div>
+    <div class="type-row"><span class="sample" style="font:var(--text-base-md)">Book One, Chapter 3</span><span class="meta"><code>--text-base-md</code>500 · 14/1.55 · Jakarta — list rows</span></div>
+    <div class="type-row"><span class="sample" style="font:var(--text-base)">Pick an answer for each question.</span><span class="meta"><code>--text-base</code>400 · 14/1.55 · Jakarta — body copy</span></div>
+    <div class="type-row"><span class="sample" style="font:var(--text-sm)">2/5 finished</span><span class="meta"><code>--text-sm</code>500 · 13/1.5 · Jakarta — secondary UI</span></div>
+    <div class="type-row"><span class="sample" style="font:var(--text-xs)">12.4 MB</span><span class="meta"><code>--text-xs</code>500 · 12/1.5 · Jakarta — meta/captions</span></div>
+    <div class="type-row"><span class="sample" style="font:var(--text-2xs);text-transform:uppercase;letter-spacing:.06em">Book One</span><span class="meta"><code>--text-2xs</code>600 · 11/1.4 · Jakarta — eyebrow labels</span></div>
+  </section>
+
+  <section class="block">
+    <h2>Spacing &amp; radius</h2>
+    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--sp-6)">
+      <div>
+        <p class="desc" style="margin-bottom:var(--sp-3)">4px base scale.</p>
+        <div class="scale-row"><span class="lbl"><code>--sp-1</code> 4px</span><span class="box" style="width:4px;height:16px"></span></div>
+        <div class="scale-row"><span class="lbl"><code>--sp-2</code> 8px</span><span class="box" style="width:8px;height:16px"></span></div>
+        <div class="scale-row"><span class="lbl"><code>--sp-3</code> 12px</span><span class="box" style="width:12px;height:16px"></span></div>
+        <div class="scale-row"><span class="lbl"><code>--sp-4</code> 16px</span><span class="box" style="width:16px;height:16px"></span></div>
+        <div class="scale-row"><span class="lbl"><code>--sp-5</code> 20px</span><span class="box" style="width:20px;height:16px"></span></div>
+        <div class="scale-row"><span class="lbl"><code>--sp-6</code> 24px</span><span class="box" style="width:24px;height:16px"></span></div>
+        <div class="scale-row"><span class="lbl"><code>--sp-7</code> 28px</span><span class="box" style="width:28px;height:16px"></span></div>
+        <div class="scale-row"><span class="lbl"><code>--sp-8</code> 32px</span><span class="box" style="width:32px;height:16px"></span></div>
+      </div>
+      <div>
+        <p class="desc" style="margin-bottom:var(--sp-3)">Rounder at higher elevation — pills for interactive controls and active states.</p>
+        <div class="scale-row radius-row"><span class="lbl"><code>--r-sm</code> 8px</span><span class="box" style="width:40px;height:40px;border-radius:8px"></span></div>
+        <div class="scale-row radius-row"><span class="lbl"><code>--r-md</code> 14px</span><span class="box" style="width:40px;height:40px;border-radius:14px"></span></div>
+        <div class="scale-row radius-row"><span class="lbl"><code>--r-lg</code> 20px</span><span class="box" style="width:40px;height:40px;border-radius:20px"></span></div>
+        <div class="scale-row radius-row"><span class="lbl"><code>--r-xl</code> 26px</span><span class="box" style="width:40px;height:40px;border-radius:26px"></span></div>
+        <div class="scale-row radius-row"><span class="lbl"><code>--r-pill</code> 999px</span><span class="box" style="width:64px;height:28px;border-radius:999px"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Shadow &amp; motion</h2>
+    <p class="desc">Shadows are tinted violet, not gray — everything sits in the same light.
+      Hover the motion cards to feel each easing.</p>
+    <div class="shadow-grid">
+      <div class="shadow-card" style="box-shadow:var(--shadow-sm)">--shadow-sm</div>
+      <div class="shadow-card" style="box-shadow:var(--shadow-md)">--shadow-md</div>
+      <div class="shadow-card" style="box-shadow:var(--shadow-lg)">--shadow-lg</div>
+      <div class="shadow-card" style="box-shadow:var(--shadow-glow)">--shadow-glow</div>
+    </div>
+    <div class="row" style="margin-top:var(--sp-5)">
+      <div class="motion-card" style="transition-duration:var(--dur-fast)">fast · 120ms<br>micro (hover)</div>
+      <div class="motion-card" style="transition-duration:var(--dur-med)">med · 220ms<br>reveal (card, quiz)</div>
+      <div class="motion-card" style="transition-duration:var(--dur-slow)">slow · 420ms<br>load-in (now-playing)</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Components</h2>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <h3>Buttons</h3>
+        <div class="row">
+          <button class="primary" style="background:var(--accent);color:#fff;border:0;border-radius:var(--r-pill);padding:10px 20px;font:var(--text-sm);font-weight:700;box-shadow:var(--shadow-sm)">Primary</button>
+          <button style="background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-pill);padding:10px 20px;font:var(--text-sm);font-weight:700;color:var(--text)">Secondary</button>
+          <button disabled style="background:var(--accent);opacity:.5;color:#fff;border:0;border-radius:var(--r-pill);padding:10px 20px;font:var(--text-sm);font-weight:700">Disabled</button>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h3>List row (default / active)</h3>
+        <div class="fake-li">Chapter 4 — The Long Walk <span>18%</span></div>
+        <div style="height:6px"></div>
+        <div class="fake-li active">Chapter 5 — Arrival <span>✓</span></div>
+      </div>
+      <div class="comp-card">
+        <h3>Book gauge</h3>
+        <div class="row">
+          <span class="book-gauge" style="--gauge:30;width:28px;height:28px"></span>
+          <span class="book-gauge" style="--gauge:70;width:28px;height:28px"></span>
+          <span class="book-gauge" style="--gauge:100;width:28px;height:28px"></span>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h3>Play ring (signature control)</h3>
+        <div class="row">
+          <span class="ring" style="--ring:35"><button class="primary" style="border:0;background:var(--accent);color:#fff;border-radius:50%;width:52px;height:52px;font-size:18px;box-shadow:var(--shadow-md),var(--shadow-glow)">▶</button></span>
+          <span class="ring" style="--ring:80"><button class="primary" style="border:0;background:var(--accent);color:#fff;border-radius:50%;width:52px;height:52px;font-size:18px;box-shadow:var(--shadow-md),var(--shadow-glow)">⏸</button></span>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h3>Quiz choice (default / right / wrong)</h3>
+        <div style="display:flex;flex-direction:column;gap:6px;width:260px">
+          <label class="q-choice"><input type="radio" disabled> <span>Photosynthesis</span></label>
+          <label class="q-choice right"><input type="radio" disabled checked> <span>Cellular respiration</span></label>
+          <label class="q-choice wrong"><input type="radio" disabled checked> <span>Osmosis</span></label>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h3>Badges</h3>
+        <div class="row">
+          <span class="quiz-badge" style="background:var(--accent-2-soft);color:var(--accent-2);border-radius:999px;padding:2px 8px;font:var(--text-2xs)">9/10</span>
+          <span id="quiz-note" style="position:static">📝 A short review quiz will appear when this chapter finishes.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Background &amp; surface</h2>
+    <p class="desc">No generated imagery in this pass — atmosphere comes from a soft violet
+      page-level gradient and elevated white cards, matching the DocuVault/Huthy references.</p>
+    <div class="grid" style="grid-template-columns:1fr 1fr">
+      <div class="texture-sample grad"></div>
+      <div class="texture-sample card"></div>
+    </div>
+  </section>
+
+  <footer class="doc-foot">study — reading room · see DESIGN.md for the full write-up</footer>
+</div>
+</body>
+</html>

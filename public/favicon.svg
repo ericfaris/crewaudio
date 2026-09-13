@@ -1,17 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -6 40 40">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a7bff"/>
+      <stop offset="1" stop-color="#6d5ef8"/>
+    </linearGradient>
+  </defs>
   <g transform="rotate(45 16 16)">
     <!-- body -->
-    <rect x="12" y="3" width="8" height="19" fill="#f4b400"/>
-    <rect x="12" y="3" width="8" height="19" fill="none" stroke="#c98a00" stroke-width="0.6"/>
-    <line x1="14" y1="3" x2="14" y2="22" stroke="#c98a00" stroke-width="0.6"/>
-    <line x1="18" y1="3" x2="18" y2="22" stroke="#c98a00" stroke-width="0.6"/>
+    <rect x="12" y="3" width="8" height="19" fill="url(#body)"/>
+    <rect x="12" y="3" width="8" height="19" fill="none" stroke="#5541f0" stroke-width="0.6"/>
+    <line x1="14" y1="3" x2="14" y2="22" stroke="#5541f0" stroke-width="0.6"/>
+    <line x1="18" y1="3" x2="18" y2="22" stroke="#5541f0" stroke-width="0.6"/>
     <!-- ferrule -->
-    <rect x="12" y="22" width="8" height="3" fill="#9aa0a6"/>
+    <rect x="12" y="22" width="8" height="3" fill="#cfc9ee"/>
     <!-- eraser -->
-    <rect x="12" y="25" width="8" height="4" rx="1.2" fill="#e8607a"/>
+    <rect x="12" y="25" width="8" height="4" rx="1.2" fill="#2f9dff"/>
     <!-- wood tip -->
-    <polygon points="12,3 20,3 16,-4" fill="#f0d9a8"/>
+    <polygon points="12,3 20,3 16,-4" fill="#f0e9ff"/>
     <!-- graphite point -->
-    <polygon points="14.6,-1.5 17.4,-1.5 16,-4" fill="#2b2b2b"/>
+    <polygon points="14.6,-1.5 17.4,-1.5 16,-4" fill="#201c34"/>
   </g>
 </svg>

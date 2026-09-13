@@ -30,6 +30,7 @@ const MIME = {
   '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8',
   '.webmanifest': 'application/manifest+json; charset=utf-8',
   '.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon',
+  '.woff2': 'font/woff2',
 };
 
 await fsp.mkdir(AUDIO_DIR, { recursive: true });
@@ -207,7 +208,7 @@ async function serveStatic(req, res, urlPath) {
     const versioned = /[?&]v=/.test(req.url || '');
     const cacheControl = versioned
       ? 'public, max-age=31536000, immutable'
-      : /\.(png|svg|ico)$/.test(rel) ? 'public, max-age=86400' : 'no-cache';
+      : /\.(png|svg|ico|woff2)$/.test(rel) ? 'public, max-age=86400' : 'no-cache';
 
     const headers = {
       'Content-Type': MIME[path.extname(full).toLowerCase()] || 'application/octet-stream',

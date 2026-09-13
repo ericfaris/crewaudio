@@ -53,7 +53,8 @@ function render() {
     const wrap = document.createElement('details');
     wrap.open = true;
     const done = list.filter((f) => (progress[f.path]?.ratio || 0) > 0.97).length;
-    wrap.innerHTML = `<summary>${book} <span class="count">${done}/${list.length}</span></summary>`;
+    const pct = list.length ? Math.round((done / list.length) * 100) : 0;
+    wrap.innerHTML = `<summary><span class="book-gauge" style="--gauge:${pct}"></span>${book} <span class="count">${done}/${list.length}</span></summary>`;
     const ul = document.createElement('ul');
     for (const f of list) {
       const li = document.createElement('li');
@@ -143,11 +144,13 @@ function updateClock() {
   const d = audio.duration || 0, t = audio.currentTime || 0;
   $('#clock').textContent = `${fmt(t)} / ${fmt(d)}`;
   if (!seeking) seek.value = d ? Math.round((t / d) * 1000) : 0;
+  $('#play-ring').style.setProperty('--ring', d ? (t / d) * 100 : 0);
+  seek.style.setProperty('--fill', seek.value / 10);
 }
 $('#playpause').onclick = togglePlay;
 $('#prev').onclick = () => step(-1);
 $('#next').onclick = () => step(1);
-seek.addEventListener('input', () => { seeking = true; });
+seek.addEventListener('input', () => { seeking = true; seek.style.setProperty('--fill', seek.value / 10); });
 seek.addEventListener('change', () => {
   if (audio.duration) audio.currentTime = (seek.value / 1000) * audio.duration;
   seeking = false;

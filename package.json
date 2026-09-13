@@ -1,6 +1,6 @@
 {
   "name": "crewaudio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Simple audio/audiobook player with YouTube playlist import",
   "type": "module",
   "bin": { "crewaudio": "server.js" },

@@ -63,8 +63,8 @@ function draw(size, { maskable = false } = {}) {
   const s = size;
   const pad = maskable ? 0 : s * 0.06;        // full-bleed for maskable
   const radius = maskable ? 0 : s * 0.22;
-  const bg = [47, 90, 214];                    // #2f5ad6
-  const fg = [231, 233, 238];                  // #e7e9ee
+  const bg = [109, 94, 248];                   // #6d5ef8 (study violet)
+  const fg = [255, 255, 255];                  // #ffffff
 
   // rounded-square background (4x supersampled edges)
   for (let y = 0; y < s; y++) for (let x = 0; x < s; x++) {
