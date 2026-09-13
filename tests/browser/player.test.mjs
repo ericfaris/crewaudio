@@ -290,6 +290,24 @@ suite('the library groups by type as tabs, and shuffle only appears for music', 
   assert.equal(await page.isVisible('#shuffle'), false);
 });
 
+suite('no quiz note/panel for a music track, even when its position matches a book chapter with a quiz (regression)', async () => {
+  const page = await freshPage();
+  await page.locator('.type-tab', { hasText: 'Music' }).click();
+  // "Some Album" track 1 sits at queue position 1 — same position as the book's
+  // chapter 1, which has a quiz fixture. Only the book should ever get quizzed.
+  await page.locator('#groups li', { hasText: '01 - Track 1' }).click();
+  await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
+  await page.waitForTimeout(400);
+  assert.equal(await page.isVisible('#quiz-note'), false);
+  assert.equal(await page.isVisible('#quiz-open'), false);
+
+  await page.evaluate(() => { const a = document.querySelector('#audio'); a.currentTime = a.duration - 0.2; });
+  await page.waitForFunction(
+    () => document.querySelector('#audio').src.includes('02%20-%20Track%202'),
+    null, { timeout: 8000 }); // auto-advanced straight to track 2 — no quiz interrupted it
+  assert.equal(await page.isVisible('#quiz'), false);
+});
+
 suite('shuffle toggles on click and persists across reload (music only)', async () => {
   const page = await freshPage();
   await page.locator('.type-tab', { hasText: 'Music' }).click();

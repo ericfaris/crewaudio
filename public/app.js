@@ -195,6 +195,7 @@ async function refreshQuizControls(track) {
   note.hidden = true;
   openBtn.hidden = true;
   currentQuiz = null;
+  if (currentType !== 'book') return; // quizzes are chapter-position-keyed; meaningless outside a book
   const n = chapterOf(track);
   if (n < 1) return;
   try {
@@ -293,6 +294,7 @@ let pendingAdvance = false;
 
 async function maybeShowQuiz(track) {
   if (!track) return false;
+  if (currentType !== 'book') return false; // quizzes are chapter-position-keyed; meaningless outside a book
   const n = chapterOf(track);
   if (n < 1) return false;
   let quiz;
