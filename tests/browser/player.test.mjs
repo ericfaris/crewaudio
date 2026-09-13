@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { makeAudioLibrary, makeQuizDir, startServer, cleanup, findChromium } from '../helpers.mjs';
+import { makeAudioLibrary, makeQuizDir, addTypedBook, startServer, cleanup, findChromium } from '../helpers.mjs';
 
 const chromiumPath = findChromium();
 const suite = chromiumPath ? test : test.skip;
@@ -14,6 +14,7 @@ test.before(async () => {
   if (!chromiumPath) return;
   ({ chromium } = await import('playwright-core'));
   audioDir = makeAudioLibrary(3);
+  addTypedBook(audioDir, 'Some Album', 'music', 2);
   server = await startServer(audioDir, { quizDir: makeQuizDir([1]) });
   browser = await chromium.launch({ executablePath: chromiumPath });
 });
@@ -261,4 +262,43 @@ suite('the quiz can be retaken any number of times, before or after the audio', 
   await page.click('#quiz-open');
   await page.waitForSelector('#quiz:not([hidden])', { timeout: 3000 });
   assert.equal(await page.evaluate(() => document.querySelectorAll('#quiz-list > li').length), 10);
+});
+
+// ---- library hierarchy (Type -> playlist -> track) & music-only shuffle ----
+suite('the sidebar groups by type, and shuffle only appears for music', async () => {
+  const page = await freshPage();
+
+  const headings = await page.$$eval('.type-head', (els) => els.map((e) => e.textContent));
+  assert.deepEqual(headings, ['Books', 'Music']);
+
+  // "Test Book" (no .type marker) plays with no shuffle control
+  await playFirstTrack(page);
+  assert.equal(await page.isVisible('#shuffle'), false);
+
+  // "Some Album" is typed "music" -> shuffle appears
+  const albumTrack = page.locator('#groups li', { hasText: '01 - Track 1' });
+  await albumTrack.click();
+  await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
+  assert.equal(await page.isVisible('#shuffle'), true);
+
+  // switching back to the book hides it again
+  await page.locator('#groups li', { hasText: 'Chapter 1.mp3' }).click();
+  await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
+  assert.equal(await page.isVisible('#shuffle'), false);
+});
+
+suite('shuffle toggles on click and persists across reload (music only)', async () => {
+  const page = await freshPage();
+  await page.locator('#groups li', { hasText: '01 - Track 1' }).click();
+  await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
+
+  assert.equal(await page.evaluate(() => localStorage.getItem('study.shuffle')), null);
+  await page.click('#shuffle');
+  assert.equal(await page.evaluate(() => document.querySelector('#shuffle').classList.contains('active')), true);
+  assert.equal(await page.evaluate(() => localStorage.getItem('study.shuffle')), '1');
+
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.locator('#groups li', { hasText: '02 - Track 2' }).click();
+  await page.waitForFunction(() => !document.querySelector('#audio').paused, null, { timeout: 6000 });
+  assert.equal(await page.evaluate(() => document.querySelector('#shuffle').classList.contains('active')), true);
 });

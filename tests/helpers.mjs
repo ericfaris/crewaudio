@@ -24,20 +24,33 @@ export function makeQuizDir(chapters = [1]) {
   return dir;
 }
 
+function synthTrack(file, { seconds = 12, freq = 220 } = {}) {
+  execFileSync('ffmpeg', [
+    '-hide_banner', '-loglevel', 'error', '-y',
+    '-f', 'lavfi', '-i', `sine=frequency=${freq}:duration=${seconds}`,
+    '-q:a', '9', file,
+  ]);
+}
+
 /** Create a temp audio library with `count` mp3s (`seconds` each) under "<tmp>/Test Book/". */
 export function makeAudioLibrary(count = 3, seconds = 12) {
   const dir = mkdtempSync(path.join(tmpdir(), 'study-audio-'));
   const book = path.join(dir, 'Test Book');
   mkdirSync(book, { recursive: true });
   for (let i = 1; i <= count; i++) {
-    const freq = 220 + i * 110;
-    execFileSync('ffmpeg', [
-      '-hide_banner', '-loglevel', 'error', '-y',
-      '-f', 'lavfi', '-i', `sine=frequency=${freq}:duration=${seconds}`,
-      '-q:a', '9', path.join(book, `${String(i).padStart(2, '0')} - Chapter ${i}.mp3`),
-    ]);
+    synthTrack(path.join(book, `${String(i).padStart(2, '0')} - Chapter ${i}.mp3`), { seconds, freq: 220 + i * 110 });
   }
   return dir;
+}
+
+/** Add a real, playable book/playlist folder under `libraryDir` with its own `.type` marker. */
+export function addTypedBook(libraryDir, bookName, type, count = 2, seconds = 8) {
+  const book = path.join(libraryDir, bookName);
+  mkdirSync(book, { recursive: true });
+  for (let i = 1; i <= count; i++) {
+    synthTrack(path.join(book, `${String(i).padStart(2, '0')} - Track ${i}.mp3`), { seconds, freq: 300 + i * 90 });
+  }
+  writeFileSync(path.join(book, '.type'), type);
 }
 
 /** Start the server on an ephemeral port. Returns { origin, close }. */

@@ -55,20 +55,59 @@ export function assertYoutubeUrl(raw) {
   return u.toString();
 }
 
-// Resolve the playlist/video title so we can name the folder up front.
-function getTitle(bin, url) {
+// Resolve playlist/video metadata (title, uploader, per-entry durations) via
+// a fast --flat-playlist call — no download. Shared by getTitle and
+// inspectPlaylist so both read the same yt-dlp call.
+function fetchPlaylistMeta(bin, url) {
   return new Promise((resolve) => {
     const p = spawn(bin, ['--flat-playlist', '--no-warnings', '-J', '--', url]);
     let out = '';
     p.stdout.on('data', (d) => (out += d));
     p.on('close', () => {
-      try {
-        const j = JSON.parse(out);
-        resolve(sanitize(j.title || j.playlist_title || j.id || 'youtube-import'));
-      } catch { resolve('youtube-import'); }
+      try { resolve(JSON.parse(out)); } catch { resolve({}); }
     });
-    p.on('error', () => resolve('youtube-import'));
+    p.on('error', () => resolve({}));
   });
+}
+
+function getTitle(bin, url) {
+  return fetchPlaylistMeta(bin, url)
+    .then((j) => sanitize(j.title || j.playlist_title || j.id || 'youtube-import'));
+}
+
+export const LIBRARY_TYPES = new Set(['book', 'music', 'other']);
+
+// Guess whether a playlist is an audiobook, a music album/playlist, or
+// neither — from its own title/uploader text and per-entry durations.
+// Keyword matches (either direction) win over the duration heuristic;
+// with neither, default to "book" (the app's original purpose).
+export function guessType({ title = '', uploader = '', entries = [] } = {}) {
+  const text = `${title} ${uploader}`.toLowerCase();
+  if (/\b(audiobook|audio book|unabridged|narrat\w*|full book|complete book|novel)\b/.test(text)) return 'book';
+  if (/\b(album|full album|ep\b|music video|lyrics|official audio|soundtrack|mixtape)\b/.test(text)) return 'music';
+
+  const durations = entries.map((e) => e && e.duration).filter((d) => typeof d === 'number' && d > 0);
+  if (durations.length) {
+    const avg = durations.reduce((a, b) => a + b, 0) / durations.length;
+    if (avg <= 12 * 60 && durations.length >= 3) return 'music';
+    if (avg >= 15 * 60) return 'book';
+  }
+  return 'book';
+}
+
+/**
+ * Fast, no-download lookup for the "confirm before importing" step: resolves
+ * the folder name and a suggested library type without invoking a download.
+ * @returns {Promise<{folder: string, type: string, trackCount: number}>}
+ */
+export async function inspectPlaylist(rawUrl) {
+  const url = assertYoutubeUrl(rawUrl);
+  const bin = findYtDlp();
+  const j = await fetchPlaylistMeta(bin, url);
+  const entries = Array.isArray(j.entries) ? j.entries : [];
+  const folder = sanitize(j.title || j.playlist_title || j.id || 'youtube-import');
+  const type = guessType({ title: j.title || '', uploader: j.uploader || j.channel || '', entries });
+  return { folder, type, trackCount: entries.length || 1 };
 }
 
 /**
@@ -82,6 +121,9 @@ export async function importPlaylist(rawUrl, opts = {}) {
   const folder = sanitize(opts.name || (await getTitle(bin, url)));
   const dir = path.join(AUDIO_DIR, folder);
   fs.mkdirSync(dir, { recursive: true });
+  // Written up front (not just on success) so a re-run/retry into the same
+  // folder still lands the type the user actually confirmed.
+  fs.writeFileSync(path.join(dir, '.type'), LIBRARY_TYPES.has(opts.type) ? opts.type : 'book');
 
   // Optional Netscape-format cookies file for videos behind YouTube's bot check.
   const cookies = process.env.YT_DLP_COOKIES
@@ -134,8 +176,10 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const url = argv.find((a) => !a.startsWith('--'));
   const nameIdx = argv.indexOf('--name');
   const name = nameIdx >= 0 ? argv[nameIdx + 1] : undefined;
-  if (!url) { console.error('Usage: node import.js <youtube-url> [--name "Folder Name"]'); process.exit(1); }
-  importPlaylist(url, { name })
+  const typeIdx = argv.indexOf('--type');
+  const type = typeIdx >= 0 ? argv[typeIdx + 1] : undefined;
+  if (!url) { console.error('Usage: node import.js <youtube-url> [--name "Folder Name"] [--type book|music|other]'); process.exit(1); }
+  importPlaylist(url, { name, type })
     .then(({ folder }) => console.log(`\n✓ done → audio/${folder}`))
     .catch((e) => { console.error('✗ ' + e.message); process.exit(1); });
 }

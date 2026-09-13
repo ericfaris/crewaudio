@@ -30,6 +30,21 @@
       <input id="yt-url" type="url" placeholder="YouTube playlist or video URL">
       <input id="yt-name" type="text" placeholder="Folder name (optional)">
       <button id="yt-go">Import audio</button>
+
+      <div id="import-confirm" hidden>
+        <p id="import-summary"></p>
+        <fieldset id="import-type">
+          <legend>File under</legend>
+          <label class="type-pill"><input type="radio" name="import-type" value="book"> 📖 Book</label>
+          <label class="type-pill"><input type="radio" name="import-type" value="music"> 🎵 Music</label>
+          <label class="type-pill"><input type="radio" name="import-type" value="other"> 🗂️ Other</label>
+        </fieldset>
+        <div class="import-confirm-btns">
+          <button id="import-cancel">Cancel</button>
+          <button id="import-start" class="primary">Start import</button>
+        </div>
+      </div>
+
       <pre id="yt-log" hidden></pre>
     </div>
 
@@ -53,6 +68,7 @@
         <button id="next" title="Next">⏭</button>
         <input id="seek" type="range" min="0" max="1000" value="0" step="1" title="Seek">
         <span id="clock">0:00 / 0:00</span>
+        <button id="shuffle" title="Shuffle" hidden>🔀</button>
         <label class="auto"><input type="checkbox" id="autoplay" checked> Auto-advance</label>
         <span id="resume-note"></span>
       </div>

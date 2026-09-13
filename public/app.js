@@ -4,7 +4,11 @@ const groupsEl = $('#groups');
 const seek = $('#seek');
 
 let files = [];          // flat list from server
-let queue = [];          // ordered paths within the current book
+let folderTypes = {};    // book path ('' = root) -> 'book' | 'music' | 'other'
+let queue = [];          // ordered paths within the current book (sequential — chapter numbering keys off this)
+let order = [];          // navigation order for prev/next/auto-advance (== queue, or shuffled for music)
+let orderBook = null;    // which book `order` currently covers
+let currentType = 'book';
 let current = null;      // rel path of loaded track
 let seeking = false;
 
@@ -12,6 +16,8 @@ const PROGRESS_KEY = 'study.progress';
 const LAST_KEY = 'study.last';
 const MINI_KEY = 'study.mini';
 const QUIZ_KEY = 'study.quiz';
+const SHUFFLE_KEY = 'study.shuffle';
+let shuffleOn = localStorage.getItem(SHUFFLE_KEY) === '1';
 
 // One-time migration from the app's former name (crewaudio) so existing
 // listeners don't lose saved progress/quiz scores across the rename.
@@ -43,8 +49,19 @@ function humanSize(b) {
 const bookOf = (p) => (p.includes('/') ? p.split('/').slice(0, -1).join('/') : '');
 const encPath = (p) => p.split('/').map(encodeURIComponent).join('/');
 
+function shuffled(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 async function loadFiles() {
-  files = (await (await fetch('/api/files')).json()).files;
+  const data = await (await fetch('/api/files')).json();
+  files = data.files;
+  folderTypes = data.folderTypes || {};
   render();
   if (!current) {
     const last = localStorage.getItem(LAST_KEY);
@@ -52,36 +69,61 @@ async function loadFiles() {
   }
 }
 
+// Library hierarchy: Type (Books / Music / Other) -> playlist/book -> track.
+const TYPE_LABEL = { book: 'Books', music: 'Music', other: 'Other' };
+const TYPE_ORDER = ['book', 'music', 'other'];
+
 function render() {
-  const books = new Map();
+  const books = new Map(); // raw bookOf() path ('' = root) -> tracks[]
   for (const f of files) {
-    const b = bookOf(f.path) || 'Library';
+    const b = bookOf(f.path);
     if (!books.has(b)) books.set(b, []);
     books.get(b).push(f);
   }
+  const byType = new Map(); // type -> [book, ...] in first-seen order
+  for (const book of books.keys()) {
+    const type = folderTypes[book] || 'book';
+    if (!byType.has(type)) byType.set(type, []);
+    byType.get(type).push(book);
+  }
+
   groupsEl.innerHTML = '';
   $('#empty').hidden = files.length > 0;
-  for (const [book, list] of books) {
-    const wrap = document.createElement('details');
-    wrap.open = true;
-    const done = list.filter((f) => (progress[f.path]?.ratio || 0) > 0.97).length;
-    const pct = list.length ? Math.round((done / list.length) * 100) : 0;
-    wrap.innerHTML = `<summary><span class="book-gauge" style="--gauge:${pct}"></span>${book} <span class="count">${done}/${list.length}</span></summary>`;
-    const ul = document.createElement('ul');
-    for (const f of list) {
-      const li = document.createElement('li');
-      const pr = progress[f.path];
-      const badge = pr && pr.ratio > 0.97 ? '✓' : pr && pr.ratio > 0.02 ? `${Math.round(pr.ratio * 100)}%` : '';
-      const qz = quizScores[f.path];
-      const qzBadge = qz ? `<span class="quiz-badge">${qz.best}/${qz.total}</span>` : '';
-      li.innerHTML = `<span class="name">${f.name}</span><span class="meta">${qzBadge}${badge || humanSize(f.size)}</span>`;
-      li.dataset.path = f.path;
-      li.classList.toggle('active', f.path === current);
-      li.onclick = () => play(f.path);
-      ul.appendChild(li);
+
+  for (const type of TYPE_ORDER) {
+    const bookNames = byType.get(type);
+    if (!bookNames || !bookNames.length) continue;
+    const typeWrap = document.createElement('div');
+    typeWrap.className = 'type-group';
+    const head = document.createElement('h2');
+    head.className = 'type-head';
+    head.textContent = TYPE_LABEL[type];
+    typeWrap.appendChild(head);
+
+    for (const book of bookNames) {
+      const list = books.get(book);
+      const wrap = document.createElement('details');
+      wrap.open = true;
+      const done = list.filter((f) => (progress[f.path]?.ratio || 0) > 0.97).length;
+      const pct = list.length ? Math.round((done / list.length) * 100) : 0;
+      wrap.innerHTML = `<summary><span class="book-gauge" style="--gauge:${pct}"></span>${book || 'Library'} <span class="count">${done}/${list.length}</span></summary>`;
+      const ul = document.createElement('ul');
+      for (const f of list) {
+        const li = document.createElement('li');
+        const pr = progress[f.path];
+        const badge = pr && pr.ratio > 0.97 ? '✓' : pr && pr.ratio > 0.02 ? `${Math.round(pr.ratio * 100)}%` : '';
+        const qz = quizScores[f.path];
+        const qzBadge = qz ? `<span class="quiz-badge">${qz.best}/${qz.total}</span>` : '';
+        li.innerHTML = `<span class="name">${f.name}</span><span class="meta">${qzBadge}${badge || humanSize(f.size)}</span>`;
+        li.dataset.path = f.path;
+        li.classList.toggle('active', f.path === current);
+        li.onclick = () => play(f.path);
+        ul.appendChild(li);
+      }
+      wrap.appendChild(ul);
+      typeWrap.appendChild(wrap);
     }
-    wrap.appendChild(ul);
-    groupsEl.appendChild(wrap);
+    groupsEl.appendChild(typeWrap);
   }
 }
 
@@ -90,6 +132,12 @@ function play(pathRel, { resume = true, autoplay = true } = {}) {
   localStorage.setItem(LAST_KEY, pathRel);
   const book = bookOf(pathRel);
   queue = files.filter((f) => bookOf(f.path) === book).map((f) => f.path);
+  currentType = folderTypes[book] || 'book';
+  $('#shuffle').hidden = currentType !== 'music';
+  if (orderBook !== book) {
+    order = (shuffleOn && currentType === 'music') ? shuffled(queue) : queue.slice();
+    orderBook = book;
+  }
   $('#np-book').textContent = book || '';
   $('#np-title').textContent = files.find((f) => f.path === pathRel)?.name || pathRel;
   audio.src = '/audio/' + encPath(pathRel);
@@ -145,11 +193,19 @@ $('#quiz-open').onclick = () => {
 };
 
 function step(delta) {
-  const i = queue.indexOf(current);
+  const i = order.indexOf(current);
   if (i < 0) return;
   const n = i + delta;
-  if (n >= 0 && n < queue.length) play(queue[n]);
+  if (n >= 0 && n < order.length) play(order[n]);
 }
+
+$('#shuffle').classList.toggle('active', shuffleOn);
+$('#shuffle').onclick = () => {
+  shuffleOn = !shuffleOn;
+  localStorage.setItem(SHUFFLE_KEY, shuffleOn ? '1' : '0');
+  $('#shuffle').classList.toggle('active', shuffleOn);
+  order = (shuffleOn && currentType === 'music') ? shuffled(queue) : queue.slice();
+};
 
 // ---- transport ----
 function updateClock() {
@@ -383,30 +439,65 @@ $('#install').onclick = async () => {
 window.addEventListener('appinstalled', () => { $('#install').hidden = true; });
 
 // ---- import ----
-function runImport() {
+// Two-step: look up the playlist first (fast, no download) and let the user
+// confirm/override the suggested library type before anything downloads.
+let pendingImport = null; // { url, name }
+
+async function inspectAndConfirm() {
   const url = $('#yt-url').value.trim();
   if (!url) return;
-  const name = $('#yt-name').value.trim();
+  $('#yt-go').disabled = true;
+  const log = $('#yt-log');
+  log.hidden = false; log.textContent = 'looking up playlist…\n';
+  try {
+    const r = await fetch('/api/import/inspect?' + new URLSearchParams({ url }));
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || 'lookup failed');
+    log.hidden = true;
+    pendingImport = { url, name: $('#yt-name').value.trim() };
+    const n = data.trackCount;
+    $('#import-summary').textContent = `"${data.folder}" — ${n} track${n === 1 ? '' : 's'}. File under:`;
+    const radio = document.querySelector(`input[name="import-type"][value="${data.type}"]`);
+    if (radio) radio.checked = true;
+    $('#import-confirm').hidden = false;
+  } catch (e) {
+    log.hidden = false;
+    log.textContent = '✗ ' + e.message;
+    $('#yt-go').disabled = false;
+  }
+}
+
+function cancelImport() {
+  pendingImport = null;
+  $('#import-confirm').hidden = true;
+  $('#yt-go').disabled = false;
+}
+
+function startImport() {
+  if (!pendingImport) return;
+  const type = document.querySelector('input[name="import-type"]:checked')?.value || 'book';
+  $('#import-confirm').hidden = true;
   const log = $('#yt-log');
   log.hidden = false; log.textContent = 'starting…\n';
-  $('#yt-go').disabled = true;
-  const q = new URLSearchParams({ url });
-  if (name) q.set('name', name);
+  const q = new URLSearchParams({ url: pendingImport.url, type });
+  if (pendingImport.name) q.set('name', pendingImport.name);
   const es = new EventSource('/api/import?' + q);
   const append = (s) => { log.textContent += s + '\n'; log.scrollTop = log.scrollHeight; };
   es.addEventListener('log', (e) => append(JSON.parse(e.data).line));
   es.addEventListener('done', (e) => {
     append('✓ done → audio/' + JSON.parse(e.data).folder);
-    es.close(); $('#yt-go').disabled = false; loadFiles();
+    es.close(); $('#yt-go').disabled = false; pendingImport = null; loadFiles();
   });
   es.addEventListener('error', (e) => {
     append('✗ ' + (e.data ? JSON.parse(e.data).message : 'connection lost'));
-    es.close(); $('#yt-go').disabled = false; loadFiles();
+    es.close(); $('#yt-go').disabled = false; pendingImport = null; loadFiles();
   });
 }
 
 $('#refresh').onclick = loadFiles;
-$('#yt-go').onclick = runImport;
+$('#yt-go').onclick = inspectAndConfirm;
+$('#import-cancel').onclick = cancelImport;
+$('#import-start').onclick = startImport;
 window.addEventListener('beforeunload', () => {
   if (current && audio.duration) {
     progress[current] = { t: audio.currentTime, ratio: audio.currentTime / audio.duration, at: Date.now() };

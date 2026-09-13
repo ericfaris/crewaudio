@@ -6,7 +6,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { importPlaylist, findYtDlp } from './import.js';
+import { importPlaylist, findYtDlp, inspectPlaylist, LIBRARY_TYPES } from './import.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 8250;
@@ -66,6 +66,25 @@ async function listAudioFiles(dir = AUDIO_DIR, base = '') {
       const st = await fsp.stat(path.join(dir, e.name));
       out.push({ path: rel, name: e.name, size: st.size, mtime: st.mtimeMs });
     }
+  }
+  return out;
+}
+
+// Library type ("book" / "music" / "other") per book/playlist folder, read
+// from a `.type` marker file the importer writes at import time. Derived
+// from the actual file list (not a directory scan) so it also handles a
+// multi-segment book path (e.g. "Author/Title") and the flat/root case
+// ("" -> the top-level "Library" bucket), matching bookOf() client-side.
+async function getFolderTypes(files) {
+  const dirs = new Set(files.map((f) => (f.path.includes('/') ? f.path.split('/').slice(0, -1).join('/') : '')));
+  const out = {};
+  for (const d of dirs) {
+    let type = 'book';
+    try {
+      const t = (await fsp.readFile(path.join(AUDIO_DIR, d, '.type'), 'utf8')).trim();
+      if (LIBRARY_TYPES.has(t)) type = t;
+    } catch { /* no marker file -> default "book" */ }
+    out[d] = type;
   }
   return out;
 }
@@ -241,7 +260,8 @@ const server = http.createServer(async (req, res) => {
     const p = url.pathname;
 
     if (p === '/api/files') {
-      return json(res, 200, { files: await listAudioFiles() });
+      const files = await listAudioFiles();
+      return json(res, 200, { files, folderTypes: await getFolderTypes(files) });
     }
 
     if (p === '/api/yt-dlp') {
@@ -261,10 +281,23 @@ const server = http.createServer(async (req, res) => {
       }
     }
 
+    // No-download lookup for the "confirm before importing" step: resolves
+    // the folder name and a suggested library type from playlist metadata.
+    if (p === '/api/import/inspect') {
+      const src = url.searchParams.get('url');
+      if (!src) return json(res, 400, { error: 'url required' });
+      try {
+        return json(res, 200, await inspectPlaylist(src));
+      } catch (err) {
+        return json(res, 400, { error: String(err && err.message || err) });
+      }
+    }
+
     // Server-Sent Events: streams yt-dlp progress lines, then a final event.
     if (p === '/api/import') {
       const src = url.searchParams.get('url');
       const name = url.searchParams.get('name') || undefined;
+      const type = url.searchParams.get('type') || undefined;
       if (!src) return json(res, 400, { error: 'url required' });
       res.writeHead(200, {
         'Content-Type': 'text/event-stream',
@@ -275,7 +308,7 @@ const server = http.createServer(async (req, res) => {
       send('start', { url: src });
       const ping = setInterval(() => res.write(': ping\n\n'), 15000);
       try {
-        const { folder } = await importPlaylist(src, { name, onLine: (line) => send('log', { line }) });
+        const { folder } = await importPlaylist(src, { name, type, onLine: (line) => send('log', { line }) });
         send('done', { folder });
       } catch (err) {
         send('error', { message: String(err && err.message || err) });

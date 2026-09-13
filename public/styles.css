@@ -167,6 +167,31 @@ h1, h2 { font-family: var(--font-display); margin: 0; }
 #import button:hover { background: var(--accent-strong); box-shadow: var(--shadow-md); transform: translateY(-1px); }
 #import button:active { transform: translateY(0); }
 #import button:disabled { opacity: .5; cursor: default; transform: none; box-shadow: none; }
+
+#import-confirm[hidden] { display: none; }
+#import-confirm {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md);
+  padding: var(--sp-3); display: flex; flex-direction: column; gap: var(--sp-2);
+}
+#import-summary { margin: 0; font: var(--text-sm); color: var(--text); }
+#import-type { border: 0; padding: 0; margin: 0; display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+#import-type legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.type-pill {
+  display: flex; align-items: center; gap: 5px; padding: var(--sp-1) var(--sp-3);
+  border: 1px solid var(--border); border-radius: var(--r-pill); background: var(--surface-2);
+  font: var(--text-xs); font-weight: 700; color: var(--text-2); cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast), color var(--dur-fast);
+}
+.type-pill:has(input:checked) { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-strong); }
+.type-pill input { accent-color: var(--accent); margin: 0; }
+.import-confirm-btns { display: flex; gap: var(--sp-2); }
+.import-confirm-btns button {
+  flex: 1; border-radius: var(--r-pill); padding: var(--sp-2) var(--sp-3); cursor: pointer;
+  font: var(--text-sm); font-weight: 700; border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+}
+.import-confirm-btns button.primary { background: var(--accent); color: var(--text-on-accent); border-color: transparent; }
+.import-confirm-btns button:hover { filter: brightness(0.97); }
+
 #yt-log {
   background: var(--text); color: #e9e6ff; border: 0; border-radius: var(--r-sm); margin: var(--sp-1) 0 0;
   padding: var(--sp-2) var(--sp-3); font: 11px/1.5 ui-monospace, 'SF Mono', Menlo, monospace;
@@ -174,6 +199,12 @@ h1, h2 { font-family: var(--font-display); margin: 0; }
 }
 
 #groups { overflow-y: auto; flex: 1; padding: var(--sp-2) var(--sp-3) var(--sp-4); }
+.type-group { margin-bottom: var(--sp-3); }
+.type-head {
+  font: var(--text-2xs); text-transform: uppercase; letter-spacing: .08em; color: var(--text-3);
+  margin: var(--sp-3) var(--sp-2) var(--sp-1);
+}
+.type-group:first-child .type-head { margin-top: var(--sp-1); }
 #groups details { margin-bottom: var(--sp-1); }
 #groups summary {
   padding: var(--sp-2) var(--sp-2); cursor: pointer; border-radius: var(--r-md);
@@ -231,6 +262,7 @@ h1, h2 { font-family: var(--font-display); margin: 0; }
 }
 #transport button.primary:hover { background: var(--accent-strong); transform: translateY(-1px) scale(1.03); }
 #transport button.primary:active { transform: translateY(0) scale(.98); }
+#shuffle.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-strong); }
 
 /* signature control: a progress ring traces the current chapter around play/pause */
 .ring {
@@ -298,6 +330,7 @@ body.mini #transport button { min-width: 30px; height: 30px; font-size: 13px; }
 body.mini #transport button.primary { min-width: 36px; height: 36px; box-shadow: none; }
 body.mini #clock,
 body.mini .auto,
+body.mini #shuffle,
 body.mini #resume-note { display: none; }
 body.mini #seek { flex-basis: 60px; }
 body.mini #quiz { display: none; }
